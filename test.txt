@@ -1,1 +1,22 @@
-test
+Group Agreement
+
+Members/Roles:
+
+Work areas:
+Overleaf
+Github
+Gitkraken
+
+Meetings:
+At least one meeting a week(Friday), preferably more.
+Meetings are for working on assignments, going through what has been done so far and plan future work.
+End every Friday meeting by writing a quick summary(1-2 sentences) of what has been done that week.
+One meeting a week should contain some planning(probably Friday).
+
+Rules:
+Don’t be late.
+	If you will be late or cannot attend a meeting let us know asap.
+Ask for help when necessary – don’t struggle on a question alone.
+Be open about your own personal schedule/availability.
+Participate in planning and decision making.
+
