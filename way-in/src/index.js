@@ -1,18 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-
-class Header extends React.Component {
-
-    render() {
-        return (
-          <header>
-              <img id="logo" src=""></img>
-              <h1>Way In</h1>
-          </header>
-        );
-      }
-  }
+import Header from './header.js';
+import Footer from './footer.js';
 
   class Indexbutton extends React.Component {
 
@@ -23,18 +13,6 @@ class Header extends React.Component {
               <h2>Would you like to work with our students?</h2>
               <p>Text text text text text</p>
           </div></a>
-        );
-      }
-  }
-
-  class Footer extends React.Component {
-
-    render() {
-        return (
-          <footer>
-              <a href="">this is a link</a>
-              <a href="">log in</a>
-          </footer>
         );
       }
   }
