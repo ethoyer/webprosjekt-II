@@ -1,37 +1,46 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Header from './header.js';
-import Footer from './footer.js';
+import './common.css';
+import Header from './components/header.js';
+import Footer from './components/footer.js';
 
-  class Indexbutton extends React.Component {
+class Studentbutton extends React.Component {
 
-    render() {
-        return (
-          <a href=""><div>
-              <img src=""></img>
-              <h2>Would you like to work with our students?</h2>
-              <p>Text text text text text</p>
-          </div></a>
-        );
-      }
+  render() {
+    return (
+      <a href=""><div>
+        <img src=""></img>
+        <h2>Apply for an internship programme or bachelor thesis</h2>
+        <p>Text text text text text</p>
+      </div></a>
+    );
   }
+}
 
-  class Content extends React.Component {
-      render (){
-          return(
-              <div>
-                  <Header />
-                  <Indexbutton />
-                  <Footer />
-              </div>
-          );
-      }
+class Companybutton extends React.Component {
+
+  render() {
+    return (
+      <a href=""><div>
+        <img src=""></img>
+        <h2>Would you like to work with our students?</h2>
+        <p>Text text text text text</p>
+      </div></a>
+    );
   }
-  
-  // ========================================
-  
-  ReactDOM.render(
-    <Content />,
-    document.getElementById('root')
-  );
+}
+
+// ========================================
+
+ReactDOM.render(
+  <div>
+    <Header />
+    <main>
+    <Studentbutton />
+    <Companybutton />
+    </main>
+    <Footer />
+  </div>,
+  document.getElementById('root')
+);
