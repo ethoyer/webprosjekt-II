@@ -27,24 +27,26 @@ footer {
     position: fixed;
     width: 100%;
     bottom: 0;
+    border-radius: 7% 7% 0 0;
+    padding: 10px;
 }
 
 footer a{
     display: block;
 }
 
-#open {
+footer.open {
     height: 200px;
 }
 
-#closed {
+footer.closed {
     height: 50px;
 }
 
-.hidden{
+a.closed{
     display: none;
 }
 
-.visible {
+a.open {
     display: block;
 }
