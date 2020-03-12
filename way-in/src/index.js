@@ -8,6 +8,7 @@ import student from './pictures/student_studying.jpg';
 import business from './pictures/forbusiness_meeting.jpg';
 
 
+
 class Studentbutton extends React.Component {
 
   render() {
