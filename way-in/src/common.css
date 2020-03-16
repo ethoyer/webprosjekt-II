@@ -9,13 +9,18 @@ body {
 header {
     height: 70px;
     width: 100%;
-    background-color: #ABB4C3;
+    background-color: #BAC6D6;
     position: fixed;
+    display: inline-grid;
+    grid-template-columns: 140px auto 140px;
+    
 }
 
 header h1 {
-    text-align: center;
-    margin: 0;
+    justify-self: center;
+}
+.logo {
+    height: 70px;
 }
 
 main {  
@@ -23,7 +28,7 @@ main {
 }
 
 footer {
-    background-color: #ABB4C3;
+    background-color: #BAC6D6;
     position: fixed;
     width: 100%;
     bottom: 0;
