@@ -1,13 +1,19 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.student, .business {
+  margin: 2% 12%;
+  width: 70%;
+  padding: 2%;
+  display: inline-block;
+  background-color: rgb(208, 222, 235);
 }
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.student img{
+  width: 40%;
+  display: block;
+  float: left;
+  margin-right: 35px;
+}
+.business img{
+  width: 40%;
+  display: block;
+  float: right;
+  margin-left: 35px;
 }
