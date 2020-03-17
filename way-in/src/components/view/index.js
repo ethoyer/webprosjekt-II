@@ -13,7 +13,7 @@ class Studentbutton extends React.Component {
   render() {
     return (
       //changes url
-        <Link to="../student_application">
+        <Link to="../student_application" className="idxlink">
         <div className='student'>
         <img src={student} alt={"student studying"} />
         <h2>Apply for an internship programme or bachelor thesis</h2>
@@ -29,11 +29,11 @@ class Companybutton extends React.Component {
 
   render() {
     return (
-      <a href=""><div className='business'>
+      <Link to="" className="idxlink"><div className='business'>
         <img src={business} alt={"workers and students"} />
         <h2>For companies: Would you like to work with our students?</h2>
-        <p>Please fill in an application form for an internship or bachelor project from here.</p>
-      </div></a>
+        <p>Please fill in an application form for an internship or bachelor project here.</p>
+      </div></Link>
     );
   }
 }
