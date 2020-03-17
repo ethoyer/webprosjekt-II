@@ -10,6 +10,8 @@ class StudentApplication extends React.Component{
         <div>
     <Header />
     <main>
+        <h1>Application</h1>
+        <h2>What are you applying to?</h2>
         <Link to="int_overview"><a href="">Internship</a></Link>
         <a href="">Bachelor</a>
     </main>
