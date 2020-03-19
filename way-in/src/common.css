@@ -31,9 +31,12 @@ footer {
     background-color: #BAC6D6;
     position: fixed;
     width: 100%;
-    bottom: 0;
-    border-radius: 7% 7% 0 0;
-    padding: 10px;
+  max-width: 99vw;
+  bottom: 0;
+  border-radius: 15px 15px 0 0;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
 }
 
 footer a{
@@ -41,11 +44,11 @@ footer a{
 }
 
 footer.open {
-    height: 200px;
+    height: 150px;
 }
 
 footer.closed {
-    height: 50px;
+    height: 15px;
 }
 
 a.closed{
@@ -53,25 +56,6 @@ a.closed{
 }
 
 a.open {
-    display: block;
-}
-.student, .business {
-    margin: 2% 12%;
-    width: 70%;
-    padding: 2%;
-    display: inline-block;
-    background-color: rgb(208, 222, 235);
-}
-.student img{
-    width: 40%;
-    display: block;
-    float: left;
-    margin-right: 35px;
-}
-.business img{
-    width: 40%;
-    display: block;
-    float: right;
-    margin-left: 35px;
+    display: inline;
 }
 

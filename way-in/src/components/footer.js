@@ -11,7 +11,7 @@ class Footer extends React.Component {
   }
 
   toggleFooter = () => {
-    this.setState(prevState => ({ isFooterVisible: !prevState.isVisible }));
+    this.setState(prevState => ({ isFooterVisible: !prevState.isFooterVisible }));
   };
 
   render() {
@@ -20,9 +20,9 @@ class Footer extends React.Component {
     return (
       <footer onClick={this.toggleFooter} className={ `${isFooterVisible ? "open" : "closed"}` }>
         <img src="" alt=""></img>
-        <a className={ `${isFooterVisible ? "open" : "closed"}` } href="https://tweetdeck.twitter.com/">Log in</a>
-        <a className={ `${isFooterVisible ? "open" : "closed"}` } href="https://tweetdeck.twitter.com/">How to use Way-In</a>
-        <a className={ `${isFooterVisible ? "open" : "closed"}` } href="https://tweetdeck.twitter.com/">Contact</a>
+        <a className={ `${isFooterVisible ? "open" : "closed"}` } href="">Log in</a>
+        <a className={ `${isFooterVisible ? "open" : "closed"}` } href="">How to use Way-In</a>
+        <a className={ `${isFooterVisible ? "open" : "closed"}` } href="">Contact</a>
       </footer>
     );
   }

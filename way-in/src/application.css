@@ -1,3 +1,41 @@
 main a {
     display: block;
 }
+
+#studAppMain {
+  padding: 70px 2% 2% 2%;
+  display: grid;
+  grid-template-areas:
+    "title title title"
+    "filter middle full"
+    "overview middle full"
+    "overview middle next";
+  grid-template-rows: 80px 80px 2fr 80px;
+  grid-template-columns: 3fr 1fr 6fr;
+}
+
+#title{
+  grid-area: title;
+  justify-self: center;
+}
+
+#overview {
+  grid-area: overview;
+}
+
+#full {
+  grid-area: full;
+  background-color: rgb(208, 222, 235);
+  padding: 2%;
+  height: 55vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+#next {
+  grid-area: next;
+  height: 40px;
+  width: 80px;
+  align-self: center;
+  justify-self: right;
+}
