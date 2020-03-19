@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import '../../application.css'; //imports css file only relevant for index
 import Header from '../header.js';
 import Footer from '../footer.js';
+import internData from '../../dummydb.json';
 import { Route, Link, BrowserRouter as Router } from 'react-router-dom';
 
 class IntOverview extends React.Component{
@@ -11,12 +12,18 @@ class IntOverview extends React.Component{
         <div>
     <Header />
     <main>
-    <p>nothing here yet!!</p>
+      <h1>Apply Internship</h1>
+    {internData.map((postDetail, index)=>{
+      return <div class='applyStudent'>
+        <p>{postDetail.title}</p>
+        <p>{postDetail.company}</p>
+        </div>
+    })}
     </main>
     <Footer />
   </div>
         )
     }
 }
-
 export default IntOverview;
+
