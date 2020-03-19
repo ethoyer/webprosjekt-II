@@ -1,6 +1,16 @@
 main a {
     display: block;
 }
+.applyStudent{
+    background-color: rgb(208, 222, 235);
+    padding: 10px;
+    margin: 1%;
+    width: 25%;
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis; 
+    /* skal endre når vi gjør det til grid */
+}
 
 #studAppMain {
   padding: 70px 2% 2% 2%;
