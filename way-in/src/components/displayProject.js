@@ -1,23 +1,26 @@
+import React from 'react';
 import internData from '../dummydb.json';
 
-function displayProject(e) {
-  console.log(e.target.parentElement.id);
-  let targetid = e.target.parentElement.id;
+class AddProject extends React.Component {
+  render() {
+      const project = this.props.project;
+      return (
+        <button className={project.id}>Add Project</button>
+      );
+    }
+}
 
-  {internData.map((postDetail, index) => {
+function displayProject(e) {
+
+  {internData.map((postDetail) => {
       if (e.target.parentElement.id == postDetail.id) {
-        console.log(postDetail.title)
-        let title = postDetail.title;
-      let company = postDetail.company;
-      let faculty = postDetail.faculty;
-      let location = postDetail.location;
-      let desc = postDetail.description;
-      document.getElementById("projecttitle").innerHTML = title;
+        document.getElementById("projectbutton").innerHTML = "Add Project";
+      document.getElementById("projecttitle").innerHTML = postDetail.title;
       document.getElementById("full").className = postDetail.id;
-      document.getElementById("company").innerHTML = company;
-      document.getElementById("faculty").innerHTML = faculty;
-      document.getElementById("location").innerHTML = location;
-      document.getElementById("desc").innerHTML = desc;
+      document.getElementById("company").innerHTML = postDetail.company;
+      document.getElementById("faculty").innerHTML = postDetail.faculty;
+      document.getElementById("location").innerHTML = postDetail.location;
+      document.getElementById("desc").innerHTML = postDetail.description;
       }
     })
   }

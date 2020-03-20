@@ -6,6 +6,7 @@ class ProjectInfo extends React.Component {
   
       return (
         <div id="full">
+          <button id="projectbutton"></button>
           <p id="projecttitle" />
           <p id="company" />
           <p id="faculty" />
