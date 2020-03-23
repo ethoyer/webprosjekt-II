@@ -3,29 +3,22 @@ import ReactDOM from 'react-dom';
 import '../../application.css'; //imports css file only relevant for index
 import Header from '../header.js';
 import Footer from '../footer.js';
-import internData from '../../dummydb.json';
 import ProjectInfo from '../projectInfo.js';
 import ProjectPreview from '../projectPreview';
+import ProjectTable from '../projectTable';
+import FilterButton from '../filterButton';
 
 class IntOverview extends React.Component{
     render() {
-      let projectArray = [];
-
-      {internData.map((project)=>{
-        projectArray.push(project);
-      })}
-      
         return(
         <div>
     <Header />
     <main id="studAppMain">
       <h1 id="title">Apply Internship</h1>
       <div id="overview">
-    {projectArray.map((postDetail)=>{
-      return <ProjectPreview key={postDetail.id} project={postDetail} />
-    })}
+    <FilterButton/>
     </div>
-    <ProjectInfo array={projectArray} />
+    <ProjectInfo />
     </main>
     <Footer />
   </div>

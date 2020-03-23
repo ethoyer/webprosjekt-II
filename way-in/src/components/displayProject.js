@@ -13,7 +13,7 @@ class AddProject extends React.Component {
 function displayProject(e) {
 
   {internData.map((postDetail) => {
-      if (e.target.parentElement.id == postDetail.id) {
+      if (e.target.parentElement.id == postDetail.id || e.target.id == postDetail.id) {
         document.getElementById("projectbutton").innerHTML = "Add Project";
       document.getElementById("projecttitle").innerHTML = postDetail.title;
       document.getElementById("full").className = postDetail.id;

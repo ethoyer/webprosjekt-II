@@ -20,9 +20,11 @@ class Footer extends React.Component {
     return (
       <footer onClick={this.toggleFooter} className={ `${isFooterVisible ? "open" : "closed"}` }>
         <img src="" alt=""></img>
+        <div>
         <a className={ `${isFooterVisible ? "open" : "closed"}` } href="">Log in</a>
         <a className={ `${isFooterVisible ? "open" : "closed"}` } href="">How to use Way-In</a>
         <a className={ `${isFooterVisible ? "open" : "closed"}` } href="">Contact</a>
+        </div>
       </footer>
     );
   }

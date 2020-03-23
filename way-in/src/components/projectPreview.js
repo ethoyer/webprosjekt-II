@@ -8,6 +8,7 @@ class ProjectPreview extends React.Component {
           <div className="applyStudent" id={project.id} onClick={(e) => displayProject(e)}>
               <p>{project.title}</p>
               <p>{project.company}</p>
+              <p>{project.location}</p>
           </div>
         );
       }
