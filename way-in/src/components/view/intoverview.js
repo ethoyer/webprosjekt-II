@@ -4,9 +4,7 @@ import '../../application.css'; //imports css file only relevant for index
 import Header from '../header.js';
 import Footer from '../footer.js';
 import ProjectInfo from '../projectInfo.js';
-import ProjectPreview from '../projectPreview';
-import ProjectTable from '../projectTable';
-import FilterButton from '../filterButton';
+import ProjectsTable from '../projectsTable';
 
 class IntOverview extends React.Component{
     render() {
@@ -16,7 +14,7 @@ class IntOverview extends React.Component{
     <main id="studAppMain">
       <h1 id="title">Apply Internship</h1>
       <div id="overview">
-    <FilterButton/>
+    <ProjectsTable/>
     </div>
     <ProjectInfo />
     </main>
