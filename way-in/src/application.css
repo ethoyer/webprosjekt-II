@@ -16,7 +16,7 @@ main a {
   display: grid;
   grid-template-areas:
     "title title title"
-    "filter middle full"
+    "overview middle full"
     "overview middle full"
     "overview middle next";
   grid-template-rows: 80px 80px 2fr 80px;
