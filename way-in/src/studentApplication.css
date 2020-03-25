@@ -1,0 +1,16 @@
+#studApplicationTitle{
+    text-align: center;
+}
+.studApplicationButton{
+    text-align: center;
+}
+#intOrBach {
+    display: inline-block;
+    background-color: #BAC6D6;
+    width: 20%;
+    padding: 2%;
+    font-size: 30px;
+    margin: 3%;
+    cursor: pointer;
+
+}
