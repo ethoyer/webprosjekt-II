@@ -1,22 +1,24 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import Header from '../header.js';
 import Footer from '../footer.js';
 import '../../studentApplication.css';
-import { Route, Link, BrowserRouter as Router } from 'react-router-dom'
+import AppButton from '../appButton.js';
 
 class StudentApplication extends React.Component{
     render() {
         return(
         <div>
     <Header />
-    <main>
+    <main id="intOrBach">
         <h1 id="studApplicationTitle">Application</h1>
         <h2 id="studApplicationTitle">What are you applying to?</h2>
-        <div className="studApplicationButton">
-        <Link to="int_overview"><button id="intOrBach">Internship</button></Link>
-        <button id="intOrBach">Bachelor</button>
-        </div>
+        <AppButton
+            location="int_overview"
+            label="Internship"/>
+
+        <AppButton
+            location="/"
+            label="Bachelor Thesis"/>
     </main>
     <Footer />
   </div>
