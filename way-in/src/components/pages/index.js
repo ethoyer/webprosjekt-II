@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import '../../index.css'; //imports css file only relevant for index
+import '../../css/index.css'; //imports css file only relevant for index
 import Header from '../header.js';
 import Footer from '../footer.js';
 import { Route, Link, BrowserRouter as Router } from 'react-router-dom';

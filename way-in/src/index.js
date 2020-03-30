@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './common.css'; //common.css is imported here because it is used for all pages
+import './css/common.css'; //common.css is imported here because it is used for all pages
 import * as serviceWorker from './serviceWorker';
 import { Route, Link, BrowserRouter as Router } from 'react-router-dom'
-import Index from './components/view/index.js';
-import StudentApplication from './components/view/studentApplication.js';
-import IntOverview from './components/view/intoverview.js';
-import businessApplyPage from './components/view/businessApplyPage.js';
+import Index from './components/pages/index.js';
+import StudentApplication from './components/pages/studentApplication.js';
+import IntOverview from './components/pages/intoverview.js';
+import businessApplyPage from './components/pages/businessApplyPage.js';
 const routing = (
     <Router>
       <div>
