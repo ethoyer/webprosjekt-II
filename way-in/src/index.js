@@ -6,7 +6,7 @@ import { Route, Link, BrowserRouter as Router } from 'react-router-dom'
 import Index from './components/view/index.js';
 import StudentApplication from './components/view/studentApplication.js';
 import IntOverview from './components/view/intoverview.js';
-
+import businessApplyPage from './components/view/businessApplyPage.js';
 const routing = (
     <Router>
       <div>
@@ -15,6 +15,7 @@ const routing = (
         <Route exact path="/" component={Index} />
         <Route path="/student_application" component={StudentApplication} />
         <Route path="/int_overview" component={IntOverview} />
+        <Route path="/businessApplyPage" component={businessApplyPage} />
       </div>
     </Router>
   )

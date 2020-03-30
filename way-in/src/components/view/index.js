@@ -29,11 +29,12 @@ class Companybutton extends React.Component {
 
   render() {
     return (
-      <a href=""><div className='business'>
+      <Link to="../businessApplyPage">
+      <div className='business'>
         <img src={business} alt={"workers and students"} />
         <h2 id="businessStyle">For companies: Would you like to work with our students?</h2>
         <p id="businessStyle">Please fill in an application form for an internship or bachelor project from here.</p>
-      </div></a>
+      </div></Link>
     );
   }
 }

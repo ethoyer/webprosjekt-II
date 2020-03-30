@@ -40,8 +40,17 @@
 
 #next {
   grid-area: next;
-  height: 40px;
-  width: 80px;
+  height: 70px;
+  width: 70px;
   align-self: center;
   justify-self: right;
+  font-size: 20px;
+  text-decoration: none;
+}
+
+#studAppMain img{
+  grid-area: next;
+  height: 70px;
+  align-self: center;
+ 
 }
