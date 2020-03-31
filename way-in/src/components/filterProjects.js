@@ -1,9 +1,28 @@
 import React from 'react';
-import ProjectsPreview from './projectsPreview';
+import ProjectsList from './projectsList';
 import internData from '../dummydb.json';
+let newParentState = '';
 
 class FilterProjects extends React.Component{
+  constructor(props) {
+    super(props);
+    this.handler = this.handler.bind(this);
+    this.state = {
+      inProjectList: '',
+      childKey: '',
+      newInProjectList: ''
+    };
+  }
+
+  handler(childState) {
+    this.setState({
+      inProjectList: childState
+    })
+    this.props.parentHandler(this.state.inProjectList);
+  }
+
     render(){
+      let newParentState = this.props.newParentState;
         let projectArray = [];
 
       {internData.map((project)=>{
@@ -21,7 +40,7 @@ class FilterProjects extends React.Component{
         return(
           <>
         {projectArray.map((project)=>{
-            return <ProjectsPreview project={project} />
+            return <ProjectsList project={project} key={project.id} handler={this.handler} newParentState={newParentState} />
           })}
           </>
         );
