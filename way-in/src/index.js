@@ -6,6 +6,7 @@ import { Route, Link, BrowserRouter as Router } from 'react-router-dom'
 import Index from './components/view/index.js';
 import StudentApplication from './components/view/studentApplication.js';
 import IntOverview from './components/view/intoverview.js';
+import intForm from './components/view/intForm.js';
 
 const routing = (
     <Router>
@@ -15,6 +16,7 @@ const routing = (
         <Route exact path="/" component={Index} />
         <Route path="/student_application" component={StudentApplication} />
         <Route path="/int_overview" component={IntOverview} />
+        <Route path="/intForm" component={intForm} />
       </div>
     </Router>
   )
