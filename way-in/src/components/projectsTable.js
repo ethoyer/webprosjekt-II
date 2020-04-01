@@ -1,51 +1,73 @@
 import React from 'react';
 import FilterProjects from './filterProjects';
 import ProjectInfo from './projectInfo';
-let parentState = '';
+let projectInList = 'abcdefg';
 
 class ProjectsTable extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {location: '', faculty: '', inProjectList: '', newInProjectList: ''};
-    this.handleChange = this.handleChange.bind(this);
-    this.handler = this.handler.bind(this);
-    this.newHandler = this.newHandler.bind(this);
+    this.onLocationAndFacultyChange = this.onLocationAndFacultyChange.bind(this);
+    this.onProjectListExpansion = this.onProjectListExpansion.bind(this);
+    this.onProjectAdditionOrRemoval = this.onProjectAdditionOrRemoval.bind(this);
+    this.passProjectListProp = this.passProjectListProp.bind(this);
+    this.test = this.test.bind(this);
+    this.state = {
+    location: '', 
+    faculty: ''
+  };
+
   }
 
-  handleChange(){
-    this.setState({location: document.getElementById('projectlocation').value, faculty: document.getElementById('projectfaculty').value,});
+  onLocationAndFacultyChange(){
+    this.setState({location: document.getElementById('projectlocation').value, 
+    faculty: document.getElementById('projectfaculty').value,});
   }
 
-  handler(childState) {
-    this.setState({inProjectList: childState});
+  onProjectListExpansion(childState) {
+    projectInList = childState;
+    passProjectListProp(projectInList);
   }
 
-  newHandler(newChildState) {
-    this.setState({newInProjectList: newChildState});
+  passProjectListProp(variable, value){
+    variable = value;
+  }
+
+  onProjectAdditionOrRemoval(newIsInProjectList) {
+    this.setState({inProjectList: newIsInProjectList});
+  }
+
+  test(){
+    console.log(projectInList);
   }
 
   render() {
+    const location = this.state.location;
+    const faculty = this.state.faculty;
     return (
       <>
+      <p onClick={() => this.test()}>Hei</p>
       <div id="overview">
       <p>
-        <select id="projectlocation" value={this.state.location} onChange={this.handleChange}>
+        <select id="projectlocation" value={location} onChange={this.onLocationAndFacultyChange}>
           <option value="" selected>All locations</option>
           <option value="Oslo">Oslo</option>
           <option value="Trondheim">Trondheim</option>
           <option value="Gjøvik">Gjøvik</option>
         </select>
-        <select id="projectfaculty" value={this.state.faculty} onChange={this.handleChange}>
+        <select id="projectfaculty" value={faculty} onChange={this.onLocationAndFacultyChange}>
           <option value="" selected>All locations</option>
           <option value="AD">Arktektur og Design</option>
           <option value="HF">Det humanistiske fakultet</option>
         </select>
       </p>
-      <FilterProjects locationState = {this.state.location} facultyState = {this.state.faculty} parentHandler = {this.handler} newParentState = {this.state.newInProjectList} />
+      <FilterProjects locationState={location} 
+      facultyState={faculty} 
+      onProjectListExpansion={this.onProjectListExpansion} />
       </div>
-      <ProjectInfo parentState = {this.state.inProjectList} newParentHandler = {this.newHandler} />
+      <ProjectInfo projectInList={projectInList}
+      onProjectAdditionOrRemoval={this.onProjectAdditionOrRemoval}
+      passProjectListProp={this.passProjectListProp({projectInList})} />
       </>
-
     )
   }
 

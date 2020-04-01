@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 
 let projectList = [];
 let parentState;
+let projectInList = '';
 
 class ProjectButton extends React.Component {
   constructor(props) {
@@ -14,11 +15,11 @@ class ProjectButton extends React.Component {
     };
   }
 
-  componentDidUpdate(){
-    if (this.props.parentState !== this.state.inProjectList) {
-      this.setState({inProjectList: !this.state.inProjectList});
-    }
-  }
+  // componentDidUpdate(){
+  //   if (this.props.parentState !== this.state.inProjectList) {
+  //     this.setState({inProjectList: !this.state.inProjectList});
+  //   }
+  // }
 
   changeProjectList(e){
     if(e.target.parentElement.className !== ""){
@@ -34,7 +35,7 @@ class ProjectButton extends React.Component {
       // console.log("^");
       this.props.newHandler(this.state.newInProjectList);
       console.log(this.state.inProjectList);
-      this.componentDidUpdate();
+      // this.componentDidUpdate();
     }
   }
 
@@ -51,27 +52,34 @@ class ProjectInfo extends React.Component {
   constructor(props) {
     super(props);
     this.newHandler = this.newHandler.bind(this);
-    this.state={
-      inProjectList: '',
-      newInProjectList: ''
-    }
+    this.test = this.test.bind(this);
   }
 
-  newHandler(newChildState) {
-    this.setState({newInProjectList: newChildState});
-    this.props.newParentHandler(this.state.newInProjectList);
+  newHandler(newIsInProjectList) {
+    this.props.onProjectAdditionOrRemoval(newIsInProjectList);
+    // this.setState({newInProjectList: newChildState});
+    // this.props.newParentHandler(this.state.newInProjectList);
+  }
+
+  passProjectListProp(projectInList){
+    this.props.passProjectListProp(projectInList);
+  }
+
+  test(){
+    console.log(this.props.projectInList);
   }
 
     render() {
-      let parentState = this.props.parentState;
       return (
         <div id="full">
-          <ProjectButton newHandler = {this.newHandler} parentState={parentState} />
-          <p id="projecttitle" />
+          <ProjectButton newHandler = {this.newHandler} 
+          parentState={parentState} />
+          <p id="projecttitle" onClick={() => this.test()} />
           <p id="company" />
           <p id="faculty" />
           <p id="location" />
           <p id="desc" />
+          <p>{this.props.projectInList}</p>
         </div>
       );
     }
