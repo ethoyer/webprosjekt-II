@@ -1,9 +1,8 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import '../../index.css'; //imports css file only relevant for index
 import Header from '../header.js';
 import Footer from '../footer.js';
-import { Route, Link, BrowserRouter as Router } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import student from '../../pictures/student_studying.jpg';
 import business from '../../pictures/forbusiness_meeting.jpg';
 

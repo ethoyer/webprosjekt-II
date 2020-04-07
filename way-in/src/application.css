@@ -48,3 +48,7 @@ main a {
   align-self: center;
   justify-self: right;
 }
+
+.inList{
+  background-color: #B9C6D6;
+}

@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import '../../application.css'; //imports css file only relevant for index
 import Header from '../header.js';
 import Footer from '../footer.js';
