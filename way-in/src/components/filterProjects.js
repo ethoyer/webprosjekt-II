@@ -8,6 +8,7 @@ class FilterProjects extends React.Component {
   constructor(props) {
     super(props);
     this.onProjectListExpansion = this.onProjectListExpansion.bind(this);
+    this.parent=props.parent;
     this.state = {
       inProjectList: '',
       childKey: ''
@@ -40,6 +41,8 @@ class FilterProjects extends React.Component {
         {projectArray.map((project) => {
           return <ProjectsList project={project}
             key={project.id}
+            _id={project.id}
+            grandparent={this.parent}
             onProjectListExpansion={this.onProjectListExpansion}
             newInProjectList = {newInProjectList} />
         })}

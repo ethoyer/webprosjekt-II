@@ -7,6 +7,7 @@ class ProjectInfo extends React.Component {
     this.onProjectAdditionOrRemoval = this.onProjectAdditionOrRemoval.bind(this);
     this.onProjectAddition = this.onProjectAddition.bind(this);
     this.onProjectRemoval = this.onProjectRemoval.bind(this);
+    this.parent=props.parent;
     this.test = this.test.bind(this);
     this.state = {
       projectList: []
@@ -22,29 +23,32 @@ class ProjectInfo extends React.Component {
   }
 
   onProjectAddition(e) {
+    let _key = e.target.parentElement.className;
     var newProject = {
-      text: e.target.parentElement.className,
-      key: e.target.parentElement.className
+      text: _key,
+      key: _key
     };
-    this.setState((prevState) => {
+    this.parent.state.addedProjects[_key]=true;
+    this.parent.setState((prevState) => {
       return {
         projectList: prevState.projectList.concat(newProject)
       };
     });
-    console.log(this.state.projectList);
+    console.log(this.parent.state.projectList);
 
     inProjectList = true;
     this.onProjectAdditionOrRemoval(inProjectList);
   }
 
   onProjectRemoval(e) {
-    var filteredProjects = this.state.projectList.filter(function (project){
+    var filteredProjects = this.parent.state.projectList.filter(function (project){
       return (project.key !== e.target.parentElement.className);
     });
-    this.setState({
+    this.parent.state.addedProjects[e.target.parentElement.className]=false;
+    this.parent.setState({
       projectList: filteredProjects
     });
-    console.log(this.state.projectList);
+    console.log(this.parent.state.projectList);
 
     inProjectList = false;
     this.onProjectAdditionOrRemoval(inProjectList);

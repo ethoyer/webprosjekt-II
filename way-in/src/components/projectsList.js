@@ -8,7 +8,10 @@ class ProjectsList extends React.Component {
   constructor(props) {
     super(props);
     this.displayProject = this.displayProject.bind(this);
-    this.test = this.test.bind(this);
+    //Grandparent is projectTable, which now contains
+    //the list of projects added.
+    this.grandparent=props.grandparent;
+    this._id=props._id;
     this.state = {
       inProjectList: false
     };
@@ -27,8 +30,11 @@ class ProjectsList extends React.Component {
 
     // this._reactInternalFiber.key = key til ProjectsList komponenten
     // denne key'en blir satt når komponenten blir laget i filterProjects.js
-
-    this.setState({inProjectList: newInProjectList})
+    if (this.grandparent.state.addedProjects[this._id]){
+      this.setState({inProjectList: true});
+    }else{
+      this.setState({inProjectList: false});
+    }
   }
 
   onProjectAdditionOrRemoval(){
@@ -38,10 +44,7 @@ class ProjectsList extends React.Component {
     });
   };
 
-  test(){
-    console.log(this.props.newInProjectList)
-    console.log(this.state.inProjectList);
-  }
+  
 
   displayProject(id) {
     // console.log(this._reactInternalFiber.key);
@@ -63,7 +66,7 @@ class ProjectsList extends React.Component {
     newInProjectList = this.props.newInProjectList;
     return (
       <>
-      <p onClick={() => this.test()}>Foo</p>
+   
         <div className={ `${this.state.inProjectList ? "applyStudent inList" : "applyStudent notInList"}` } id={project.id}
           onClick={() => this.displayProject(project.id)}>
           <p>{project.title}</p>

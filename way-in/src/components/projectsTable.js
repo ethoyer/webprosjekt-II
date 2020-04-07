@@ -13,7 +13,9 @@ class ProjectsTable extends React.Component {
     this.state = {
     location: '', 
     faculty: '',
-    inProjectList: ''
+    inProjectList: '',
+    projectList: [],
+    addedProjects: [] //array to tell whether a project is added.
   };
 
   }
@@ -62,10 +64,12 @@ class ProjectsTable extends React.Component {
       facultyState={faculty} 
       onProjectListExpansion={this.onProjectListExpansion}
       newInProjectList={inProjectList}
+      parent={this}
        />
       </div>
       <ProjectInfo inProjectList={inProjectList}
       onProjectAdditionOrRemoval={this.onProjectAdditionOrRemoval}
+      parent={this}
       />
       </>
     )
