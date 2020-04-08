@@ -1,0 +1,20 @@
+.student, .business {
+  margin: 2% 15%;
+  width: 70%;
+  display: inline-block;
+  background-color: rgb(208, 222, 235);
+}
+.student img{
+  width: 40%;
+  display: block;
+  float: left;
+  margin-right: 35px;
+}
+.business img{
+  width: 40%;
+  display: block;
+  float: right;
+}
+#businessStyle {
+  padding-left: 35px;
+}

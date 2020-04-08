@@ -1,20 +1,55 @@
+main {
+  display: grid;
+  justify-content: center;
+}
+
 .student, .business {
-  margin: 2% 15%;
-  width: 70%;
-  display: inline-block;
+  min-width: 600px;
+  width: 65vw;
   background-color: rgb(208, 222, 235);
+  height: 25vh;
+  margin: 3%;
+  display: grid;
+  grid-template-columns: auto auto;
 }
+
+.student img, .business img{
+  height: 100%;
+  max-height: 25vh;
+}
+
 .student img{
-  width: 40%;
-  display: block;
-  float: left;
-  margin-right: 35px;
+  grid-row: 1/3;
 }
+
 .business img{
-  width: 40%;
-  display: block;
-  float: right;
+  grid-column: 2;
+  grid-row: 1/3;
 }
-#businessStyle {
-  padding-left: 35px;
+
+.student h2, .student p, .business h2, .business p{
+  margin: 15px 10px 0 10px;
+}
+
+.idxlink {
+  text-decoration: none;
+  color: black;
+}
+
+.student h2, .business h2{
+  text-decoration: underline;
+}
+
+@media only screen and (max-width: 900px) {
+
+  .business img, .student img {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 1400px) {
+
+  .business, .student {
+    width: 900px;
+  }
 }

@@ -1,11 +1,9 @@
 body {
     height: 100vh;
     width: 100vw;
-    max-width: 100%;
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
     letter-spacing: 0.15em;
-    font-size: 1rem;
 }
 
 header {
@@ -33,10 +31,15 @@ footer {
     background-color: #BAC6D6;
     position: fixed;
     width: 100%;
-    max-width: 99vw;
-    bottom: 0;
-    border-radius: 15px 15px 0 0;
-    padding: 10px;
+  max-width: 99vw;
+  bottom: 0;
+  border-radius: 15px 15px 0 0;
+  padding: 10px;
+}
+
+footer>div {
+    display: inline-flex;
+    flex-direction: column;
 }
 
 footer a{
@@ -44,7 +47,7 @@ footer a{
 }
 
 footer.open {
-    height: 200px;
+    height: 150px;
 }
 
 footer.closed {
@@ -56,6 +59,6 @@ a.closed{
 }
 
 a.open {
-    display: block;
+    display: inline;
 }
 
