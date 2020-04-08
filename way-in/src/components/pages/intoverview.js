@@ -14,11 +14,8 @@ class IntOverview extends React.Component{
         <div>
     <Header />
     <main id="studAppMain">
-      <h1 id="title">Apply Internship</h1>
-      <div id="overview">
-      <ProjectsTable/>
-      </div>
-      <ProjectInfo />
+    <h1 id="title">Apply Internship</h1>
+          <ProjectsTable />
       <AppButton
         id="next"
         location="/"
