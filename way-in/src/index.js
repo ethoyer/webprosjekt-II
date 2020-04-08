@@ -7,10 +7,7 @@ import Index from './components/pages/index.js';
 import StudentApplication from './components/pages/studentApplication.js';
 import IntOverview from './components/pages/intoverview.js';
 import businessApplyPage from './components/pages/businessApplyPage.js';
-import Index from './components/view/index.js';
-import StudentApplication from './components/view/studentApplication.js';
-import IntOverview from './components/view/intoverview.js';
-import intForm from './components/view/intForm.js';
+import intForm from './components/pages/intForm.js';
 
 const routing = (
     <Router>
