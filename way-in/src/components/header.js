@@ -8,7 +8,7 @@ class Header extends React.Component {
         return (
           <header>
               <Link to="/">
-              <img src={logo} class="logo" alt={"way in logo"} />
+              <img src={logo} className="logo" alt={"way in logo"} />
               </Link>
               <h1>Way In</h1>
           </header>

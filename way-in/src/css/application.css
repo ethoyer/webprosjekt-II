@@ -1,0 +1,56 @@
+.applyStudent{
+    background-color: rgb(208, 222, 235);
+    padding: 10px;
+    margin: 1%;
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis; 
+    /* skal endre når vi gjør det til grid */
+}
+
+#studAppMain {
+  padding: 70px 2% 2% 2%;
+  display: grid;
+  grid-template-areas:
+    "title title title"
+    "overview middle full"
+    "overview middle full"
+    "overview middle next";
+  grid-template-rows: 80px 80px 2fr 80px;
+  grid-template-columns: 3fr 1fr 6fr;
+}
+
+#title{
+  grid-area: title;
+  justify-self: center;
+}
+
+#overview {
+  grid-area: overview;
+}
+
+#full {
+  grid-area: full;
+  background-color: rgb(208, 222, 235);
+  padding: 2%;
+  height: 55vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+#next {
+  grid-area: next;
+  height: 70px;
+  width: 70px;
+  align-self: center;
+  justify-self: right;
+  font-size: 20px;
+  text-decoration: none;
+}
+
+#studAppMain img{
+  grid-area: next;
+  height: 70px;
+  align-self: center;
+ 
+}
