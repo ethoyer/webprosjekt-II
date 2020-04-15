@@ -18,18 +18,6 @@ class ProjectsList extends React.Component {
   }
 
   componentWillReceiveProps({newInProjectList}){
-    //her må det være en if funksjon eller no, tror jeg? 
-    //key må bli passed som prop sammen med inProjectList/newInProjectList fra ProjectInfo.js og hit  - key er det samme 
-    //som idx i json filen og className div'en til høyre på siden får når man åpner en prosjektbeskrivelse
-      //for øyeblikket er disse key/idx'ene bare 1, 2 og 3.
-
-    // if funksjonen blir noe lignende:
-    // if (this.props.etPassendeNavn === this._reactInternalFiber.key){
-    //   this.setState({inProjectList: newInProjectList})
-    // }
-
-    // this._reactInternalFiber.key = key til ProjectsList komponenten
-    // denne key'en blir satt når komponenten blir laget i filterProjects.js
     if (this.grandparent.state.addedProjects[this._id]){
       this.setState({inProjectList: true});
     }else{
@@ -43,8 +31,6 @@ class ProjectsList extends React.Component {
       inProjectList: inProjectList
     });
   };
-
-  
 
   displayProject(id) {
     // console.log(this._reactInternalFiber.key);
@@ -61,14 +47,15 @@ class ProjectsList extends React.Component {
       }
     })
   }
+
   render() {
     const project = this.props.project;
     newInProjectList = this.props.newInProjectList;
+
     return (
       <>
-   
         <div className={ `${this.state.inProjectList ? "applyStudent inList" : "applyStudent notInList"}` } id={project.id}
-          onClick={() => this.displayProject(project.id)}>
+          onClick={() => this.displayProject(project.id)} onKeyPress={() => this.displayProject(project.id) } tabindex="0">
           <p>{project.title}</p>
           <p>{project.company}</p>
           <p>{project.location}</p>

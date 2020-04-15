@@ -14,7 +14,7 @@ class Footer extends React.Component {
     const { isFooterVisible } = this.state;
 
     return (
-      <footer onClick={this.toggleFooter} className={ `${isFooterVisible ? "open" : "closed"}` }>
+      <footer onClick={this.toggleFooter} onKeyPress={this.toggleFooter} className={ `${isFooterVisible ? "open" : "closed"}` } tabindex="0">
         <img src={arrow} alt={""} className={ `${isFooterVisible ? "open" : ""}` }></img>
         <div>
         <a className={ `${isFooterVisible ? "open" : "closed"}` } href="">Log in</a>
