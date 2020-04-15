@@ -1,4 +1,5 @@
 import React from 'react';
+import arrow from '../pictures/footerArrow.png';
 
 class Footer extends React.Component {
   state = {
@@ -14,7 +15,7 @@ class Footer extends React.Component {
 
     return (
       <footer onClick={this.toggleFooter} className={ `${isFooterVisible ? "open" : "closed"}` }>
-        <img src="" alt=""></img>
+        <img src={arrow} alt={""} className={ `${isFooterVisible ? "open" : ""}` }></img>
         <div>
         <a className={ `${isFooterVisible ? "open" : "closed"}` } href="">Log in</a>
         <a className={ `${isFooterVisible ? "open" : "closed"}` } href="">How to use Way-In</a>

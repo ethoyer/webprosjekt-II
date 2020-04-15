@@ -56,7 +56,7 @@ class ProjectsTable extends React.Component {
         </select>
         <select id="projectfaculty" value={faculty} onChange={this.onLocationAndFacultyChange}>
           <option value="">All locations</option>
-          <option value="AD">Arktektur og Design</option>
+          <option value="AD">Arkitektur og Design</option>
           <option value="HF">Det humanistiske fakultet</option>
         </select>
       </p>
