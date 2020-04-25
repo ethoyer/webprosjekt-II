@@ -5,9 +5,8 @@ import * as serviceWorker from './serviceWorker';
 import { Route, Link, BrowserRouter as Router } from 'react-router-dom'
 import Index from './components/pages/index.js';
 import StudentApplication from './components/pages/studentApplication.js';
-import IntOverview from './components/pages/intoverview.js';
 import businessApplyPage from './components/pages/businessApplyPage.js';
-import intForm from './components/pages/intForm.js';
+import studIntApplyPage from './components/pages/studIntApplyPage';
 
 const routing = (
     <Router>
@@ -16,9 +15,8 @@ const routing = (
         {/* each component here corresponds to a view in the components/view folder */}
         <Route exact path="/" component={Index} />
         <Route path="/student_application" component={StudentApplication} />
-        <Route path="/int_overview" component={IntOverview} />
+        <Route path="/int_overview" component={studIntApplyPage} />
         <Route path="/businessApplyPage" component={businessApplyPage} />
-        <Route path="/intForm" component={intForm} />
       </div>
     </Router>
   )

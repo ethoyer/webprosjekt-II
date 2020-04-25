@@ -3,6 +3,7 @@ import React from 'react';
 import internData from '../dummydb.json';
 
 let newInProjectList = '';
+let projectArray = [];
 
 class ProjectsList extends React.Component {
   constructor(props) {
@@ -13,8 +14,19 @@ class ProjectsList extends React.Component {
     this.grandparent=props.grandparent;
     this._id=props._id;
     this.state = {
-      inProjectList: false
+      inProjectList: false,
+      isLoading: true
     };
+  }
+
+  componentDidMount() { //collects data from database/view.php
+    return fetch('http://localhost/way_in_db/view.php')
+      .then((response) => response.json())
+      .then((responseJson) => {
+        projectArray = responseJson;
+        console.log(projectArray);
+        this.setState({ isLoading: false }); //sets state forcing a reload so collected data is shown
+      })
   }
 
   componentWillReceiveProps({newInProjectList}){
@@ -36,14 +48,14 @@ class ProjectsList extends React.Component {
     // console.log(this._reactInternalFiber.key);
     // console.log(this.state.inProjectList);
     this.props.onProjectListExpansion(this.state.inProjectList);
-    internData.map((postDetail) => {
+    projectArray.map((postDetail) => {
       if (id === postDetail.id) {
         document.getElementById("projecttitle").innerHTML = postDetail.title;
         document.getElementById("full").className = postDetail.id;
         document.getElementById("company").innerHTML = postDetail.company;
         document.getElementById("faculty").innerHTML = postDetail.faculty;
         document.getElementById("location").innerHTML = postDetail.location;
-        document.getElementById("desc").innerHTML = postDetail.description;
+        document.getElementById("desc").innerHTML = postDetail.project_description;
       }
     })
   }
@@ -55,7 +67,7 @@ class ProjectsList extends React.Component {
     return (
       <>
         <div className={ `${this.state.inProjectList ? "applyStudent inList" : "applyStudent notInList"}` } id={project.id}
-          onClick={() => this.displayProject(project.id)} onKeyPress={() => this.displayProject(project.id) } tabindex="0">
+          onClick={() => this.displayProject(project.id)} onKeyPress={() => this.displayProject(project.id) } tabIndex="0">
           <p>{project.title}</p>
           <p>{project.company}</p>
           <p>{project.location}</p>
