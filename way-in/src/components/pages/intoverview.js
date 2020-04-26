@@ -19,9 +19,8 @@ class IntOverview extends React.Component{
       <AppButton
         id="next"
         location="/"
-        label="NEXT"
+        label="NEXT>"
         />
-      <img src={arrowDark} alt="arrow pointing to next page"></img>
     </main>
     
     <Footer /> 

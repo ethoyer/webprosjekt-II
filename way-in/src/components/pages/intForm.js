@@ -1,9 +1,8 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import '../../form.css';
+import '../../css/form.css';
 import Header from '../header';
 import Footer from '../footer';
-import { Route, Link, BrowserRouter as Router } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 class intForm extends React.Component {
     constructor(props) {

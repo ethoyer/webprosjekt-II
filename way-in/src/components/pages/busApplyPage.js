@@ -14,7 +14,7 @@ class StudentApplication extends React.Component{
         <h2 id="applicationTitle">Which type of project would you like to offer?</h2>
         <AppButton
             id="intOrBach"
-            location="/"
+            location="/busApplyIntPage"
             label="Internship"/>
 
         <AppButton
