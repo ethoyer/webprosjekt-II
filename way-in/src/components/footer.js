@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 class Footer extends React.Component {
   state = {
@@ -16,9 +17,9 @@ class Footer extends React.Component {
       <footer onClick={this.toggleFooter} className={ `${isFooterVisible ? "open" : "closed"}` }>
         <img src="" alt=""></img>
         <div>
-        <a className={ `${isFooterVisible ? "open" : "closed"}` } href="">Log in</a>
-        <a className={ `${isFooterVisible ? "open" : "closed"}` } href="">How to use Way-In</a>
-        <a className={ `${isFooterVisible ? "open" : "closed"}` } href="">Contact</a>
+        <Link to="/logInPage" className={ `${isFooterVisible ? "open" : "closed"}` }>Log in</Link>
+        <Link className={ `${isFooterVisible ? "open" : "closed"}` }>How to use Way-In</Link>
+        <Link className={ `${isFooterVisible ? "open" : "closed"}` }>Contact</Link>
         </div>
       </footer>
     );
