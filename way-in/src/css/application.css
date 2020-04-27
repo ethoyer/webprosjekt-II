@@ -58,3 +58,69 @@
 .inList{
   background-color: #B9C6D6;
 }
+
+.studIntForm form{
+  margin: auto;
+  margin-top: 2%;
+  width: 60%;
+  background-color: rgb(208, 222, 235);
+  padding: 2% 5%;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.studIntForm input{
+  width: 25%;
+  display: inline-block;
+  padding: 1%;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin: 3% 1%;
+}
+
+.studIntForm label{
+  display: inline-block;
+}
+
+.studIntForm input[type=submit] {
+  width: 30%;
+  background-color: #ccc;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 2%;
+  display: block;
+
+}
+
+input[type=submit]:hover {
+  background-color:rgb(169, 189, 255);
+}
+
+main.visible{
+  display: block;
+}
+
+main.hidden{
+  display: none !important;
+}
+
+#projectListContainer{
+  margin: auto;
+  width: 60%;
+  margin-top: 2%;
+}
+
+#projectListContainer p{
+  margin: 1%;
+}
+
+#projectList>span{
+  display: inline-block;
+  font-size: 0.8em;
+  background-color: rgb(208, 222, 235);
+  padding: 1%;
+  margin: 0.5%;
+}

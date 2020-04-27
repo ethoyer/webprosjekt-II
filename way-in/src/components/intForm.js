@@ -1,12 +1,11 @@
 import React from 'react';
-import '../../css/form.css';
-import Header from '../header';
-import Footer from '../footer';
-import { Link } from 'react-router-dom'
+import ReactDOM from 'react-dom';
+import { Route, Link, BrowserRouter as Router } from 'react-router-dom'
 
-class intForm extends React.Component {
+class IntForm extends React.Component {
     constructor(props) {
       super(props);
+      this.prevPage = this.prevPage.bind(this);
       this.state = {
         isSubmitted: false,
         email: '',
@@ -38,6 +37,11 @@ class intForm extends React.Component {
     this.setState({isSubmitted: true});
   }
 
+  prevPage(e) {
+    e.preventDefault();
+    document.getElementById("studAppMain").className = "visible";
+    document.getElementById("studform").className = "hidden";
+  }
 
   render() {
     let emailErrorText;
@@ -136,18 +140,20 @@ class intForm extends React.Component {
     }
     
     return (
-      <div>
-        <Header />
-        <main>
+      <main id="studform" className="hidden">
+
         <div className='studIntForm'>
+          <div id="projectListContainer">
+        <p>Chosen Internships:</p>
+        <div id="projectList"></div>
+        </div>
+
           {contactForm}
         </div>
+        <a id="next" href="" onClick={(e) => this.prevPage(e)}>BACK</a>
         </main>
-        <Footer />
-      </div>
-      
     );
   }
 }         
 
-export default intForm;
+export default IntForm;

@@ -8,7 +8,6 @@ class ProjectInfo extends React.Component {
     this.onProjectAddition = this.onProjectAddition.bind(this);
     this.onProjectRemoval = this.onProjectRemoval.bind(this);
     this.parent=props.parent;
-    this.test = this.test.bind(this);
     this.state = {
       projectList: []
     };
@@ -16,10 +15,6 @@ class ProjectInfo extends React.Component {
 
   onProjectAdditionOrRemoval(inProjectList) {
     this.props.onProjectAdditionOrRemoval(inProjectList);
-  }
-
-  test() {
-    console.log(inProjectList);
   }
 
   onProjectAddition(e) {
@@ -38,6 +33,8 @@ class ProjectInfo extends React.Component {
 
     inProjectList = true;
     this.onProjectAdditionOrRemoval(inProjectList);
+
+    
   }
 
   onProjectRemoval(e) {
@@ -52,6 +49,8 @@ class ProjectInfo extends React.Component {
 
     inProjectList = false;
     this.onProjectAdditionOrRemoval(inProjectList);
+
+    
   }
 
   render() {
@@ -65,7 +64,7 @@ class ProjectInfo extends React.Component {
     return (
       <div id="full">
         {button}
-        <p id="projecttitle" onClick={() => this.test()} />
+        <p id="projecttitle" />
         <p id="company" />
         <p id="faculty" />
         <p id="location" />

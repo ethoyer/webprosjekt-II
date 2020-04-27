@@ -1,18 +1,28 @@
 import React from 'react';
 import ProjectsList from './projectsList';
-import internData from '../dummydb.json';
 let inProjectList = '';
-let newInProjectList = '';
+let projectArray = []; //holds data collected from database
 
 class FilterProjects extends React.Component {
   constructor(props) {
     super(props);
     this.onProjectListExpansion = this.onProjectListExpansion.bind(this);
-    this.parent=props.parent;
+    this.parent = props.parent;
     this.state = {
       inProjectList: '',
-      childKey: ''
+      childKey: '',
+      isLoading: true
     };
+  }
+
+  componentDidMount() { //collects data from database/view.php
+    return fetch('http://localhost/way_in_db/view.php')
+      .then((response) => response.json())
+      .then((responseJson) => {
+        projectArray = responseJson;
+        console.log(projectArray);
+        this.setState({ isLoading: false }); //sets state forcing a reload so collected data is shown
+      })
   }
 
   onProjectListExpansion(childState) {
@@ -21,30 +31,30 @@ class FilterProjects extends React.Component {
   }
 
   render() {
-    let projectArray = [];
+    let filteredArray = []; //holds the filtered project array
     let newInProjectList = this.props.newInProjectList;
 
-    internData.map((project) => {
+    projectArray.map((project) => {
       if (this.props.locationState === '' && this.props.facultyState === '') {
-        projectArray.push(project);
+        filteredArray.push(project);
       } if (this.props.locationState === project.location && this.props.facultyState === '') {
-        projectArray.push(project);
+        filteredArray.push(project);
       } if (this.props.facultyState === project.faculty && this.props.locationState === '') {
-        projectArray.push(project);
+        filteredArray.push(project);
       } if (this.props.locationState === project.location && this.props.facultyState === project.faculty) {
-        projectArray.push(project);
+        filteredArray.push(project);
       }
     })
 
     return (
       <>
-        {projectArray.map((project) => {
+        {filteredArray.map((project) => { //displays filtered array
           return <ProjectsList project={project}
             key={project.id}
             _id={project.id}
             grandparent={this.parent}
             onProjectListExpansion={this.onProjectListExpansion}
-            newInProjectList = {newInProjectList} />
+            newInProjectList={newInProjectList} />
         })}
       </>
     );

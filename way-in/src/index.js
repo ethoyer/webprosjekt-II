@@ -5,6 +5,8 @@ import * as serviceWorker from './serviceWorker';
 import { Route, BrowserRouter as Router } from 'react-router-dom'
 import Index from './components/pages/index.js';
 import StudentApplication from './components/pages/studentApplication.js';
+import businessApplyPage from './components/pages/businessApplyPage.js';
+import studIntApplyPage from './components/pages/studIntApplyPage';
 import IntOverview from './components/pages/intoverview.js';
 import busApplyPage from './components/pages/busApplyPage.js';
 import intForm from './components/pages/intForm.js';
@@ -23,6 +25,8 @@ const routing = (
         <Route path="/intForm" component={intForm} />
         <Route path="/logInPage" component={logInPage}/>
         <Route path="/busApplyIntPage" component={busApplyIntPage}/>
+        <Route path="/int_overview" component={studIntApplyPage} />
+        <Route path="/businessApplyPage" component={businessApplyPage} />
       </div>
     </Router>
   )

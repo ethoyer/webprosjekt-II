@@ -3,6 +3,7 @@ import React from 'react';
 import internData from '../dummydb.json';
 
 let newInProjectList = '';
+let projectArray = [];
 
 class ProjectsList extends React.Component {
   constructor(props) {
@@ -13,23 +14,22 @@ class ProjectsList extends React.Component {
     this.grandparent=props.grandparent;
     this._id=props._id;
     this.state = {
-      inProjectList: false
+      inProjectList: false,
+      isLoading: true
     };
   }
 
+  componentDidMount() { //collects data from database/view.php
+    return fetch('http://localhost/way_in_db/view.php')
+      .then((response) => response.json())
+      .then((responseJson) => {
+        projectArray = responseJson;
+        console.log(projectArray);
+        this.setState({ isLoading: false }); //sets state forcing a reload so collected data is shown
+      })
+  }
+
   componentWillReceiveProps({newInProjectList}){
-    //her må det være en if funksjon eller no, tror jeg? 
-    //key må bli passed som prop sammen med inProjectList/newInProjectList fra ProjectInfo.js og hit  - key er det samme 
-    //som idx i json filen og className div'en til høyre på siden får når man åpner en prosjektbeskrivelse
-      //for øyeblikket er disse key/idx'ene bare 1, 2 og 3.
-
-    // if funksjonen blir noe lignende:
-    // if (this.props.etPassendeNavn === this._reactInternalFiber.key){
-    //   this.setState({inProjectList: newInProjectList})
-    // }
-
-    // this._reactInternalFiber.key = key til ProjectsList komponenten
-    // denne key'en blir satt når komponenten blir laget i filterProjects.js
     if (this.grandparent.state.addedProjects[this._id]){
       this.setState({inProjectList: true});
     }else{
@@ -44,31 +44,30 @@ class ProjectsList extends React.Component {
     });
   };
 
-  
-
   displayProject(id) {
     // console.log(this._reactInternalFiber.key);
     // console.log(this.state.inProjectList);
     this.props.onProjectListExpansion(this.state.inProjectList);
-    internData.map((postDetail) => {
+    projectArray.map((postDetail) => {
       if (id === postDetail.id) {
         document.getElementById("projecttitle").innerHTML = postDetail.title;
         document.getElementById("full").className = postDetail.id;
         document.getElementById("company").innerHTML = postDetail.company;
         document.getElementById("faculty").innerHTML = postDetail.faculty;
         document.getElementById("location").innerHTML = postDetail.location;
-        document.getElementById("desc").innerHTML = postDetail.description;
+        document.getElementById("desc").innerHTML = postDetail.project_description;
       }
     })
   }
+
   render() {
     const project = this.props.project;
     newInProjectList = this.props.newInProjectList;
+
     return (
       <>
-   
         <div className={ `${this.state.inProjectList ? "applyStudent inList" : "applyStudent notInList"}` } id={project.id}
-          onClick={() => this.displayProject(project.id)}>
+          onClick={() => this.displayProject(project.id)} onKeyPress={() => this.displayProject(project.id) } tabIndex="0">
           <p>{project.title}</p>
           <p>{project.company}</p>
           <p>{project.location}</p>
