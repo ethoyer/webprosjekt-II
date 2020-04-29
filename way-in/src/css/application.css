@@ -1,13 +1,3 @@
-.applyStudent{
-    background-color: rgb(208, 222, 235);
-    padding: 10px;
-    margin: 1%;
-    white-space: nowrap; 
-    overflow: hidden;
-    text-overflow: ellipsis; 
-    /* skal endre når vi gjør det til grid */
-}
-
 #studAppMain {
   padding: 70px 2% 2% 2%;
   display: grid;
@@ -29,6 +19,55 @@
   grid-area: overview;
 }
 
+.applyStudent{
+  background-color: rgb(208, 222, 235);
+  padding: 10px;
+  margin: 1%;
+  white-space: nowrap; 
+  overflow: hidden;
+  display: grid;
+  grid-template-areas: 'title company'
+                        'location faculty'
+                        'desc desc';
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 20px 20px 40px;
+}
+
+.applyStudent p{
+  margin: 0;
+}
+
+.projectTitle{
+grid-area: title;
+}
+
+.projectCompany{
+grid-area: company;
+justify-self: right;
+}
+
+.projectLocation{
+grid-area: location;
+}
+
+.projectFaculty{
+grid-area: faculty;
+justify-self: right;
+}
+
+.projectDescription{
+align-self: center;
+grid-area: desc;
+overflow: hidden;
+white-space: nowrap;
+text-overflow: ellipsis;
+font-style: italic;
+}
+
+.inList{
+  background-color: #B9C6D6 !important;
+}
+
 #full {
   grid-area: full;
   background-color: rgb(208, 222, 235);
@@ -36,9 +75,53 @@
   height: 55vh;
   overflow-y: scroll;
   overflow-x: hidden;
+  display: grid;
+  grid-template-areas: 'info info button'
+                        'desc desc desc' ;
+  grid-template-rows: 80px 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
 }
 
-#next {
+#full>button{
+  grid-area: button;
+  width: 150px;
+  height: 40px;
+  justify-self: right;
+  background-color: #EAEEF5;
+  border-radius: 10px;
+  box-shadow: 2px 2px 5px rgb(114, 128, 151);
+}
+
+#companyInfo{
+  grid-area: info;
+  display: grid;
+  grid-template-areas: 'title title title'
+                        'company location faculty' ;
+  grid-template-rows: 30px 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+#projecttitle{
+  grid-area: title;
+}
+
+#company{
+  grid-area: company;
+}
+
+#faculty{
+  grid-area: faculty;
+}
+
+#location{
+  grid-area: location;
+}
+
+#desc{
+  grid-area: desc;
+}
+
+#studAppMain>.navButton {
   grid-area: next;
   height: 70px;
   width: 70px;
@@ -53,74 +136,4 @@
   height: 70px;
   align-self: center;
  
-}
-
-.inList{
-  background-color: #B9C6D6;
-}
-
-.studIntForm form{
-  margin: auto;
-  margin-top: 2%;
-  width: 60%;
-  background-color: rgb(208, 222, 235);
-  padding: 2% 5%;
-  text-align: center;
-  box-sizing: border-box;
-}
-
-.studIntForm input{
-  width: 25%;
-  display: inline-block;
-  padding: 1%;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-  margin: 3% 1%;
-}
-
-.studIntForm label{
-  display: inline-block;
-}
-
-.studIntForm input[type=submit] {
-  width: 30%;
-  background-color: #ccc;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  padding: 2%;
-  display: block;
-
-}
-
-input[type=submit]:hover {
-  background-color:rgb(169, 189, 255);
-}
-
-main.visible{
-  display: block;
-}
-
-main.hidden{
-  display: none !important;
-}
-
-#projectListContainer{
-  margin: auto;
-  width: 60%;
-  margin-top: 2%;
-}
-
-#projectListContainer p{
-  margin: 1%;
-}
-
-#projectList>span{
-  display: inline-block;
-  font-size: 0.8em;
-  background-color: rgb(208, 222, 235);
-  padding: 1%;
-  margin: 0.5%;
 }

@@ -1,41 +1,217 @@
-.studIntForm form{
-    margin: auto;
-    margin-top: 5%;
-    width: 60%;
-    background-color: rgb(208, 222, 235);
-    padding: 2% 5%;
-    text-align: center;
-    box-sizing: border-box;
+.studIntForm form {
+  margin: auto;
+  margin-top: 2%;
+  width: 60%;
+  background-color: rgb(208, 222, 235);
+  padding: 2% 2%;
+  text-align: center;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-areas: 'title title title title'
+    'subtitle subtitle subtitle subtitle'
+    'namelabel fname mname lname'
+    'emaillabel email email email'
+    'programmelabel prog prog prog'
+    'commentlabel com com com'
+    'back back submit submit';
+  grid-template-rows: 1fr 1fr 50px 50px 50px 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
-.studIntForm input{
-    width: 25%;
-    display: inline-block;
-    padding: 1%;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-    margin: 3% 1%;
+label[for=name],
+label[for=e-mail],
+label[for=programme],
+label[for=comments] {
+  justify-self: right;
+  margin-right: 2%;
 }
 
-.studIntForm label{
-    display: inline-block;
+form>h2 {
+  grid-area: title;
+}
+
+form>p {
+  grid-area: subtitle;
+}
+
+label[for=name] {
+  grid-area: namelabel;
+}
+
+input[placeholder='first name'] {
+  grid-area: fname;
+}
+
+input[placeholder='(middle name)'] {
+  grid-area: mname;
+}
+
+
+input[placeholder='last name'] {
+  grid-area: lname;
+}
+
+
+label[for=e-mail] {
+  grid-area: emaillabel;
+}
+
+#e-mail {
+  grid-area: email;
+}
+
+label[for=programme] {
+  grid-area: programmelabel;
+}
+
+#programme {
+  grid-area: prog;
+}
+
+label[for=comments] {
+  grid-area: commentlabel;
+}
+
+#comments {
+  grid-area: com;
+}
+
+#name, #programme, #e-mail{
+  width: 200px;
+}
+
+form>.navButton {
+  grid-area: back;
+  justify-self: left;
+  align-self: center;
+  font-size: 20px;
+  text-decoration: none;
+}
+
+
+.studIntForm input {
+  display: inline-block;
+  padding: 1%;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.studIntForm input,
+.studIntForm select {
+  height: 30px;
+}
+
+.studIntForm label {
+  display: inline-block;
+}
+
+label[for=programme] {
+  display: block;
 }
 
 .studIntForm input[type=submit] {
-    width: 30%;
-    background-color: #ccc;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    padding: 2%;
-    display: block;
+  grid-area: submit;
+  align-self: center;
+  justify-self: right;
+  width: 100px;
+  height: 50px;
+  background-color: #ccc;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  padding: 2%;
+  display: block;
+}
 
+input[type=submit]:hover {
+  background-color: rgb(169, 189, 255);
+}
+
+main.visible {
+  display: block;
+}
+
+main.hidden {
+  display: none !important;
+}
+
+#projectListContainer {
+  margin: auto;
+  width: 60%;
+  margin-top: 2%;
+}
+
+#projectListContainer p {
+  margin: 1%;
+}
+
+#projectList>span {
+  display: inline-block;
+  font-size: 0.8em;
+  background-color: rgb(208, 222, 235);
+  padding: 1%;
+  margin: 0.5%;
+}
+
+@media only screen and (max-width: 1200px) {
+  .studIntForm form {
+    grid-template-areas: 'title title title'
+      'subtitle subtitle subtitle '
+      'namelabel namelabel namelabel'
+      'fname mname lname'
+      'emaillabel emaillabel emaillabel'
+      'email email email'
+      'programmelabel programmelabel programmelabel'
+      'prog prog prog'
+      'commentlabel  commentlabel commentlabel '
+      'com com com'
+      'back empty submit';
+    grid-template-rows: 1fr 1fr 50px 50px 50px 50px 50px 50px 50px 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
   }
 
-  input[type=submit]:hover {
-    background-color:rgb(169, 189, 255);
+  label[for=name],
+  label[for=e-mail],
+  label[for=programme],
+  label[for=comments],
+  #e-mail,
+  #programme {
+    justify-self: center;
   }
 
-  
+  label[for=name],
+  label[for=e-mail],
+  label[for=programme],
+  label[for=comments] {
+    align-self: center;
+  }
+
+}
+
+@media only screen and (max-width: 1050px) {
+  .studIntForm form {
+    grid-template-areas: 'title title title'
+      'subtitle subtitle subtitle '
+      'namelabel namelabel namelabel'
+      'fname fname fname'
+      'mname mname mname'
+      'lname lname lname'
+      'emaillabel emaillabel emaillabel'
+      'email email email'
+      'programmelabel programmelabel programmelabel'
+      'prog prog prog'
+      'commentlabel  commentlabel commentlabel '
+      'com com com'
+      'back empty submit';
+    grid-template-rows: 1fr 1fr 50px 50px 50px 50px 50px 50px 50px 50px 50px 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  #name {
+    width: 200px;
+    justify-self: center;
+  }
+
+}

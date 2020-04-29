@@ -52,7 +52,7 @@ class ProjectsList extends React.Component {
       if (id === postDetail.id) {
         document.getElementById("projecttitle").innerHTML = postDetail.title;
         document.getElementById("full").className = postDetail.id;
-        document.getElementById("company").innerHTML = postDetail.company;
+        document.getElementById("company").innerHTML = postDetail.company_name;
         document.getElementById("faculty").innerHTML = postDetail.faculty;
         document.getElementById("location").innerHTML = postDetail.location;
         document.getElementById("desc").innerHTML = postDetail.project_description;
@@ -68,10 +68,11 @@ class ProjectsList extends React.Component {
       <>
         <div className={ `${this.state.inProjectList ? "applyStudent inList" : "applyStudent notInList"}` } id={project.id}
           onClick={() => this.displayProject(project.id)} onKeyPress={() => this.displayProject(project.id) } tabIndex="0">
-          <p>{project.title}</p>
-          <p>{project.company}</p>
-          <p>{project.location}</p>
-          <p>{project.faculty}</p>
+          <p className="projectTitle">{project.title}</p>
+          <p className="projectCompany">{project.company_name}</p>
+          <p className="projectLocation">{project.location}</p>
+          <p className="projectFaculty">{project.faculty}</p>
+          <p className="projectDescription">{project.project_description}</p>
         </div>
       </>
     );

@@ -133,7 +133,8 @@ class IntForm extends React.Component {
              <input            
                 type='submit'            
                 value='Submit'            
-               />   
+               />  
+               <a className="navButton" href="" onClick={(e) => this.prevPage(e)}>BACK</a> 
         </form>
        
        );
@@ -150,7 +151,6 @@ class IntForm extends React.Component {
 
           {contactForm}
         </div>
-        <a id="next" href="" onClick={(e) => this.prevPage(e)}>BACK</a>
         </main>
     );
   }

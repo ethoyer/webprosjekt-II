@@ -9,16 +9,16 @@ class StudentApplication extends React.Component{
         return(
         <div>
     <Header />
-    <main>
+    <main id="appchoicemain">
         <h1 id="applicationTitle">Offer a project</h1>
-        <h2 id="applicationTitle">Which type of project would you like to offer?</h2>
+        <h2 id="applicationSubTitle">Which type of project would you like to offer?</h2>
         <AppButton
-            id="intOrBach"
+            id="intButton"
             location="/busApplyIntPage"
             label="Internship"/>
 
         <AppButton
-            id="intOrBach"
+            id="baButton"
             location="/"
             label="Bachelor Thesis"/>
         <div id="contact">    

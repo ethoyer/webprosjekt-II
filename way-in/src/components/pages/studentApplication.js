@@ -9,18 +9,18 @@ class StudentApplication extends React.Component{
         return(
         <div>
     <Header />
-    <main>
+    <main id="appchoicemain">
         <h1 id="applicationTitle">Application</h1>
-        <h2 id="applicationTitle">What are you applying to?</h2>
+        <h2 id="applicationSubTitle">What are you applying to?</h2>
         <AppButton
-            id="intOrBach"
             location="int_overview"
-            label="Internship"/>
+            label="Internship"
+            id="intButton"/>
 
         <AppButton
-            id="intOrBach"
             location="/intForm"
-            label="Bachelor Thesis"/>
+            label="Bachelor Thesis"
+            id="baButton"/>
     </main>
     <Footer />
   </div>

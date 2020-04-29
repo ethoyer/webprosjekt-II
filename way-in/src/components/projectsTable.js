@@ -92,7 +92,7 @@ class ProjectsTable extends React.Component {
           <option value="Gjøvik">Gjøvik</option>
         </select>
         <select id="projectfaculty" value={faculty} onChange={this.onLocationAndFacultyChange}>
-          <option value="">All locations</option>
+          <option value="">All faculties</option>
           <option value="AD">Arkitektur og Design</option>
           <option value="HF">Det humanistiske fakultet</option>
         </select>
@@ -108,7 +108,7 @@ class ProjectsTable extends React.Component {
       onProjectAdditionOrRemoval={this.onProjectAdditionOrRemoval}
       parent={this}
       />
-      <a id="next" href="" onClick={(e) => this.nextPage(e)}>NEXT</a>
+      <a className="navButton" href="" onClick={(e) => this.nextPage(e)}>NEXT</a>
       </>
     )
   }

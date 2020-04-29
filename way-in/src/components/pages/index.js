@@ -13,14 +13,16 @@ class Studentbutton extends React.Component {
   render() {
     return (
       //changes url
+      <div className='student'>
         <Link to="../student_application">
-        <div className='student'>
-        <img src={student} alt={"student studying"} />
-        <h2>Apply for an internship programme or bachelor thesis</h2>
-        <p>View and apply to an internship or bachelor project here</p>
-        
+          <img src={student} alt={"student studying"} />
+          <div>
+            <h2>Apply for an internship programme or bachelor thesis</h2>
+            <p>View and apply to an internship or bachelor project here</p>
+          </div>
+        </Link>
+
       </div>
-      </Link>
     );
   }
 }
@@ -29,29 +31,32 @@ class Companybutton extends React.Component {
 
   render() {
     return (
-      <Link to="../busApplyPage">
       <div className='business'>
-        <img src={business} alt={"workers and students"} />
-        <h2 id="businessStyle">For companies: Would you like to work with our students?</h2>
-        <p id="businessStyle">Please fill in an application form for an internship or bachelor project from here.</p>
-      </div></Link>
+        <Link to="../busApplyPage">
+          <div>
+            <h2 id="businessStyle">For companies: Would you like to work with our students?</h2>
+            <p id="businessStyle">Please fill in an application form for an internship or bachelor project from here.</p>
+          </div>
+          <img src={business} alt={"workers and students"} />
+        </Link>
+      </div>
     );
   }
 }
 
-class Index extends React.Component{
-    render() {
-        return(
-        <div>
-    <Header />
-    <main>
-    <Studentbutton />
-    <Companybutton />
-    </main>
-    <Footer />
-  </div>
-        )
-    }
+class Index extends React.Component {
+  render() {
+    return (
+      <div>
+        <Header />
+        <main id="indexmain">
+          <Studentbutton />
+          <Companybutton />
+        </main>
+        <Footer />
+      </div>
+    )
+  }
 }
 
 export default Index;

@@ -7,7 +7,7 @@ class ProjectInfo extends React.Component {
     this.onProjectAdditionOrRemoval = this.onProjectAdditionOrRemoval.bind(this);
     this.onProjectAddition = this.onProjectAddition.bind(this);
     this.onProjectRemoval = this.onProjectRemoval.bind(this);
-    this.parent=props.parent;
+    this.parent = props.parent;
     this.state = {
       projectList: []
     };
@@ -23,7 +23,7 @@ class ProjectInfo extends React.Component {
       text: _key,
       key: _key
     };
-    this.parent.state.addedProjects[_key]=true;
+    this.parent.state.addedProjects[_key] = true;
     this.parent.setState((prevState) => {
       return {
         projectList: prevState.projectList.concat(newProject)
@@ -34,14 +34,14 @@ class ProjectInfo extends React.Component {
     inProjectList = true;
     this.onProjectAdditionOrRemoval(inProjectList);
 
-    
+
   }
 
   onProjectRemoval(e) {
-    var filteredProjects = this.parent.state.projectList.filter(function (project){
+    var filteredProjects = this.parent.state.projectList.filter(function (project) {
       return (project.key !== e.target.parentElement.className);
     });
-    this.parent.state.addedProjects[e.target.parentElement.className]=false;
+    this.parent.state.addedProjects[e.target.parentElement.className] = false;
     this.parent.setState({
       projectList: filteredProjects
     });
@@ -50,7 +50,7 @@ class ProjectInfo extends React.Component {
     inProjectList = false;
     this.onProjectAdditionOrRemoval(inProjectList);
 
-    
+
   }
 
   render() {
@@ -64,10 +64,12 @@ class ProjectInfo extends React.Component {
     return (
       <div id="full">
         {button}
-        <p id="projecttitle" />
-        <p id="company" />
-        <p id="faculty" />
-        <p id="location" />
+        <div id="companyInfo">
+          <p id="projecttitle" />
+          <p id="company" />
+          <p id="faculty" />
+          <p id="location" />
+        </div>
         <p id="desc" />
         <p>{inProjectList}</p>
       </div>
