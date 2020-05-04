@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Route, Link, BrowserRouter as Router } from 'react-router-dom'
 
+
 class IntForm extends React.Component {
     constructor(props) {
       super(props);
@@ -10,8 +11,7 @@ class IntForm extends React.Component {
         isSubmitted: false,
         email: '',
         hasEmailError: false,
-        content: '',
-        hasContentError: false,
+       
     };
   }
  //checking if the email box is empty (when you delete all the input data, a text appears)
@@ -23,17 +23,41 @@ class IntForm extends React.Component {
       hasEmailError: isEmpty,
     });
   }
-  //checking if the textarea is empty (when you delete all the input data, a text appears)
-  handleContentChange(event) {            
-    const inputValue = event.target.value;            
-    const isEmpty = inputValue === '';            
-    this.setState({            
-              content: inputValue,            
-              hasContentError: isEmpty,            
-    })            
-  }
+
 
   handleSubmit() {
+    console.log("Form sent");
+    const formData = new FormData();
+    formData.append(
+      "method",
+      "add"
+    );
+    formData.append(
+      'Email',
+      document.getElementById("email").value
+    );
+    formData.append(
+      'Fname',
+      document.getElementById("fname").value
+    );
+    formData.append(
+      'Mname',
+      document.getElementById("mname").value
+    );
+    formData.append(
+      'Lname',
+      document.getElementById("lname").value
+    );
+    formData.append(
+      'programme_code',
+      document.getElementById("pcode").value
+    );
+    // The following ip address has to be replaced by your server's
+    // ip address:
+    fetch("http://192.168.64.2/way_in_db/intForm.php", {
+      method: 'POST',
+      body: formData
+    });
     this.setState({isSubmitted: true});
   }
 
@@ -79,31 +103,31 @@ class IntForm extends React.Component {
           <form onSubmit={() => {this.handleSubmit()}} >
             <h2>Internship Application</h2>
            <p>Please fill in the application form below.</p>
-            <label for="name">*Your name: </label>
+            <label htmlFor="name">*Your name: </label>
             <input
-              id="name"
+              id="fname"
               type="text"
               placeholder="first name"
               required
             />
             
             <input
-              id="name"
+              id="mname"
               type="text"
               placeholder="(middle name)"
             />
 
             <input
-              id="name"
+              id="lname"
               type="text"
               placeholder="last name"
               required
             />
          
 
-            <label for="e-mail">*E-mail: </label>
+            <label htmlFor="email">*E-mail: </label>
             <input
-              id="e-mail"
+              id="email"
               type="email"
               placeholder="ex) olan@stud.ntnu.no"
               value={this.state.email}
@@ -112,23 +136,21 @@ class IntForm extends React.Component {
             />
             {emailErrorText}  
 
-            <label for="programme">*Choose programme:</label>
-            <select id="programme" name="programme">
+            <label htmlFor="programme">*Choose programme:</label>
+            <select id="pcode" name="programme">
               <option value="internship1">Internship 1</option>
               <option value="internship2">Internship2</option>
              
             </select>        
                    
        
-            <label for="comments">Comments (if any):</label>   
+            <label htmlFor="comments">Comments (if any):</label>   
             <textarea  
                 id="comments"          
                 alue={this.state.content}            
                 onChange={(event) => {this.handleContentChange(event)}}            
              />            
-
-                   
-              {contentErrorText}            
+        
         
              <input            
                 type='submit'            
