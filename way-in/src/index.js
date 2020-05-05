@@ -9,6 +9,7 @@ import studIntApplyPage from './components/pages/studIntApplyPage';
 import busApplyPage from './components/pages/busApplyPage.js';
 import logInPage from './components/pages/logInPage';
 import busApplyIntPage from './components/pages/busApplyIntPage';
+import busApplyBachPage from './components/pages/busApplyBachPage';
 
 const routing = (
     <Router>
@@ -20,6 +21,7 @@ const routing = (
         <Route path="/busApplyPage" component={busApplyPage} />
         <Route path="/logInPage" component={logInPage}/>
         <Route path="/busApplyIntPage" component={busApplyIntPage}/>
+        <Route path="/busApplyBachPage" component={busApplyBachPage}/>
         <Route path="/int_overview" component={studIntApplyPage} />
       </div>
     </Router>
