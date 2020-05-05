@@ -52,9 +52,8 @@ class IntForm extends React.Component {
       'programme_code',
       document.getElementById("pcode").value
     );
-    // The following ip address has to be replaced by your server's
-    // ip address:
-    fetch("http://192.168.64.2/way_in_db/intForm.php", {
+    //'localhost' may have to be replaced bt your local ip address:
+    fetch("http://localhost/way_in_db/intForm.php", {
       method: 'POST',
       body: formData
     });
@@ -147,8 +146,7 @@ class IntForm extends React.Component {
             <label htmlFor="comments">Comments (if any):</label>   
             <textarea  
                 id="comments"          
-                alue={this.state.content}            
-                onChange={(event) => {this.handleContentChange(event)}}            
+                value={this.state.content}           
              />            
         
         
