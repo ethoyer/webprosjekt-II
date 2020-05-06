@@ -137,8 +137,8 @@ class IntForm extends React.Component {
 
             <label htmlFor="programme">*Choose programme:</label>
             <select id="pcode" name="programme">
-              <option value="internship1">Internship 1</option>
-              <option value="internship2">Internship2</option>
+              <option value="IMT3541">IMT3541</option>
+              <option value="IMT3006">IMT3006</option>
              
             </select>        
                    
