@@ -14,19 +14,8 @@ class ProjectsList extends React.Component {
     this.grandparent=props.grandparent;
     this._id=props._id;
     this.state = {
-      inProjectList: false,
-      isLoading: true
+      inProjectList: false
     };
-  }
-
-  componentDidMount() { //collects data from database/view.php
-    return fetch('http://localhost/way_in_db/view.php')
-      .then((response) => response.json())
-      .then((responseJson) => {
-        projectArray = responseJson;
-        console.log(projectArray);
-        this.setState({ isLoading: false }); //sets state forcing a reload so collected data is shown
-      })
   }
 
   componentWillReceiveProps({newInProjectList}){
@@ -47,6 +36,7 @@ class ProjectsList extends React.Component {
   displayProject(id) {
     // console.log(this._reactInternalFiber.key);
     // console.log(this.state.inProjectList);
+    projectArray = this.props.projectArray;
     this.props.onProjectListExpansion(this.state.inProjectList);
     projectArray.map((postDetail) => {
       if (id === postDetail.id) {

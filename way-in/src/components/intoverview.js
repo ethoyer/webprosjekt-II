@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import ProjectsTable from './projectsTable';
 import AppButton from './appButton';
-import arrowDark from '../pictures/arrowDark.png';
+import arrowLight from '../pictures/arrowLight.png';
 let projectArray = [];
 
 class IntOverview extends React.Component {
@@ -16,13 +16,14 @@ class IntOverview extends React.Component {
   }
 
   componentDidMount() { //collects data from database/view.php
-    return fetch('http://localhost/way_in_db/view.php')
+    return fetch(this.props.intdb)
       .then((response) => response.json())
       .then((responseJson) => {
         projectArray = responseJson;
+        console.log(projectArray);
+        this.setState({ isLoading: false }); //sets state forcing a reload so collected data is shown
       })
   }
-
 
   onProjectAdditionOrRemoval(childState) {
     this.setState({ projectList: childState })
@@ -31,8 +32,10 @@ class IntOverview extends React.Component {
   render() {
     return (
       <main id="studAppMain" className="visible">
-        <h1 id="title">Apply Internship</h1>
-        <ProjectsTable onProjectAdditionOrRemoval={this.onProjectAdditionOrRemoval} />
+        <h1 id="title">{this.props.title}</h1>
+        <ProjectsTable onProjectAdditionOrRemoval={this.onProjectAdditionOrRemoval}
+        projectArray={projectArray} />
+        <img id="arrowLight" src={arrowLight}></img>
       </main>
     )
   }

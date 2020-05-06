@@ -6,7 +6,7 @@ import IntOverview from '../intoverview';
 import '../../css/application.css';
 
 
-class studIntApplyPage extends React.Component{
+class studBaApplyPage extends React.Component{
   constructor(props) {
     super(props);
 
@@ -16,8 +16,8 @@ class studIntApplyPage extends React.Component{
         return(
         <div>
     <Header />
-    <IntOverview intdb='http://localhost/way_in_db/internships.php'
-    title="Apply to an Internship" />
+    <IntOverview intdb='http://localhost/way_in_db/projects.php'
+    title="Apply to a Bachelor Project" />
     <IntForm />
     <Footer />
   </div>
@@ -25,4 +25,4 @@ class studIntApplyPage extends React.Component{
     }
 }
 
-export default studIntApplyPage;
+export default studBaApplyPage;

@@ -6,23 +6,13 @@ let projectArray = []; //holds data collected from database
 class FilterProjects extends React.Component {
   constructor(props) {
     super(props);
+    let projectArray = this.props.projectArray;
     this.onProjectListExpansion = this.onProjectListExpansion.bind(this);
     this.parent = props.parent;
     this.state = {
       inProjectList: '',
-      childKey: '',
-      isLoading: true
+      childKey: ''
     };
-  }
-
-  componentDidMount() { //collects data from database/view.php
-    return fetch('http://localhost/way_in_db/view.php')
-      .then((response) => response.json())
-      .then((responseJson) => {
-        projectArray = responseJson;
-        console.log(projectArray);
-        this.setState({ isLoading: false }); //sets state forcing a reload so collected data is shown
-      })
   }
 
   onProjectListExpansion(childState) {
@@ -33,6 +23,7 @@ class FilterProjects extends React.Component {
   render() {
     let filteredArray = []; //holds the filtered project array
     let newInProjectList = this.props.newInProjectList;
+    let projectArray = this.props.projectArray;
 
     projectArray.map((project) => {
       if (this.props.locationState === '' && this.props.facultyState === '') {
@@ -54,7 +45,8 @@ class FilterProjects extends React.Component {
             _id={project.id}
             grandparent={this.parent}
             onProjectListExpansion={this.onProjectListExpansion}
-            newInProjectList={newInProjectList} />
+            newInProjectList={newInProjectList}
+            projectArray={projectArray} />
         })}
       </>
     );

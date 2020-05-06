@@ -1,6 +1,7 @@
 import React from 'react';
 import FilterProjects from './filterProjects';
 import ProjectInfo from './projectInfo';
+import arrowDark from '../pictures/arrowDark.png';
 let inProjectList = '';
 let newInProjectList = '';
 let projectArray = [];
@@ -18,19 +19,8 @@ class ProjectsTable extends React.Component {
     faculty: '',
     inProjectList: '',
     projectList: [],
-    addedProjects: [], //array to tell whether a project is added.
-    isLoading: true
+    addedProjects: [] //array to tell whether a project is added.
   };
-  }
-
-  componentDidMount() { //collects data from database/view.php
-    return fetch('http://localhost/way_in_db/view.php')
-      .then((response) => response.json())
-      .then((responseJson) => {
-        projectArray = responseJson;
-        console.log(projectArray);
-        this.setState({ isLoading: false }); //sets state forcing a reload so collected data is shown
-      })
   }
 
   onLocationAndFacultyChange(){
@@ -79,6 +69,8 @@ class ProjectsTable extends React.Component {
   render() {
     const location = this.state.location;
     const faculty = this.state.faculty;
+    projectArray = this.props.projectArray;
+    
     inProjectList = this.state.inProjectList;
     newInProjectList = this.state.inProjectList;
     return (
@@ -102,13 +94,17 @@ class ProjectsTable extends React.Component {
       onProjectListExpansion={this.onProjectListExpansion}
       newInProjectList={inProjectList}
       parent={this}
+      projectArray={projectArray}
        />
       </div>
       <ProjectInfo inProjectList={inProjectList}
       onProjectAdditionOrRemoval={this.onProjectAdditionOrRemoval}
       parent={this}
       />
-      <a className="navButton" href="" onClick={(e) => this.nextPage(e)}>NEXT</a>
+      <div  className="navButton">
+      <img id="arrowDark" src={arrowDark}></img>
+      <a href="" onClick={(e) => this.nextPage(e)}>NEXT</a>
+      </div>
       </>
     )
   }

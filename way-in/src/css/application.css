@@ -3,14 +3,14 @@
   display: grid;
   grid-template-areas:
     "title title title"
-    "overview middle full"
-    "overview middle full"
-    "overview middle next";
+    "overview mid full"
+    "overview mid full"
+    "overview mid next";
   grid-template-rows: 80px 80px 2fr 80px;
   grid-template-columns: 3fr 1fr 6fr;
 }
 
-#title{
+#title {
   grid-area: title;
   justify-self: center;
 }
@@ -19,52 +19,52 @@
   grid-area: overview;
 }
 
-.applyStudent{
+.applyStudent {
   background-color: rgb(208, 222, 235);
   padding: 10px;
   margin: 1%;
-  white-space: nowrap; 
+  white-space: nowrap;
   overflow: hidden;
   display: grid;
   grid-template-areas: 'title company'
-                        'location faculty'
-                        'desc desc';
+    'location faculty'
+    'desc desc';
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 20px 20px 40px;
 }
 
-.applyStudent p{
+.applyStudent p {
   margin: 0;
 }
 
-.projectTitle{
-grid-area: title;
+.projectTitle {
+  grid-area: title;
 }
 
-.projectCompany{
-grid-area: company;
-justify-self: right;
+.projectCompany {
+  grid-area: company;
+  justify-self: right;
 }
 
-.projectLocation{
-grid-area: location;
+.projectLocation {
+  grid-area: location;
 }
 
-.projectFaculty{
-grid-area: faculty;
-justify-self: right;
+.projectFaculty {
+  grid-area: faculty;
+  justify-self: right;
 }
 
-.projectDescription{
-align-self: center;
-grid-area: desc;
-overflow: hidden;
-white-space: nowrap;
-text-overflow: ellipsis;
-font-style: italic;
+.projectDescription {
+  align-self: center;
+  grid-area: desc;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-style: italic;
 }
 
-.inList{
+.inList {
   background-color: #B9C6D6 !important;
 }
 
@@ -77,12 +77,12 @@ font-style: italic;
   overflow-x: hidden;
   display: grid;
   grid-template-areas: 'info info button'
-                        'desc desc desc' ;
+    'desc desc desc';
   grid-template-rows: 80px 1fr;
   grid-template-columns: 1fr 1fr 1fr;
 }
 
-#full>button{
+#full>button {
   grid-area: button;
   width: 150px;
   height: 40px;
@@ -92,48 +92,59 @@ font-style: italic;
   box-shadow: 2px 2px 5px rgb(114, 128, 151);
 }
 
-#companyInfo{
+#companyInfo {
   grid-area: info;
   display: grid;
   grid-template-areas: 'title title title'
-                        'company location faculty' ;
+    'company location faculty';
   grid-template-rows: 30px 1fr;
   grid-template-columns: 1fr 1fr 1fr;
 }
 
-#projecttitle{
+#projecttitle {
   grid-area: title;
 }
 
-#company{
+#company {
   grid-area: company;
 }
 
-#faculty{
+#faculty {
   grid-area: faculty;
 }
 
-#location{
+#location {
   grid-area: location;
 }
 
-#desc{
+#desc {
   grid-area: desc;
 }
 
 #studAppMain>.navButton {
   grid-area: next;
   height: 70px;
-  width: 70px;
   align-self: center;
   justify-self: right;
   font-size: 20px;
   text-decoration: none;
 }
 
-#studAppMain img{
+#studAppMain img {
   grid-area: next;
   height: 70px;
   align-self: center;
- 
+
+}
+
+img#arrowDark{
+  margin-right: 10px;
+  vertical-align: middle;
+  height: 25px;
+}
+
+img#arrowLight {
+  grid-area: mid;
+  justify-self: center;
+  height: 35px;
 }

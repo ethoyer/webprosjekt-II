@@ -82,10 +82,14 @@ label[for=comments] {
 
 form>.navButton {
   grid-area: back;
-  justify-self: left;
   align-self: center;
   font-size: 20px;
   text-decoration: none;
+  width: 100px;
+  background-color: #EAEEF5;
+  border-radius: 10px;
+  box-shadow: 2px 2px 5px rgb(114, 128, 151);
+  padding: 10px;
 }
 
 
