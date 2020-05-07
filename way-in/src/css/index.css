@@ -15,6 +15,7 @@
 .business>a {
   display: grid;
   text-decoration: none;
+  color: black;
 }
 
 .student>a {

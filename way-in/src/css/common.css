@@ -1,3 +1,10 @@
+/* CSS shared across the application */
+
+@font-face {
+  font-family: limelight-regular;
+  src: url("../fonts/Limelight-Regular.ttf");
+}
+
 body {
   height: 100vh;
   width: 100vw;
@@ -18,6 +25,8 @@ header {
 
 header h1 {
   justify-self: center;
+  font-family: limelight-regular;
+  letter-spacing: 0.2em;
 }
 
 .logo {

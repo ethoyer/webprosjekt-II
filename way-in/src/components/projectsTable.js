@@ -102,8 +102,8 @@ class ProjectsTable extends React.Component {
       parent={this}
       />
       <div  className="navButton">
-      <img id="arrowDark" src={arrowDark}></img>
       <a href="" onClick={(e) => this.nextPage(e)}>NEXT</a>
+      <img id="arrowDark" src={arrowDark}></img>
       </div>
       </>
     )
