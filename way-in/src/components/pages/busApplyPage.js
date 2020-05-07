@@ -19,7 +19,7 @@ class StudentApplication extends React.Component{
 
         <AppButton
             id="baButton"
-            location="/"
+            location="/busApplyBachPage"
             label="Bachelor Thesis"/>
         <div id="contact">    
             <p>Already offered a project but not yet heard from us?</p>
