@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Route, Link, BrowserRouter as Router } from 'react-router-dom'
+import ArrowDark from '../pictures/arrowDark.png';
+import { Route, Link, BrowserRouter as Router } from 'react-router-dom';
 
 
 class IntForm extends React.Component {
@@ -86,7 +87,8 @@ class IntForm extends React.Component {
         
     let contactForm;      
 
-    if (this.state.isSubmitted) {            
+    if (this.state.isSubmitted) { 
+        document.getElementById('projectListContainer').className="hidden";         
         contactForm = (            
         <div className='contact-submit-message'>
         <h2>Thank you!</h2>
@@ -153,8 +155,11 @@ class IntForm extends React.Component {
              <input            
                 type='submit'            
                 value='Submit'            
-               />  
-               <a className="navButton" href="" onClick={(e) => this.prevPage(e)}>BACK</a> 
+               /> 
+               <div className="navButton">
+               <img id="arrowDark" src={ArrowDark}></img>
+               <a href="" onClick={(e) => this.prevPage(e)}>BACK</a> 
+               </div> 
         </form>
        
        );
