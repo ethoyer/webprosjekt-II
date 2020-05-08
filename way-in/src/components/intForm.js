@@ -1,32 +1,35 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import ArrowDark from '../pictures/arrowDark.png';
 import { Route, Link, BrowserRouter as Router } from 'react-router-dom';
 
 
 class IntForm extends React.Component {
     constructor(props) {
       super(props);
+      this.handleSubmit = this.handleSubmit.bind(this);
       this.prevPage = this.prevPage.bind(this);
       this.state = {
-        isSubmitted: false,
         email: '',
-        hasEmailError: false,
-       
+        fname:'',
+        mname:'',
+        lname:'',
+        pcode:'',
+        isSubmitted: false,
     };
   }
- //checking if the email box is empty (when you delete all the input data, a text appears)
+  
   handleEmailChange(event) {
     const inputValue = event.target.value;
-    const isEmpty = inputValue === '';
     this.setState({
       email: inputValue,
-      hasEmailError: isEmpty,
+      fname: inputValue,
+      mname: inputValue,
+      lname: inputValue,
     });
   }
 
 
-  handleSubmit() {
+  handleSubmit(event) {
     console.log("Form sent");
     const formData = new FormData();
     formData.append(
@@ -53,12 +56,15 @@ class IntForm extends React.Component {
       'programme_code',
       document.getElementById("pcode").value
     );
+    console.log(formData);
     //'localhost' may have to be replaced bt your local ip address:
-    fetch("http://localhost/way_in_db/intForm.php", {
+    fetch("http://192.168.64.2/way_in_db/intForm-1.php", {
       method: 'POST',
       body: formData
     });
+   
     this.setState({isSubmitted: true});
+    event.preventDefault();
   }
 
   prevPage(e) {
@@ -68,27 +74,12 @@ class IntForm extends React.Component {
   }
 
   render() {
-    let emailErrorText;
-
-    if (this.state.hasEmailError) {
-      emailErrorText = (
-        <sub className='contact-message-error'>Please fill in your e-mail address</sub>
-      )
-    }
-
-    let contentErrorText;
-             
-    if (this.state.hasContentError) {            
-        contentErrorText = (            
-        <p className='contact-message-error'>please fill in your inquiry</p>            
-           )            
-          }            
+      
                                      
         
     let contactForm;      
 
-    if (this.state.isSubmitted) { 
-        document.getElementById('projectListContainer').className="hidden";         
+    if (this.state.isSubmitted) {            
         contactForm = (            
         <div className='contact-submit-message'>
         <h2>Thank you!</h2>
@@ -101,10 +92,10 @@ class IntForm extends React.Component {
         contactForm = (
          
           
-          <form onSubmit={() => {this.handleSubmit()}} >
+          <form onSubmit={this.handleSubmit} >
             <h2>Internship Application</h2>
            <p>Please fill in the application form below.</p>
-            <label htmlFor="name">*Your name: </label>
+            <label htmlFor="name">*Your name: 
             <input
               id="fname"
               type="text"
@@ -124,42 +115,30 @@ class IntForm extends React.Component {
               placeholder="last name"
               required
             />
-         
+            </label>
 
-            <label htmlFor="email">*E-mail: </label>
+            <label htmlFor="email">*E-mail: 
             <input
               id="email"
               type="email"
               placeholder="ex) olan@stud.ntnu.no"
-              value={this.state.email}
-              onChange={(event) => {this.handleEmailChange(event)}}
               required
             />
-            {emailErrorText}  
+            </label>
 
-            <label htmlFor="programme">*Choose programme:</label>
+            <label htmlFor="programme">*Choose programme:
             <select id="pcode" name="programme">
               <option value="IMT3541">IMT3541</option>
               <option value="IMT3006">IMT3006</option>
              
             </select>        
-                   
-       
-            <label htmlFor="comments">Comments (if any):</label>   
-            <textarea  
-                id="comments"          
-                value={this.state.content}           
-             />            
-        
-        
+            </label>
+            
              <input            
                 type='submit'            
                 value='Submit'            
-               /> 
-               <div className="navButton">
-               <img id="arrowDark" src={ArrowDark}></img>
-               <a href="" onClick={(e) => this.prevPage(e)}>BACK</a> 
-               </div> 
+               />  
+               <a className="navButton" href="" onClick={(e) => this.prevPage(e)}>BACK</a> 
         </form>
        
        );

@@ -2,25 +2,98 @@ import React from 'react';
 import '../../css/form.css';
 import Header from '../header';
 import Footer from '../footer';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 
 class busIntForm extends React.Component {
-    constructor(props) {
-      super(props);
-      this.state = {
-        intTitle: '',
-        intCompany: '',
-        intFaculty: '',
-        intLocation: '',
-        intDescription: '',
-        isSubmitted: false,
-    };
-  }
+  constructor(props) {
+    super(props);
+    this.handleSubmit = this.handleSubmit.bind(this);
+   
+    this.state = {
+      compID: '',
+      intCompany:'',
+      fname:'',
+      mname:'',
+      lname:'',
+      email:'',
+      tlf:'',
+      intLocation:'',
+      intTitle:'',
+      intStart:'',
+      quantity:'',
+      intDescription:'',
+    
+      isSubmitted: false,
+  };
+}
 
-  handleSubmit( event ) {
-    event.preventDefault();
-  }
+handleEmailChange(event) {
+  const inputValue = event.target.value;
+  this.setState({
+    compID: inputValue,
+    intCompany: inputValue,
+    fname: inputValue,
+    mname: inputValue,
+    lname: inputValue,
+    email: inputValue,
+    tlf: inputValue,
+    intLocation: inputValue,
+    intTitle: inputValue,
+    intDescription: inputValue,
+  });
+}
 
+
+handleSubmit(event) {
+  console.log("Form sent");
+  const formData = new FormData();
+  formData.append(
+    "method",
+    "addCompInt"
+  );
+  formData.append(
+    'company_id',
+    document.getElementById("compID").value
+  );
+  formData.append(
+    'contact_person',
+    document.getElementById("fname").value
+  );
+  formData.append(
+    'phone_no',
+    document.getElementById("tlf").value
+  );
+  formData.append(
+    'email',
+    document.getElementById("email").value
+  );
+  formData.append(
+    'project_title',
+    document.getElementById("intTitle").value
+  );
+  formData.append(
+    'project_description',
+    document.getElementById("intDescription").value
+  );
+  formData.append(
+    'project_duration',
+    document.getElementById("intDuration").value
+  );
+  formData.append(
+    'start_date',
+    document.getElementById("intStart").value
+  );
+  
+  console.log(formData);
+  //'localhost' may have to be replaced bt your local ip address:
+  fetch("http://192.168.64.2/way_in_db/intForm-1.php", {
+    method: 'POST',
+    body: formData
+  });
+ 
+  this.setState({isSubmitted: true});
+  event.preventDefault();
+}
 
   render() {                                   
         
@@ -38,70 +111,128 @@ class busIntForm extends React.Component {
       } else {
         applyIntForm = (
          
-          <form action="../index.php">
+          <form onSubmit={this.handleSubmit}>
             <h2>Project Application</h2>
            <p>Please fill in the application form below.</p>
-            <label for="intTitle">*Title for your project: </label>
+           <label htmlFor="compID">*Company ID: </label>
             <input
-              id="intTitle"
-              name="intTitle"
+              id="compID"
               type="text"
-              placeholder="title.."
-              value={this.state.intTitle}
-              onChange={e => this.setState({ intTitle: e.target.value })}
+              placeholder="ex)12345."
               required
             />
-            <label for="intCompany">*The company you represent: </label>
+        
+            <label htmlfor="intCompany">*The company you represent: 
             <input
               id="intCompany"
               name="intCompany"
               type="text"
               placeholder="company.."
-              value={this.state.intCompany}
-              onChange={e => this.setState({ intCompany: e.target.value })}
-              required
+            
+            />
+            </label>
+        
+            <label htmlFor="contactName">*Contact person:
+            <input
+              id="fname"
+              type="text"
+              placeholder="first name"
+            />
+
+      
+            <input
+              id="mname"
+              type="text"
+              placeholder="(middle name)"
             />
             
-             <label for="intFaculty">*Choose faculty:</label>
-            <select id="intFaculty" name="intFaculty">
-              <option value="AD">Arkitektur og Design</option>
-              <option value="HF">Det humanistiske fakultet</option>
-            </select> 
+            <input
+              id="lname"
+              type="text"
+              placeholder="last name"
+              required
+            />
+          </label>
 
-            <label for="intLocation">*Location: </label>
+            <label htmlFor="email">*E-mail address for contact: 
+            <input
+              id="email"
+              type="email"
+              placeholder="ex) olan@norcoop.com"
+              required
+            />
+          </label>
+
+            <label htmlFor="tlf">Tel. number: 
+            <input
+                id="tlf"
+                type="tel"
+                placeholder="ex) xx xxx xxx"
+            />
+            </label>
+
+            <label htmlfor="intLocation">*Location: 
             <input
               id="intLocation"
               name="intLocation"
               type="text"
               placeholder="location.."
-              value={this.state.intLocation}
-              onChange={e => this.setState({ intLocation: e.target.value })}
               required
             />    
-                   
+            </label>
+
+            <label htmlfor="intTitle">*Title for your project: 
+            <input
+              id="intTitle"
+              name="intTitle"
+              type="text"
+              placeholder="title.."
+              required
+            />
+            </label>
+
+            <label htmlFor="duration">Internship duration
+            <select id="intDuration" name="intDuration">
+              <option value="lessThan6month">Less than 6 month</option>
+              <option value="moreThan6month">More than 6 month</option>
+            </select>
+            </label>
+
+
+            <label htmlFor="intStart">*Project Start Date: 
+            <select id="intStart" name="intStart">
+              <option value="spring2020">Spring 2020</option>
+              <option value="fall2020">Fall 2020</option>
+              <option value="spring2021">Spring 2021</option>
+              <option value="fall2021">Fall 2021</option>
+            </select>  
+            </label>
+
+            <label for="quantity">No. of students needed: 
+            <input 
+              id="quantity"
+              type="number" 
+              defaultValue="1"
+              name="quantity" 
+              min="1" 
+              max="5"/>
+            </label>
        
-            <label for="intDescription">Description of the project:</label>   
+            <label htmlfor="intDescription">Description of the project:
             <textarea  
                 id="intDescription" 
                 name="intDescription"
                 placeholder="description.."        
-                value={this.state.intDescription}            
-                onChange={e => this.setState({ intDescription: e.target.value })}         
+                       
              />  
-
-            {/* <label for="intEmail">*Your email: </label>
-            <input
-              id="intEmail"
-              name="intEmail"
-              type="intEmail"
-              placeholder="email.."
-              value={this.state.email}
-              onChange={(event) => {this.handleEmailChange(event)}}
-              required
-            />            */}
+            </label>
 
                        
-            <input type="submit" onClick={e => this.handleSubmit(e)} value="Submit" />  
+             <input            
+                type='submit'            
+                value='Submit'            
+               />  
+               <a className="navButton" href="" onClick={(e) => this.prevPage(e)}>BACK</a> 
         </form>
        
        );

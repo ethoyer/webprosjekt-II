@@ -46,8 +46,43 @@ if ($_POST["method"] == "add"){
         "pcode" => $_POST["programme_code"]
     ]);
     echo "1";
-}
-
+}elseif ($_POST["method"]=="addStudBach"){
+    $query = $db->prepare(
+        "INSERT INTO `stud_ba_application` (`Email`, `Fname`, `Mname`, `Lname`, `programme_code`) VALUES (:email, :fname, :mname, :lname, :pcode)"
+    );
+    $query->execute([
+        "email" => $_POST["Email"],
+        "fname" => $_POST["Fname"],
+        "mname" => $_POST["Mname"],
+        "lname" => $_POST["Lname"],
+        "pcode" => $_POST["programme_code"]
+    ]);
+}elseif ($_POST["method"]=="addCompInt"){
+    $query = $db->prepare(
+        "INSERT INTO `company_int_suggestion` (`company_id`, `contact_person`, `phone_no`, `email`, `project_title`,`project_description`,`project_duration`,`start_date`) VALUES (:compID, :fname, :tlf, :email, :intTitle, :intDescription, :intDuration, :intStart)"
+    );
+    $query->execute([
+        "compID" => $_POST["company_id"],
+        "fname" => $_POST["contact_person"],
+        "tlf" => $_POST["phone_no"],
+        "email" => $_POST["email"],
+        "intTitle" => $_POST["project_title"],
+        "intDescription" => $_POST["project_description"],
+        "intDuration" => $_POST["project_duration"],
+        "intStart" => $_POST["start_date"]
+    ]);
+}elseif ($_POST["method"]=="addCompBach"){
+    $query = $db->prepare(
+        "INSERT INTO `company_ba_suggestion` (`Email`, `Fname`, `Mname`, `Lname`, `programme_code`) VALUES (:email, :fname, :mname, :lname, :pcode)"
+    );
+    $query->execute([
+        "email" => $_POST["Email"],
+        "fname" => $_POST["Fname"],
+        "mname" => $_POST["Mname"],
+        "lname" => $_POST["Lname"],
+        "pcode" => $_POST["programme_code"]
+    ]);
+    };
 
 /**
  * Create the statement:

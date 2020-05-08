@@ -2,7 +2,7 @@ import React from 'react';
 import '../../css/form.css';
 import Header from '../header';
 import Footer from '../footer';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 
 class busOfferBachForm extends React.Component {
     constructor(props) {
@@ -37,11 +37,17 @@ class busOfferBachForm extends React.Component {
         );
       } else {
         busApplyBachForm = (
-         
           
           <form onSubmit={() => {this.handleSubmit()}} >
             <h2>Offer a bachelor thesis project</h2>
            <p>Please fill in the application form below.</p>
+           <label htmlFor="compID">*Your company ID: </label>
+            <input
+              id="compID"
+              type="text"
+              placeholder="ex) 12345"
+              required
+            />
             <label htmlFor="compName">*Company you represent: </label>
             <input
               id="compName"
@@ -50,20 +56,20 @@ class busOfferBachForm extends React.Component {
               required
             />
 
-            <label htmlFor="contPerson">Contact Person: </label>
-            
+            <label htmlFor="fname">*Contact person's first name: </label>
             <input
               id="fname"
               type="text"
               placeholder="first name"
             />
 
+            <label htmlFor="mname"> Middle name: </label>
             <input
               id="mname"
               type="text"
               placeholder="(middle name)"
             />
-
+            <label htmlFor="lname">*Last name: </label>
             <input
               id="lname"
               type="text"
@@ -77,8 +83,7 @@ class busOfferBachForm extends React.Component {
               id="email"
               type="email"
               placeholder="ex) olan@stud.ntnu.no"
-              value={this.state.email}
-              onChange={(event) => {this.handleEmailChange(event)}}
+              
               required
             />
             <label htmlFor="tlf">Tel. number: </label>
@@ -100,6 +105,7 @@ class busOfferBachForm extends React.Component {
               <option value="spring2020">Spring 2020</option>
               <option value="fall2020">Fall 2020</option>
               <option value="spring2021">Spring 2021</option>
+              <option value="fall2021">Fall 2021</option>
             </select>   
        
             <label htmlFor="bachDesc">Project Description: </label>   

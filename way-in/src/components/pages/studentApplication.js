@@ -18,7 +18,7 @@ class StudentApplication extends React.Component{
             id="intButton"/>
 
         <AppButton
-            location="/ba_overview"
+            location="ba_overview"
             label="Bachelor Thesis"
             id="baButton"/>
     </main>
