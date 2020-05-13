@@ -14,21 +14,7 @@ class StudBachForm extends React.Component {
         mname1:'',
         lname1:'',
         pcode1:'',
-        email2: '',
-        fname2:'',
-        mname2:'',
-        lname2:'',
-        pcode2:'',
-        email2: '',
-        fname3:'',
-        mname3:'',
-        lname3:'',
-        pcode3:'',
-        email4: '',
-        fname4:'',
-        mname4:'',
-        lname4:'',
-        pcode4:'',
+        
         isSubmitted: false,
     };
   }
@@ -40,18 +26,7 @@ class StudBachForm extends React.Component {
       fname1: inputValue,
       mname1: inputValue,
       lname1: inputValue,
-      email2: inputValue,
-      fname2: inputValue,
-      mname2: inputValue,
-      lname2: inputValue,
-      email3: inputValue,
-      fname3: inputValue,
-      mname3: inputValue,
-      lname3: inputValue,
-      email4: inputValue,
-      fname4: inputValue,
-      mname4: inputValue,
-      lname4: inputValue,
+      
     });
   }
 
@@ -65,27 +40,27 @@ class StudBachForm extends React.Component {
     );
     formData.append(
       'Email',
-      document.getElementById("email").value
+      document.getElementById("email1").value
     );
     formData.append(
       'Fname',
-      document.getElementById("fname").value
+      document.getElementById("fname1").value
     );
     formData.append(
       'Mname',
-      document.getElementById("mname").value
+      document.getElementById("mname1").value
     );
     formData.append(
       'Lname',
-      document.getElementById("lname").value
+      document.getElementById("lname1").value
     );
     formData.append(
       'programme_code',
-      document.getElementById("pcode").value
+      document.getElementById("pcode1").value
     );
     console.log(formData);
     //'localhost' may have to be replaced bt your local ip address:
-    fetch("http://192.168.64.2/way_in_db/intForm.php", {
+    fetch("http://192.168.64.2/way_in_db/intForm-1.php", {
       method: 'POST',
       body: formData
     });
@@ -158,6 +133,7 @@ class StudBachForm extends React.Component {
             <input
               id="email1"
               type="email"
+              pattern="^[a-zA-Z0-9]+@stud\.ntnu\.no$"
               placeholder="ex) olan@stud.ntnu.no"
        
             />
@@ -170,123 +146,6 @@ class StudBachForm extends React.Component {
               <option value="BMED">BMED</option>
             </select>        
             </label>
-
-            <label htmlFor="name2">*Student 2: 
-            <input
-              id="fname2"
-              type="text"
-              placeholder="first name"
-            />
-            
-            <input
-              id="mname2"
-              type="text"
-              placeholder="(middle name)"
-            />
-
-            <input
-              id="lname2"
-              type="text"
-              placeholder="last name"
-              
-            />
-            </label>
-
-            <label htmlFor="email2">*E-mail: 
-            <input
-              id="email2"
-              type="email"
-              placeholder="ex) olan@stud.ntnu.no"
-          
-            />
-            </label>
-
-            <label htmlFor="programme2">*Choose programme:
-            <select id="pcode2" name="programme">
-              <option value="BWU">BWU</option>
-              <option value="BIXD">BIXD</option>
-              <option value="BMED">BMED</option>
-            </select>        
-            </label>
-
-            <label htmlFor="name3">*Student 3: 
-            <input
-              id="fname3"
-              type="text"
-              placeholder="first name"
-       
-            />
-            
-            <input
-              id="mname3"
-              type="text"
-              placeholder="(middle name)"
-            />
-
-            <input
-              id="lname3"
-              type="text"
-              placeholder="last name"
-             
-            />
-            </label>
-
-            <label htmlFor="email3">*E-mail: 
-            <input
-              id="email3"
-              type="email"
-              placeholder="ex) olan@stud.ntnu.no"
-       
-            />
-            </label>
-
-            <label htmlFor="programme3">*Choose programme:
-            <select id="pcode3" name="programme">
-              <option value="BWU">BWU</option>
-              <option value="BIXD">BIXD</option>
-              <option value="BMED">BMED</option>
-            </select>        
-            </label>
-
-            <label htmlFor="name4">*Student 4: 
-            <input
-              id="fname4"
-              type="text"
-              placeholder="first name"
-       
-            />
-            
-            <input
-              id="mname4"
-              type="text"
-              placeholder="(middle name)"
-            />
-
-            <input
-              id="lname4"
-              type="text"
-              placeholder="last name"
-             
-            />
-            </label>
-
-            <label htmlFor="email4">*E-mail: 
-            <input
-              id="email4"
-              type="email"
-              placeholder="ex) olan@stud.ntnu.no"
-       
-            />
-            </label>
-
-            <label htmlFor="programme4">*Choose programme:
-            <select id="pcode4" name="programme">
-              <option value="BWU">BWU</option>
-              <option value="BIXD">BIXD</option>
-              <option value="BMED">BMED</option>
-            </select>        
-            </label>
-
 
             
              <input            

@@ -33,7 +33,6 @@ $options = [
  */
 $db = new PDO($dsn, $user, $password, $options);
 
-
 if ($_POST["method"] == "add"){
     $query = $db->prepare(
         "INSERT INTO `stud_int_application` (`Email`, `Fname`, `Mname`, `Lname`, `programme_code`) VALUES (:email, :fname, :mname, :lname, :pcode)"
@@ -45,21 +44,20 @@ if ($_POST["method"] == "add"){
         "lname" => $_POST["Lname"],
         "pcode" => $_POST["programme_code"]
     ]);
-    echo "1";
-}elseif ($_POST["method"]=="addStudBach"){
+}elseif ($_POST["method"] == "addStudBach"){
     $query = $db->prepare(
-        "INSERT INTO `stud_ba_application` (`Email`, `Fname`, `Mname`, `Lname`, `programme_code`) VALUES (:email, :fname, :mname, :lname, :pcode)"
+        "INSERT INTO `stud_ba_application` (`Email`, `Fname`, `Mname`, `Lname`, `programme_code`) VALUES (:email1, :fname1, :mname1, :lname1, :pcode1)"
     );
     $query->execute([
-        "email" => $_POST["Email"],
-        "fname" => $_POST["Fname"],
-        "mname" => $_POST["Mname"],
-        "lname" => $_POST["Lname"],
-        "pcode" => $_POST["programme_code"]
+        "email1" => $_POST["Email"],
+        "fname1" => $_POST["Fname"],
+        "mname1" => $_POST["Mname"],
+        "lname1" => $_POST["Lname"],
+        "pcode1" => $_POST["programme_code"]
     ]);
-}elseif ($_POST["method"]=="addCompInt"){
+}elseif ($_POST["method"] == "addCompInt"){
     $query = $db->prepare(
-        "INSERT INTO `company_int_suggestion` (`company_id`, `contact_person`, `phone_no`, `email`, `project_title`,`project_description`,`project_duration`,`start_date`) VALUES (:compID, :fname, :tlf, :email, :intTitle, :intDescription, :intDuration, :intStart)"
+        "INSERT INTO `company_int_suggestion` (`company_id`,`contact_person`, `phone_no`, `email`, `project_title`,`project_description`,`project_duration`,`start_date`,`location`,`no_of_stud`) VALUES (:compID, :fname, :tlf, :email, :intTitle, :intDescription, :intDuration, :intStart, :intLocation, :quantity)"
     );
     $query->execute([
         "compID" => $_POST["company_id"],
@@ -69,20 +67,29 @@ if ($_POST["method"] == "add"){
         "intTitle" => $_POST["project_title"],
         "intDescription" => $_POST["project_description"],
         "intDuration" => $_POST["project_duration"],
-        "intStart" => $_POST["start_date"]
+        "intStart" => $_POST["start_date"],
+        "intLocation" => $_POST["location"],
+        "quantity" => $_POST["no_of_stud"]
     ]);
-}elseif ($_POST["method"]=="addCompBach"){
+}elseif ($_POST["method"] == "addBusBach"){
     $query = $db->prepare(
-        "INSERT INTO `company_ba_suggestion` (`Email`, `Fname`, `Mname`, `Lname`, `programme_code`) VALUES (:email, :fname, :mname, :lname, :pcode)"
+        "INSERT INTO `company_ba_suggestion` (`company_id`,`contact_person`, `phone_no`, `email`, `project_title`,`project_description`,`project_duration`,`start_date`,`location`,`no_of_stud`) VALUES (:compID, :fname, :tlf, :email, :bachTitle, :bachDesc, :bachDuration, :bachStart, :bachLoc, :quantity)"
     );
+    
     $query->execute([
-        "email" => $_POST["Email"],
-        "fname" => $_POST["Fname"],
-        "mname" => $_POST["Mname"],
-        "lname" => $_POST["Lname"],
-        "pcode" => $_POST["programme_code"]
+        "compID" => $_POST["company_id"],
+        "fname" => $_POST["contact_person"],
+        "tlf" => $_POST["phone_no"],
+        "email" => $_POST["email"],
+        "bachTitle" => $_POST["project_title"],
+        "bachDesc" => $_POST["project_description"],
+        "bachDuration" => $_POST["project_duration"],
+        "bachStart" => $_POST["start_date"],
+        "bachLoc" => $_POST["location"],
+        "quantity" => $_POST["no_of_stud"]
     ]);
-    };
+    }
+    
 
 /**
  * Create the statement:
@@ -114,5 +121,5 @@ while ($row = $stmt->fetch()){
 // fetch from eg. http:/192.xxxxx/wayin/intProjectDB.php
 // use ipconfig in the terminal to get the ip adress of the host.
 
-echo "2";
+
 ?>

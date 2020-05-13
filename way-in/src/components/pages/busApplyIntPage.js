@@ -13,16 +13,14 @@ class busIntForm extends React.Component {
       compID: '',
       intCompany:'',
       fname:'',
-      mname:'',
-      lname:'',
       email:'',
       tlf:'',
       intLocation:'',
       intTitle:'',
+      intDescription:'',
       intStart:'',
       quantity:'',
-      intDescription:'',
-    
+      intDuration: '',
       isSubmitted: false,
   };
 }
@@ -40,6 +38,8 @@ handleEmailChange(event) {
     intLocation: inputValue,
     intTitle: inputValue,
     intDescription: inputValue,
+    intDuration: inputValue,
+    intStart: inputValue
   });
 }
 
@@ -55,6 +55,7 @@ handleSubmit(event) {
     'company_id',
     document.getElementById("compID").value
   );
+  
   formData.append(
     'contact_person',
     document.getElementById("fname").value
@@ -83,6 +84,14 @@ handleSubmit(event) {
     'start_date',
     document.getElementById("intStart").value
   );
+  formData.append(
+    'location',
+    document.getElementById("intLocation").value
+  );
+  formData.append(
+    'no_of_stud',
+    document.getElementById("quantity").value
+  );
   
   console.log(formData);
   //'localhost' may have to be replaced bt your local ip address:
@@ -108,21 +117,26 @@ handleSubmit(event) {
         <Link to="/">Back to front</Link>
         </div>
         );
+        //companies need to give their ID provided by NTNU when offering an internship/ projects 
+        //because they need to already exist in the database
       } else {
         applyIntForm = (
          
           <form onSubmit={this.handleSubmit}>
             <h2>Project Application</h2>
            <p>Please fill in the application form below.</p>
-           <label htmlFor="compID">*Company ID: </label>
+          
+           <label htmlfor="compID">*Your company ID: 
             <input
               id="compID"
+              name="compID"
               type="text"
-              placeholder="ex)12345."
-              required
+              placeholder="company ID provided by NTNU"
+            
             />
+            </label>
         
-            <label htmlfor="intCompany">*The company you represent: 
+            <label htmlfor="intCompany">*Company name: 
             <input
               id="intCompany"
               name="intCompany"
@@ -154,7 +168,7 @@ handleSubmit(event) {
             />
           </label>
 
-            <label htmlFor="email">*E-mail address for contact: 
+            <label htmlFor="email">*E-mail address: 
             <input
               id="email"
               type="email"
@@ -193,7 +207,7 @@ handleSubmit(event) {
 
             <label htmlFor="duration">Internship duration
             <select id="intDuration" name="intDuration">
-              <option value="lessThan6month">Less than 6 month</option>
+              <option value="lessThan6month" selected>Less than 6 month</option>
               <option value="moreThan6month">More than 6 month</option>
             </select>
             </label>
@@ -201,14 +215,14 @@ handleSubmit(event) {
 
             <label htmlFor="intStart">*Project Start Date: 
             <select id="intStart" name="intStart">
-              <option value="spring2020">Spring 2020</option>
+              <option value="spring2020" selected>Spring 2020</option>
               <option value="fall2020">Fall 2020</option>
               <option value="spring2021">Spring 2021</option>
               <option value="fall2021">Fall 2021</option>
             </select>  
             </label>
 
-            <label for="quantity">No. of students needed: 
+            <label htmlfor="quantity">No. of students needed: 
             <input 
               id="quantity"
               type="number" 

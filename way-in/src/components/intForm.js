@@ -122,6 +122,7 @@ class IntForm extends React.Component {
               id="email"
               type="email"
               placeholder="ex) olan@stud.ntnu.no"
+              pattern="^[a-zA-Z0-9]+@stud\.ntnu\.no$"
               required
             />
             </label>
