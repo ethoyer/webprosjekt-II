@@ -93,7 +93,7 @@ class busOfferBachForm extends React.Component {
     
     console.log(formData);
     //'localhost' may have to be replaced bt your local ip address:
-    fetch("http://locslhost/way_in_db/intForm-1.php", {
+    fetch("http://locslhost/way_in_db/intForm.php", {
       method: 'POST',
       body: formData
     });
