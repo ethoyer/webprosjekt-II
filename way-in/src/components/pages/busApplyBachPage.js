@@ -19,6 +19,7 @@ class busOfferBachForm extends React.Component {
         bachDesc: '',
         quantity:'',
         bachDuration: '',
+        bachStart: '',
         isSubmitted: false,
     };
   }
@@ -35,8 +36,7 @@ class busOfferBachForm extends React.Component {
       bachLoc: inputValue,
       bachTitle: inputValue,
       bachDesc: inputValue,
-      bachDuration: inputValue,
-      bachStart:inputValue
+      
     });
   }
 
@@ -193,14 +193,14 @@ class busOfferBachForm extends React.Component {
 
             <label htmlfor="bachDuration">Project duration
             <select id="bachDuration" name="bachDuration">
-              <option value="lessThan6month" selected>Less than 6 month</option>
+              <option value="lessThan6month">Less than 6 month</option>
               <option value="moreThan6month">More than 6 month</option>
             </select>
             </label>
 
             <label htmlfor="bachStart">*Project Start Date: 
-            <select id="bachStart" name="startDate">
-              <option value="spring2020" selected>Spring 2020</option>
+            <select id="bachStart" name="bachStart">
+              <option value="spring2020">Spring 2020</option>
               <option value="fall2020">Fall 2020</option>
               <option value="spring2021">Spring 2021</option>
               <option value="fall2021">Fall 2021</option>

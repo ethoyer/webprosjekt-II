@@ -117,7 +117,7 @@ class IntForm extends React.Component {
             />
             </label>
 
-            <label htmlFor="email">*E-mail: 
+            <label htmlFor="email">*E-mail (Only accepts "@stud.ntnu.no"): 
             <input
               id="email"
               type="email"

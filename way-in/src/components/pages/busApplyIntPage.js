@@ -11,16 +11,17 @@ class busIntForm extends React.Component {
    
     this.state = {
       compID: '',
-      intCompany:'',
       fname:'',
+      mname:'',
+      lname:'',
       email:'',
       tlf:'',
       intLocation:'',
       intTitle:'',
       intDescription:'',
-      intStart:'',
+      intStart:{value:'Fall 2020'},
       quantity:'',
-      intDuration: '',
+      intDuration: {value:'lessThan6month'},
       isSubmitted: false,
   };
 }
@@ -29,7 +30,6 @@ handleEmailChange(event) {
   const inputValue = event.target.value;
   this.setState({
     compID: inputValue,
-    intCompany: inputValue,
     fname: inputValue,
     mname: inputValue,
     lname: inputValue,
@@ -136,15 +136,7 @@ handleSubmit(event) {
             />
             </label>
         
-            <label htmlfor="intCompany">*Company name: 
-            <input
-              id="intCompany"
-              name="intCompany"
-              type="text"
-              placeholder="company.."
-            
-            />
-            </label>
+      
         
             <label htmlFor="contactName">*Contact person:
             <input
@@ -206,7 +198,7 @@ handleSubmit(event) {
             </label>
 
             <label htmlFor="duration">Internship duration
-            <select id="intDuration" name="intDuration">
+            <select value={this.state.value} id="intDuration" name="intDuration">
               <option value="lessThan6month" selected>Less than 6 month</option>
               <option value="moreThan6month">More than 6 month</option>
             </select>

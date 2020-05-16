@@ -14,6 +14,7 @@ class StudBachForm extends React.Component {
         mname1:'',
         lname1:'',
         pcode1:'',
+        mentor:'',
         
         isSubmitted: false,
     };
@@ -26,6 +27,7 @@ class StudBachForm extends React.Component {
       fname1: inputValue,
       mname1: inputValue,
       lname1: inputValue,
+      mentor: inputValue
       
     });
   }
@@ -57,6 +59,10 @@ class StudBachForm extends React.Component {
     formData.append(
       'programme_code',
       document.getElementById("pcode1").value
+    );
+    formData.append(
+      'Mentor',
+      document.getElementById("mentor").value
     );
     console.log(formData);
     //'localhost' may have to be replaced bt your local ip address:
@@ -129,7 +135,7 @@ class StudBachForm extends React.Component {
             />
             </label>
 
-            <label htmlFor="email1">*E-mail: 
+            <label htmlFor="email1">*E-mail (Only accepts "@stud.ntnu.no"): 
             <input
               id="email1"
               type="email"
@@ -145,6 +151,15 @@ class StudBachForm extends React.Component {
               <option value="BIXD">BIXD</option>
               <option value="BMED">BMED</option>
             </select>        
+            </label>
+
+            <label htmlFor="mentor">*Student 1: 
+            <input
+              id="mentor"
+              type="text"
+              placeholder="firstname lastname"
+       
+            />
             </label>
 
             
