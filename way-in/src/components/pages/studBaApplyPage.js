@@ -16,7 +16,7 @@ class studBaApplyPage extends React.Component{
         return(
         <div>
     <Header />
-    <IntOverview intdb='http://192.168.64.2/way_in_db/projects.php'
+    <IntOverview intdb='http://localhost/way_in_db/projects.php'
     title="Apply to a Bachelor Project" />
     <StudBachForm />
     <Footer />

@@ -16,7 +16,7 @@ class studIntApplyPage extends React.Component{
         return(
         <div>
     <Header />
-    <IntOverview intdb='http://192.168.64.2/way_in_db/internships.php'
+    <IntOverview intdb='http://localhost/way_in_db/internships.php'
     title="Apply to an Internship" />
     <IntForm />
     <Footer />
