@@ -136,29 +136,19 @@ class busOfferBachForm extends React.Component {
             <input
               id="fname"
               type="text"
-              placeholder="first name"
+              placeholder="first name (middle name) last name"
+              required
             />
 
             
-            <input
-              id="mname"
-              type="text"
-              placeholder="(middle name)"
-            />
-     
-            <input
-              id="lname"
-              type="text"
-              placeholder="last name"
-             
-            />
             </label>
 
             <label htmlFor="email">*E-mail address: 
             <input
               id="email"
               type="email"
-              placeholder="ex) olan@stud.ntnu.no"
+              placeholder="ex) olan@norcoop.com"
+              required
             />
             </label>
 
@@ -177,7 +167,7 @@ class busOfferBachForm extends React.Component {
               name="location"
               type="text"
               placeholder="location.."
-             
+              required
             />    
           </label>
 
@@ -186,6 +176,7 @@ class busOfferBachForm extends React.Component {
                 id="bachTitle"
                 type="text"
                 placeholder="ex) App design and development"
+                required
             />  
             </label>
 
@@ -222,7 +213,8 @@ class busOfferBachForm extends React.Component {
             <label htmlfor="bachDesc">Project Description:   
             <textarea  
                 id="bachDesc"  
-                name="bachDesc"                
+                name="bachDesc"     
+                required           
              />     
             </label>
 

@@ -7,6 +7,7 @@ class IntForm extends React.Component {
     constructor(props) {
       super(props);
       this.handleSubmit = this.handleSubmit.bind(this);
+      this.getProjectsInList = this.getProjectsInList.bind(this);
       this.prevPage = this.prevPage.bind(this);
       this.state = {
         email: '',
@@ -16,6 +17,15 @@ class IntForm extends React.Component {
         pcode:'',
         isSubmitted: false,
     };
+  }
+
+  getProjectsInList(event){
+    let inList = document.getElementsByClassName("inList");
+    let arr = [];
+    for (let i=0; i<inList.length; i++){
+      arr.push(inList[i].getAttribute("id"));
+    }
+    return arr;
   }
   
   handleEmailChange(event) {
@@ -30,11 +40,15 @@ class IntForm extends React.Component {
 
 
   handleSubmit(event) {
-    console.log("Form sent");
+    let addedProjects = JSON.stringify(this.getProjectsInList())
     const formData = new FormData();
     formData.append(
       "method",
       "add"
+    );
+    formData.append(
+      'Projects',
+      addedProjects
     );
     formData.append(
       'Email',

@@ -33,37 +33,7 @@ $options = [
  */
 $db = new PDO($dsn, $user, $password, $options);
 
-/** 
-*if ($_POST["method"] == "login"){
-* $password=$_POST["password"];
-*   //sjekker om username ligger i db
-*    $query=$db->prepare(
-*       "SELECT `username` FROM `users` WHERE username=:userName"
-*    );
-*   $query->excecute([
-*       "userName" => $userName
-*   ]);
-*   if ($query->fetch()) {
-*       //sjekker passordet til user i db
-*       $query2=$db->prepare(
-*           "SELECT `password` FROM `users` WHERE username=:userName"
-*       );
 
-*        $query2->excecute([
-*           "userName" => $userName
-*       ]);
-*       $psw2 = $query->fetch()[0];
-*       //sjekker om passordet er riktig
-*       if ($psw2 == $password){
-*           echo 'yay';
-*       }
-*       else
-*       {
-*            echo 'nay';
-*        }
-*    }
-*}
-*/
 
 if ($_POST["method"] == "add"){
     $query = $db->prepare(
@@ -76,6 +46,16 @@ if ($_POST["method"] == "add"){
         "lname" => $_POST["Lname"],
         "pcode" => $_POST["programme_code"]
     ]);
+    $Projects = json_decode($_POST["Projects"]);
+    foreach ($Projects as $project){
+        $query2 = $db->prepare(
+            "INSERT INTO `chosen_projects` (`Email`, `project_id`) VALUES (:v1, :v2)"
+        );
+        $query2->execute([
+            "v1" => $_POST["Email"],
+            "v2" => $project
+        ]);
+    }
 }elseif ($_POST["method"] == "addStudBach"){
     $query = $db->prepare(
         "INSERT INTO `stud_ba_application` (`Email`, `Fname`, `Mname`, `Lname`, `programme_code`, `Mentor`) VALUES (:email1, :fname1, :mname1, :lname1, :pcode1, :mentor)"
@@ -88,6 +68,16 @@ if ($_POST["method"] == "add"){
         "pcode1" => $_POST["programme_code"],
         "mentor" => $_POST["Mentor"]
     ]);
+        $Projects = json_decode($_POST["Projects"]);
+        foreach ($Projects as $project){
+         $query2 = $db->prepare(
+            "INSERT INTO `chosen_bach_projects` (`Email`, `bach_id`) VALUES (:v1, :v2)"
+        );
+        $query2->execute([
+            "v1" => $_POST["Email"],
+            "v2" => $project
+        ]);
+        }
 }elseif ($_POST["method"] == "addCompInt"){
     $query = $db->prepare(
         "INSERT INTO `company_int_suggestion` (`company_id`,`contact_person`, `phone_no`, `email`, `project_title`,`project_description`,`project_duration`,`start_date`,`location`,`no_of_stud`) VALUES (:compID, :fname, :tlf, :email, :intTitle, :intDescription, :intDuration, :intStart, :intLocation, :quantity)"

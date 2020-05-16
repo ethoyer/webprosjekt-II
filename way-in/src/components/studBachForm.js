@@ -7,6 +7,7 @@ class StudBachForm extends React.Component {
     constructor(props) {
       super(props);
       this.handleSubmit = this.handleSubmit.bind(this);
+      this.getProjectsInList = this.getProjectsInList.bind(this);
       this.prevPage = this.prevPage.bind(this);
       this.state = {
         email1: '',
@@ -18,6 +19,15 @@ class StudBachForm extends React.Component {
         
         isSubmitted: false,
     };
+  }
+
+  getProjectsInList(event){
+    let inList = document.getElementsByClassName("inList");
+    let arr = [];
+    for (let i=0; i<inList.length; i++){
+      arr.push(inList[i].getAttribute("id"));
+    }
+    return arr;
   }
   
   handleEmailChange(event) {
@@ -35,10 +45,15 @@ class StudBachForm extends React.Component {
 
   handleSubmit(event) {
     console.log("Form sent");
+    let addedProjects = JSON.stringify(this.getProjectsInList())
     const formData = new FormData();
     formData.append(
       "method",
       "addStudBach"
+    );
+    formData.append(
+      'Projects',
+      addedProjects
     );
     formData.append(
       'Email',
@@ -118,7 +133,7 @@ class StudBachForm extends React.Component {
               id="fname1"
               type="text"
               placeholder="first name"
-       
+              required
             />
             
             <input
@@ -131,7 +146,7 @@ class StudBachForm extends React.Component {
               id="lname1"
               type="text"
               placeholder="last name"
-             
+              required
             />
             </label>
 
@@ -141,6 +156,7 @@ class StudBachForm extends React.Component {
               type="email"
               pattern="^[a-zA-Z0-9]+@stud\.ntnu\.no$"
               placeholder="ex) olan@stud.ntnu.no"
+              required
        
             />
             </label>
@@ -153,12 +169,12 @@ class StudBachForm extends React.Component {
             </select>        
             </label>
 
-            <label htmlFor="mentor">*Student 1: 
+            <label htmlFor="mentor">*Your mentor: 
             <input
               id="mentor"
               type="text"
               placeholder="firstname lastname"
-       
+              required
             />
             </label>
 

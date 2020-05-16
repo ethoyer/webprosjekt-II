@@ -12,8 +12,6 @@ class busIntForm extends React.Component {
     this.state = {
       compID: '',
       fname:'',
-      mname:'',
-      lname:'',
       email:'',
       tlf:'',
       intLocation:'',
@@ -31,8 +29,6 @@ handleEmailChange(event) {
   this.setState({
     compID: inputValue,
     fname: inputValue,
-    mname: inputValue,
-    lname: inputValue,
     email: inputValue,
     tlf: inputValue,
     intLocation: inputValue,
@@ -142,22 +138,11 @@ handleSubmit(event) {
             <input
               id="fname"
               type="text"
-              placeholder="first name"
+              placeholder="first name (middle name) last name"
             />
 
       
-            <input
-              id="mname"
-              type="text"
-              placeholder="(middle name)"
-            />
             
-            <input
-              id="lname"
-              type="text"
-              placeholder="last name"
-              required
-            />
           </label>
 
             <label htmlFor="email">*E-mail address: 
@@ -229,7 +214,7 @@ handleSubmit(event) {
                 id="intDescription" 
                 name="intDescription"
                 placeholder="description.."        
-                       
+                required
              />  
             </label>
 
