@@ -1,20 +1,19 @@
 import React, { Component } from "react";
 import Header from '../header';
 import Footer from '../footer';
-import '../../css/form.css';
-import Login from '../login';
+import CoordinatorInfo from "../CoordinatorInfo";
 
-class LoginPage extends Component {
+class coordinatorPage extends Component {
 render(){
     return (
       <div>
         <Header/>
-        <main>
-        <Login/>
-        </main>
+            <main>
+                <CoordinatorInfo/>
+            </main>
         <Footer/>
       </div>
     );
   }
 }
-export default LoginPage;
+export default coordinatorPage;
