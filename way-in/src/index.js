@@ -6,11 +6,16 @@ import { Route, BrowserRouter as Router } from 'react-router-dom'
 import Index from './components/pages/index.js';
 import StudentApplication from './components/pages/studentApplication.js';
 import studIntApplyPage from './components/pages/studIntApplyPage';
+<<<<<<< HEAD
 import studBaApplyPage from './components/pages/studBaApplyPage';
 import busApplyPage from './components/pages/busApplyPage.js';
+=======
+import busApplyPage from './components/pages/busApplyPage';
+>>>>>>> origin/login
 import logInPage from './components/pages/logInPage';
 import busApplyIntPage from './components/pages/busApplyIntPage';
 import busApplyBachPage from './components/pages/busApplyBachPage';
+import coordinatorPage from './components/pages/coordinatorPage';
 
 const routing = (
     <Router>
@@ -24,7 +29,11 @@ const routing = (
         <Route path="/busApplyIntPage" component={busApplyIntPage}/>
         <Route path="/busApplyBachPage" component={busApplyBachPage}/>
         <Route path="/int_overview" component={studIntApplyPage} />
+<<<<<<< HEAD
         <Route path="/ba_overview" component={studBaApplyPage} />
+=======
+        <Route path="/coordinatorPage" component={coordinatorPage}/>
+>>>>>>> origin/login
       </div>
     </Router>
   )
