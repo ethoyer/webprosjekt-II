@@ -1,4 +1,4 @@
-.studIntForm form {
+.studInternshipForm form {
   margin: auto;
   margin-top: 2%;
   width: 60%;
@@ -94,7 +94,7 @@ form>.navButton>#arrowDark{
   align-self: center;
 }
 
-.studIntForm input {
+.studInternshipForm input {
   display: inline-block;
   padding: 1%;
   border: 1px solid #ccc;
@@ -102,12 +102,12 @@ form>.navButton>#arrowDark{
   box-sizing: border-box;
 }
 
-.studIntForm input,
-.studIntForm select {
+.studInternshipForm input,
+.studInternshipForm select {
   height: 30px;
 }
 
-.studIntForm label {
+.studInternshipForm label {
   display: inline-block;
 }
 
@@ -115,7 +115,7 @@ label[for=programme] {
   display: block;
 }
 
-.studIntForm input[type=submit] {
+.studInternshipForm input[type=submit] {
   grid-area: submit;
   align-self: center;
   justify-self: right;
@@ -165,7 +165,7 @@ main.hidden, div.hidden {
 }
 
 @media only screen and (max-width: 1200px) {
-  .studIntForm form {
+  .studInternshipForm form {
     grid-template-areas: 'title title title'
       'subtitle subtitle subtitle '
       'namelabel namelabel namelabel'
@@ -200,7 +200,7 @@ main.hidden, div.hidden {
 }
 
 @media only screen and (max-width: 1050px) {
-  .studIntForm form {
+  .studInternshipForm form {
     grid-template-areas: 'title title title'
       'subtitle subtitle subtitle '
       'namelabel namelabel namelabel'

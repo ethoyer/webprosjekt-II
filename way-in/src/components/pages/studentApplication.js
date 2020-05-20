@@ -2,7 +2,7 @@ import React from 'react';
 import Header from '../header.js';
 import Footer from '../footer.js';
 import '../../css/chooseApplication.css';
-import AppButton from '../appButton.js';
+import ApplicationButton from '../applicationButton.js';
 
 class StudentApplication extends React.Component{
     render() {
@@ -12,12 +12,12 @@ class StudentApplication extends React.Component{
     <main id="appchoicemain">
         <h1 id="applicationTitle">Application</h1>
         <h2 id="applicationSubTitle">What are you applying to?</h2>
-        <AppButton
-            location="int_overview"
+        <ApplicationButton
+            location="internship_overview"
             label="Internship"
-            id="intButton"/>
+            id="internshipButton"/>
 
-        <AppButton
+        <ApplicationButton
             location="ba_overview"
             label="Bachelor Thesis"
             id="baButton"/>

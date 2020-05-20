@@ -4,7 +4,7 @@ import Header from '../header';
 import Footer from '../footer';
 import { Link } from 'react-router-dom';
 
-class busOfferBachForm extends React.Component {
+class CompanyOfferBachForm extends React.Component {
     constructor(props) {
       super(props);
       this.handleSubmit = this.handleSubmit.bind(this);
@@ -93,7 +93,7 @@ class busOfferBachForm extends React.Component {
     
     console.log(formData);
     //'localhost' may have to be replaced bt your local ip address:
-    fetch("http://locslhost/way_in_db/intForm.php", {
+    fetch("http://locslhost/way_in_db/internshipForm.php", {
       method: 'POST',
       body: formData
     });
@@ -105,10 +105,10 @@ class busOfferBachForm extends React.Component {
 
   render() {                                   
         
-    let busApplyBachForm;      
+    let companyBachForm;      
 
     if (this.state.isSubmitted) {            
-        busApplyBachForm = (            
+        companyBachForm = (            
         <div className='contact-submit-message'>
         <h2>Thank you!</h2>
         <p>Your application form has been sent.</p>
@@ -117,7 +117,7 @@ class busOfferBachForm extends React.Component {
         </div>
         );
       } else {
-        busApplyBachForm = (
+        companyBachForm = (
           
           <form onSubmit={this.handleSubmit} >
             <h2>Offer a bachelor thesis project</h2>
@@ -224,7 +224,6 @@ class busOfferBachForm extends React.Component {
                 type='submit'            
                 value='Submit'            
                />  
-               <a className="navButton" href="" onClick={(e) => this.prevPage(e)}>BACK</a> 
         </form>
        
        );
@@ -234,8 +233,8 @@ class busOfferBachForm extends React.Component {
         <div>
         <Header />
         <main>
-        <div className='studIntForm'>
-          {busApplyBachForm}
+        <div className='studInternshipForm'>
+          {companyBachForm}
         </div>
         </main>
         <Footer />
@@ -244,4 +243,4 @@ class busOfferBachForm extends React.Component {
   }
 }         
 
-export default busOfferBachForm;
+export default CompanyOfferBachForm;

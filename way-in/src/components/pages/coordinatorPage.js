@@ -3,7 +3,7 @@ import Header from '../header';
 import Footer from '../footer';
 import CoordinatorInfo from "../CoordinatorInfo";
 
-class coordinatorPage extends Component {
+class CoordinatorPage extends Component {
 render(){
     return (
       <div>
@@ -16,4 +16,4 @@ render(){
     );
   }
 }
-export default coordinatorPage;
+export default CoordinatorPage;

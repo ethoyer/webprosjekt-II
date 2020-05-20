@@ -5,17 +5,13 @@ import * as serviceWorker from './serviceWorker';
 import { Route, BrowserRouter as Router } from 'react-router-dom'
 import Index from './components/pages/index.js';
 import StudentApplication from './components/pages/studentApplication.js';
-import studIntApplyPage from './components/pages/studIntApplyPage';
-<<<<<<< HEAD
-import studBaApplyPage from './components/pages/studBaApplyPage';
-import busApplyPage from './components/pages/busApplyPage.js';
-=======
-import busApplyPage from './components/pages/busApplyPage';
->>>>>>> origin/login
-import logInPage from './components/pages/logInPage';
-import busApplyIntPage from './components/pages/busApplyIntPage';
-import busApplyBachPage from './components/pages/busApplyBachPage';
-import coordinatorPage from './components/pages/coordinatorPage';
+import StudInternshipPage from './components/pages/studInternshipPage';
+import StudBachPage from './components/pages/studBachPage';
+import CompanyApplication from './components/pages/companyApplication.js';
+import LogInPage from './components/pages/logInPage';
+import CompanyInternshipForm from './components/pages/companyInternshipPage';
+import CompanyOfferBachForm from './components/pages/companyBachPage';
+import CoordinatorPage from './components/pages/coordinatorPage';
 
 const routing = (
     <Router>
@@ -24,16 +20,13 @@ const routing = (
         {/* each component here corresponds to a view in the components/view folder */}
         <Route exact path="/" component={Index} />
         <Route path="/student_application" component={StudentApplication} />
-        <Route path="/busApplyPage" component={busApplyPage} />
-        <Route path="/logInPage" component={logInPage}/>
-        <Route path="/busApplyIntPage" component={busApplyIntPage}/>
-        <Route path="/busApplyBachPage" component={busApplyBachPage}/>
-        <Route path="/int_overview" component={studIntApplyPage} />
-<<<<<<< HEAD
-        <Route path="/ba_overview" component={studBaApplyPage} />
-=======
-        <Route path="/coordinatorPage" component={coordinatorPage}/>
->>>>>>> origin/login
+        <Route path="/companyApplyPage" component={CompanyApplication} />
+        <Route path="/logInPage" component={LogInPage}/>
+        <Route path="/offer_internship" component={CompanyInternshipForm}/>
+        <Route path="/offer_bachelor" component={CompanyOfferBachForm}/>
+        <Route path="/internship_overview" component={StudInternshipPage} />
+        <Route path="/ba_overview" component={StudBachPage} />
+        <Route path="/coordinatorPage" component={CoordinatorPage}/>
       </div>
     </Router>
   )

@@ -19,8 +19,6 @@ class Footer extends React.Component {
         <img src={arrow} alt={""} className={ `${isFooterVisible ? "open" : ""}` }></img>
         <div>
         <Link to="/logInPage" className={ `${isFooterVisible ? "open" : "closed"}` }>Log in</Link>
-        <Link className={ `${isFooterVisible ? "open" : "closed"}` }>How to use Way-In</Link>
-        <Link className={ `${isFooterVisible ? "open" : "closed"}` }>Contact</Link>
         </div>
       </footer>
     );

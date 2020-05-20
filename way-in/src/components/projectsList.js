@@ -1,7 +1,4 @@
 import React from 'react';
-// import displayProject from './displayProject.js';
-import internData from '../dummydb.json';
-
 let newInProjectList = '';
 let projectArray = [];
 
@@ -18,7 +15,7 @@ class ProjectsList extends React.Component {
     };
   }
 
-  componentWillReceiveProps({newInProjectList}){
+  UNSAFE_componentWillReceiveProps({newInProjectList}){
     if (this.grandparent.state.addedProjects[this._id]){
       this.setState({inProjectList: true});
     }else{
@@ -27,15 +24,12 @@ class ProjectsList extends React.Component {
   }
 
   onProjectAdditionOrRemoval(){
-    let inProjectList = this.props.newInProjectList;
     this.setState({
-      inProjectList: inProjectList
+      inProjectList: newInProjectList
     });
   };
 
   displayProject(id) {
-    // console.log(this._reactInternalFiber.key);
-    // console.log(this.state.inProjectList);
     projectArray = this.props.projectArray;
     this.props.onProjectListExpansion(this.state.inProjectList);
     projectArray.map((postDetail) => {

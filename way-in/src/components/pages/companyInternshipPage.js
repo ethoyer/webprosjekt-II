@@ -4,7 +4,7 @@ import Header from '../header';
 import Footer from '../footer';
 import { Link } from 'react-router-dom';
 
-class busIntForm extends React.Component {
+class CompanyInternshipForm extends React.Component {
   constructor(props) {
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -14,12 +14,12 @@ class busIntForm extends React.Component {
       fname:'',
       email:'',
       tlf:'',
-      intLocation:'',
-      intTitle:'',
-      intDescription:'',
-      intStart:{value:'Fall 2020'},
+      internshipLocation:'',
+      internshipTitle:'',
+      internshipDescription:'',
+      internshipStart:{value:'Fall 2020'},
       quantity:'',
-      intDuration: {value:'lessThan6month'},
+      internshipDuration: {value:'lessThan6month'},
       isSubmitted: false,
   };
 }
@@ -31,11 +31,11 @@ handleEmailChange(event) {
     fname: inputValue,
     email: inputValue,
     tlf: inputValue,
-    intLocation: inputValue,
-    intTitle: inputValue,
-    intDescription: inputValue,
-    intDuration: inputValue,
-    intStart: inputValue
+    internshipLocation: inputValue,
+    internshipTitle: inputValue,
+    internshipDescription: inputValue,
+    internshipDuration: inputValue,
+    internshipStart: inputValue
   });
 }
 
@@ -45,7 +45,7 @@ handleSubmit(event) {
   const formData = new FormData();
   formData.append(
     "method",
-    "addCompInt"
+    "addCompInternship"
   );
   formData.append(
     'company_id',
@@ -66,23 +66,23 @@ handleSubmit(event) {
   );
   formData.append(
     'project_title',
-    document.getElementById("intTitle").value
+    document.getElementById("internshipTitle").value
   );
   formData.append(
     'project_description',
-    document.getElementById("intDescription").value
+    document.getElementById("internshipDescription").value
   );
   formData.append(
     'project_duration',
-    document.getElementById("intDuration").value
+    document.getElementById("internshipDuration").value
   );
   formData.append(
     'start_date',
-    document.getElementById("intStart").value
+    document.getElementById("internshipStart").value
   );
   formData.append(
     'location',
-    document.getElementById("intLocation").value
+    document.getElementById("internshipLocation").value
   );
   formData.append(
     'no_of_stud',
@@ -91,7 +91,7 @@ handleSubmit(event) {
   
   console.log(formData);
   //'localhost' may have to be replaced bt your local ip address:
-  fetch("http://locslhost/way_in_db/intForm.php", {
+  fetch("http://locslhost/way_in_db/internshipForm.php", {
     method: 'POST',
     body: formData
   });
@@ -102,10 +102,10 @@ handleSubmit(event) {
 
   render() {                                   
         
-    let applyIntForm;      
+    let applyInternshipForm;      
 
     if (this.state.isSubmitted) {            
-      applyIntForm = (            
+      applyInternshipForm = (            
         <div className='contact-submit-message'>
         <h2>Thank you!</h2>
         <p>Your application form has been sent.</p>
@@ -116,7 +116,7 @@ handleSubmit(event) {
         //companies need to give their ID provided by NTNU when offering an internship/ projects 
         //because they need to already exist in the database
       } else {
-        applyIntForm = (
+        applyInternshipForm = (
          
           <form onSubmit={this.handleSubmit}>
             <h2>Project Application</h2>
@@ -162,20 +162,20 @@ handleSubmit(event) {
             />
             </label>
 
-            <label htmlfor="intLocation">*Location: 
+            <label htmlfor="internshipLocation">*Location: 
             <input
-              id="intLocation"
-              name="intLocation"
+              id="internshipLocation"
+              name="internshipLocation"
               type="text"
               placeholder="location.."
               required
             />    
             </label>
 
-            <label htmlfor="intTitle">*Title for your project: 
+            <label htmlfor="internshipTitle">*Title for your project: 
             <input
-              id="intTitle"
-              name="intTitle"
+              id="internshipTitle"
+              name="internshipTitle"
               type="text"
               placeholder="title.."
               required
@@ -183,15 +183,15 @@ handleSubmit(event) {
             </label>
 
             <label htmlFor="duration">Internship duration
-            <select value={this.state.value} id="intDuration" name="intDuration">
+            <select value={this.state.value} id="internshipDuration" name="internshipDuration">
               <option value="lessThan6month" selected>Less than 6 month</option>
               <option value="moreThan6month">More than 6 month</option>
             </select>
             </label>
 
 
-            <label htmlFor="intStart">*Project Start Date: 
-            <select id="intStart" name="intStart">
+            <label htmlFor="internshipStart">*Project Start Date: 
+            <select id="internshipStart" name="internshipStart">
               <option value="spring2020" selected>Spring 2020</option>
               <option value="fall2020">Fall 2020</option>
               <option value="spring2021">Spring 2021</option>
@@ -209,10 +209,10 @@ handleSubmit(event) {
               max="5"/>
             </label>
        
-            <label htmlfor="intDescription">Description of the project:
+            <label htmlfor="internshipDescription">Description of the project:
             <textarea  
-                id="intDescription" 
-                name="intDescription"
+                id="internshipDescription" 
+                name="internshipDescription"
                 placeholder="description.."        
                 required
              />  
@@ -223,7 +223,6 @@ handleSubmit(event) {
                 type='submit'            
                 value='Submit'            
                />  
-               <a className="navButton" href="" onClick={(e) => this.prevPage(e)}>BACK</a> 
         </form>
        
        );
@@ -233,8 +232,8 @@ handleSubmit(event) {
       <div>
         <Header />
         <main>
-        <div className='studIntForm'>
-          {applyIntForm}
+        <div className='studInternshipForm'>
+          {applyInternshipForm}
         </div>
         </main>
         <Footer />
@@ -244,4 +243,4 @@ handleSubmit(event) {
   }
 }         
 
-export default busIntForm;
+export default CompanyInternshipForm;

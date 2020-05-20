@@ -1,12 +1,10 @@
 import React from 'react';
 import ProjectsList from './projectsList';
 let inProjectList = '';
-let projectArray = []; //holds data collected from database
 
 class FilterProjects extends React.Component {
   constructor(props) {
     super(props);
-    let projectArray = this.props.projectArray;
     this.onProjectListExpansion = this.onProjectListExpansion.bind(this);
     this.parent = props.parent;
     this.state = {

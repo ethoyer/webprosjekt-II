@@ -3,7 +3,6 @@ import FilterProjects from './filterProjects';
 import ProjectInfo from './projectInfo';
 import arrowDark from '../pictures/arrowDark.png';
 let inProjectList = '';
-let newInProjectList = '';
 let projectArray = [];
 
 class ProjectsTable extends React.Component {
@@ -35,7 +34,6 @@ class ProjectsTable extends React.Component {
 
   onProjectAdditionOrRemoval(childState) {
     this.setState({inProjectList: childState});
-    newInProjectList=childState;
     this.props.onProjectAdditionOrRemoval(this.state.projectList);
   }
 
@@ -46,7 +44,7 @@ class ProjectsTable extends React.Component {
 
   projectArray.map((project) => { //looks through database to find project with matching id
     projectList.map((chosenProject) =>{
-      if(parseInt(project.id) == chosenProject.key){ //displays project title and company name on the form page
+      if(parseInt(project.id) === parseInt(chosenProject.key)){ //displays project title and company name on the form page
         document.getElementById("projectList").innerHTML += "<span>" + projectOrder + ". " + project.title + " - " + project.company_name + "</span>";
         projectOrder++;
       }
@@ -70,9 +68,8 @@ class ProjectsTable extends React.Component {
     const location = this.state.location;
     const faculty = this.state.faculty;
     projectArray = this.props.projectArray;
-    
     inProjectList = this.state.inProjectList;
-    newInProjectList = this.state.inProjectList;
+
     return (
       <>
       <div id="overview">
@@ -92,7 +89,7 @@ class ProjectsTable extends React.Component {
       <FilterProjects locationState={location} 
       facultyState={faculty} 
       onProjectListExpansion={this.onProjectListExpansion}
-      newInProjectList={inProjectList}
+      inProjectList={inProjectList}
       parent={this}
       projectArray={projectArray}
        />
@@ -102,13 +99,12 @@ class ProjectsTable extends React.Component {
       parent={this}
       />
       <div  className="navButton">
-      <a href="" onClick={(e) => this.nextPage(e)}>NEXT</a>
-      <img id="arrowDark" src={arrowDark}></img>
+      <button onClick={(e) => this.nextPage(e)}>NEXT</button>
+      <img id="arrowDark" alt="" src={arrowDark}></img>
       </div>
       </>
     )
   }
-
 }
 
 export default ProjectsTable;

@@ -1,6 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import { Route, Link, BrowserRouter as Router } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 
 class StudBachForm extends React.Component {
@@ -81,7 +80,7 @@ class StudBachForm extends React.Component {
     );
     console.log(formData);
     //'localhost' may have to be replaced bt your local ip address:
-    fetch("http://localhost/way_in_db/intForm.php", {
+    fetch("http://localhost/way_in_db/internshipForm.php", {
       method: 'POST',
       body: formData
     });
@@ -183,7 +182,7 @@ class StudBachForm extends React.Component {
                 type='submit'            
                 value='Submit'            
                />  
-               <a className="navButton" href="" onClick={(e) => this.prevPage(e)}>BACK</a> 
+               <button className="navButton" onClick={(e) => this.prevPage(e)}>BACK</button> 
         </form>
        
        );
@@ -192,7 +191,7 @@ class StudBachForm extends React.Component {
     return (
       <main id="studform" className="hidden">
 
-        <div className='studIntForm'>
+        <div className='studInternshipForm'>
           <div id="projectListContainer">
         <p>Chosen Internships:</p>
         <div id="projectList"></div>

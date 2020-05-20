@@ -1,9 +1,8 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import '../../css/index.css'; //imports css file only relevant for index
 import Header from '../header.js';
 import Footer from '../footer.js';
-import { Route, Link, BrowserRouter as Router } from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import student from '../../pictures/student_studying.jpg';
 import business from '../../pictures/forbusiness_meeting.jpg';
 
@@ -32,7 +31,7 @@ class Companybutton extends React.Component {
   render() {
     return (
       <div className='business'>
-        <Link to="../busApplyPage">
+        <Link to="../companyApplyPage">
           <div>
             <h2 id="businessStyle">For companies: Would you like to work with our students?</h2>
             <p id="businessStyle">Please fill in an application form for an internship or bachelor project from here.</p>

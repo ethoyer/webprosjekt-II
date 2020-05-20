@@ -3,13 +3,13 @@
   justify-content: center;
   grid-template-areas: 'title title'
     										'sub sub'
-												'int ba'
+												'internship bach'
 												'con con';
 	grid-template-rows: 100px 100px 1fr 50px;
 	grid-template-columns: 1fr 1fr;
 }
 
-#applicationTitle, #applicationSubTitle, #intButton, #baButton{
+#applicationTitle, #applicationSubTitle, #internshipButton, #baButton{
 	justify-self: center;
 }
 
@@ -26,15 +26,15 @@
 	justify-self: center;
 }
 
-#intButton{
-	grid-area: int;
+#internshipButton{
+	grid-area: internship;
 }
 
 #baButton{
-	grid-area: ba;
+	grid-area: bach;
 }
 
-#intButton, #baButton{
+#internshipButton, #baButton{
 	background-color: #BAC6D6;
 	width: 250px;
 	height: 100px;
@@ -44,7 +44,7 @@
 	color: black;
 }
 
-#intButton>p, #baButton>p{
+#internshipButton>p, #baButton>p{
 	align-self: center;
 	margin: 0;
 	font-size: 30px;

@@ -2,9 +2,9 @@ import React from 'react';
 import Header from '../header.js';
 import Footer from '../footer.js';
 import '../../css/chooseApplication.css';
-import AppButton from '../appButton.js';
+import ApplicationButton from '../applicationButton.js';
 
-class StudentApplication extends React.Component{
+class CompanyApplication extends React.Component{
     render() {
         return(
         <div>
@@ -12,14 +12,14 @@ class StudentApplication extends React.Component{
     <main id="appchoicemain">
         <h1 id="applicationTitle">Offer a project</h1>
         <h2 id="applicationSubTitle">Which type of project would you like to offer?</h2>
-        <AppButton
-            id="intButton"
-            location="/busApplyIntPage"
+        <ApplicationButton
+            id="internshipButton"
+            location="/offer_internship"
             label="Internship"/>
 
-        <AppButton
+        <ApplicationButton
             id="baButton"
-            location="/busApplyBachPage"
+            location="/offer_bachelor"
             label="Bachelor Thesis"/>
         <div id="contact">    
             <p>Already offered a project but not yet heard from us?</p>
@@ -32,4 +32,4 @@ class StudentApplication extends React.Component{
     }
 }
 
-export default StudentApplication;
+export default CompanyApplication;

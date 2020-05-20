@@ -2,21 +2,16 @@ import React from 'react';
 import Header from '../header.js';
 import Footer from '../footer.js';
 import StudBachForm from '../studBachForm.js';
-import IntOverview from '../intoverview';
+import ProjectOverview from '../projectOverview';
 import '../../css/application.css';
 
 
-class studBaApplyPage extends React.Component{
-  constructor(props) {
-    super(props);
-
-  }
-
+class StudBachPage extends React.Component{
     render() {
         return(
         <div>
     <Header />
-    <IntOverview intdb='http://localhost/way_in_db/projects.php'
+    <ProjectOverview projectdb='http://localhost/way_in_db/projects.php'
     title="Apply to a Bachelor Project" />
     <StudBachForm />
     <Footer />
@@ -25,4 +20,4 @@ class studBaApplyPage extends React.Component{
     }
 }
 
-export default studBaApplyPage;
+export default StudBachPage;
