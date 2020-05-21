@@ -11,7 +11,7 @@ render(){
             <main>
                 <CoordinatorInfo/>
             </main>
-        <Footer/>
+        <Footer isLoggedIn={true}/>
       </div>
     );
   }

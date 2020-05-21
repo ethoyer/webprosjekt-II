@@ -17,7 +17,7 @@ class ProjectInfo extends React.Component {
     this.props.onProjectAdditionOrRemoval(inProjectList);
   }
 
-  onProjectAddition(e) {
+  onProjectAddition(e) { //add project to projectList on addition
     let _key = e.target.parentElement.className;
     var newProject = {
       text: _key,
@@ -33,11 +33,9 @@ class ProjectInfo extends React.Component {
 
     inProjectList = true;
     this.onProjectAdditionOrRemoval(inProjectList);
-
-
   }
 
-  onProjectRemoval(e) {
+  onProjectRemoval(e) { //removes project from projectList on removal
     var filteredProjects = this.parent.state.projectList.filter(function (project) {
       return (project.key !== e.target.parentElement.className);
     });
@@ -49,14 +47,12 @@ class ProjectInfo extends React.Component {
 
     inProjectList = false;
     this.onProjectAdditionOrRemoval(inProjectList);
-
-
   }
 
   render() {
     const inProjectList = this.props.inProjectList;
     let button;
-    if (!inProjectList) {
+    if (!inProjectList) { //changes the "add to procjet"/"remove from project" button depending on state
       button = <AddToList onClick={(e) => this.onProjectAddition(e)} />
     } else {
       button = <RemoveFromList onClick={(e) => this.onProjectRemoval(e)} />

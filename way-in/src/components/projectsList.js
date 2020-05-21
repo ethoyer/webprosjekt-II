@@ -6,8 +6,6 @@ class ProjectsList extends React.Component {
   constructor(props) {
     super(props);
     this.displayProject = this.displayProject.bind(this);
-    //Grandparent is projectTable, which now contains
-    //the list of projects added.
     this.grandparent=props.grandparent;
     this._id=props._id;
     this.state = {
@@ -15,7 +13,7 @@ class ProjectsList extends React.Component {
     };
   }
 
-  UNSAFE_componentWillReceiveProps({newInProjectList}){
+  UNSAFE_componentWillReceiveProps({newInProjectList}){ //recieves state from grandparent
     if (this.grandparent.state.addedProjects[this._id]){
       this.setState({inProjectList: true});
     }else{

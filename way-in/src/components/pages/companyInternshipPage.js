@@ -91,7 +91,7 @@ handleSubmit(event) {
   
   console.log(formData);
   //'localhost' may have to be replaced bt your local ip address:
-  fetch("http://locslhost/way_in_db/internshipForm.php", {
+  fetch("http://localhost/way_in_db/internshipForm.php", {
     method: 'POST',
     body: formData
   });

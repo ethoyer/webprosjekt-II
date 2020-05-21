@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Redirect } from "react-router-dom";
 import { PostData } from "../PostData";
 import CompanyList from "./CompanyList";
 import '../css/form.css';
@@ -36,22 +35,10 @@ class CoordinatorInfo extends Component {
       });
     }
   }
-  logout() {
-    sessionStorage.setItem("userData", "");
-    sessionStorage.clear();
-    this.setState({ redirectToReferrer: true });
-  }
 
   render() {
-    if (this.state.redirectToReferrer) {
-      return <Redirect to={"/loginPage"} />;
-    }
-
     return (
         <div>
-          <button href="#" onClick={this.logout} className="logout">
-            Logout
-          </button>
           <CompanyList companyData={this.state.data} />
         </div>
       );

@@ -1,5 +1,5 @@
 export function PostData(type, userData) {
-    let BaseURL = "http://localhost/react-php/index.php";
+    let BaseURL = "http://localhost/way_in_db/index.php";
     return new Promise((resolve, reject) => {
       fetch(BaseURL + "?tp=" + type, {
         method: "POST",
