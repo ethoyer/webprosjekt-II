@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Redirect } from "react-router-dom";
 import { PostData } from "../PostData";
 import CompanyList from "./CompanyList";
 import '../css/form.css';
@@ -9,18 +10,14 @@ class CoordinatorInfo extends Component {
 
     this.state = {
         data: [],
-        companyList: "",
-        redirectToReferrer: false,
+        companyList: ""
       };
   
       this.getCompanyList = this.getCompanyList.bind(this);
-      this.logout = this.logout.bind(this);
     }
   UNSAFE_componentWillMount() {
     if (sessionStorage.getItem("userData")) {
       this.getCompanyList();
-    } else {
-      this.setState({ redirectToReferrer: true });
     }
   }
 
@@ -37,6 +34,7 @@ class CoordinatorInfo extends Component {
   }
 
   render() {
+
     return (
         <div>
           <CompanyList companyData={this.state.data} />
