@@ -151,6 +151,11 @@ label[htmlfor="bachStart"] {
   justify-self: right;
 }
 
+#bachDesc, #internshipDescription{
+  width: 400px;
+  justify-self: center;
+}
+
 label[htmlfor="internshipDescription"],
 label[htmlfor="bachDesc"]{
   justify-self: center;

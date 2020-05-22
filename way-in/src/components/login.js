@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 import { PostData } from "../PostData";
-import '../css/form.css';
+import '../css/loginForm.css';
 
 class Login extends Component {
   constructor() {
@@ -38,7 +38,7 @@ class Login extends Component {
     return (
       <div>
         <div className="form">
-          <h4>Login</h4>
+          <h2>Login</h2>
           <input
             type="text"
             name="username"
