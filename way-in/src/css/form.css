@@ -1,4 +1,5 @@
-.studInternshipForm form {
+.studInternshipForm form,
+.studBachForm form {
   margin: auto;
   margin-top: 2%;
   width: 60%;
@@ -7,21 +8,36 @@
   text-align: center;
   box-sizing: border-box;
   display: grid;
+  min-width: 800px;
+}
+
+.studInternshipForm form {
   grid-template-areas: 'title title title title'
     'subtitle subtitle subtitle subtitle'
     'namelabel fname mname lname'
     'emaillabel email email email'
     'programmelabel prog prog prog'
-    'commentlabel com com com'
     'back back submit submit';
-  grid-template-rows: 1fr 1fr 50px 50px 50px 1fr 1fr;
+  grid-template-rows: 1fr 1fr 50px 80px 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.studBachForm form {
+  grid-template-areas: 'title title title title'
+    'subtitle subtitle subtitle subtitle'
+    'studlabel stud stud stud'
+    'namelabel fname mname lname'
+    'emaillabel email email email'
+    'programmelabel prog prog prog'
+    'mentorlabel mentor mentor mentor'
+    'back back submit submit';
+  grid-template-rows: 1fr 1fr 50px 50px 80px 50px 1fr 1fr;
   grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
 label[for=name],
-label[for=e-mail],
-label[for=programme],
-label[for=comments] {
+label[for=email],
+label[for=programme] {
   justify-self: right;
   margin-right: 2%;
 }
@@ -52,11 +68,11 @@ input[placeholder='last name'] {
 }
 
 
-label[for=e-mail] {
+label[for=email] {
   grid-area: emaillabel;
 }
 
-#e-mail {
+#email {
   grid-area: email;
 }
 
@@ -64,19 +80,33 @@ label[for=programme] {
   grid-area: programmelabel;
 }
 
-#programme {
+label[htmlfor="quantity"] {
+  grid-area: studlabel;
+}
+
+#quantity {
+  grid-area: stud;
+}
+
+label[for="mentor"] {
+  grid-area: mentorlabel;
+}
+
+#mentor {
+  grid-area: mentor;
+}
+
+#pcode {
   grid-area: prog;
 }
 
-label[for=comments] {
-  grid-area: commentlabel;
-}
-
-#comments {
-  grid-area: com;
-}
-
-#name, #programme, #e-mail{
+#fname,
+#lname,
+#mname,
+#pcode,
+#email,
+#quantity,
+#mentor {
   width: 200px;
 }
 
@@ -86,15 +116,22 @@ form>.navButton {
   font-size: 20px;
   text-decoration: none;
   width: 100px;
-  display: flex;
+  background-color: transparent;
+  border: none;
+  outline: none;
 }
 
-form>.navButton>#arrowDark{
+form>.navButton:hover {
+  color: rgb(59, 70, 80);
+}
+
+form>.navButton>#arrowDark {
   transform: rotate(180deg);
   align-self: center;
 }
 
-.studInternshipForm input {
+.studInternshipForm input,
+.studBachForm input {
   display: inline-block;
   padding: 1%;
   border: 1px solid #ccc;
@@ -103,7 +140,9 @@ form>.navButton>#arrowDark{
 }
 
 .studInternshipForm input,
-.studInternshipForm select {
+.studInternshipForm select,
+.studBachForm input,
+.studBachForm select {
   height: 30px;
 }
 
@@ -115,30 +154,35 @@ label[for=programme] {
   display: block;
 }
 
-.studInternshipForm input[type=submit] {
+.studInternshipForm input[type=submit],
+.studBachForm input[type=submit] {
   grid-area: submit;
   align-self: center;
   justify-self: right;
   width: 100px;
   height: 50px;
-  background-color: #ccc;
+  background-color: rgb(159, 168, 199);
   color: white;
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  padding: 2%;
+  margin: 2%;
   display: block;
+  font-size: 16px;
+  font-weight: bold;
 }
 
 input[type=submit]:hover {
-  background-color: rgb(169, 189, 255);
+  background-color: rgb(167, 165, 165);
 }
 
-main.visible, div.visible {
+main.visible,
+div.visible {
   display: block;
 }
 
-main.hidden, div.hidden {
+main.hidden,
+div.hidden {
   display: none !important;
 }
 
@@ -160,11 +204,17 @@ main.hidden, div.hidden {
   margin: 0.5%;
 }
 
-.contact-submit-message{
+.contact-submit-message {
   text-align: center;
 }
 
 @media only screen and (max-width: 1200px) {
+
+  .studInternshipForm form,
+  .studBachForm form {
+    min-width: 400px;
+  }
+
   .studInternshipForm form {
     grid-template-areas: 'title title title'
       'subtitle subtitle subtitle '
@@ -174,26 +224,42 @@ main.hidden, div.hidden {
       'email email email'
       'programmelabel programmelabel programmelabel'
       'prog prog prog'
-      'commentlabel  commentlabel commentlabel '
-      'com com com'
       'back empty submit';
-    grid-template-rows: 1fr 1fr 50px 50px 50px 50px 50px 50px 50px 1fr 1fr;
+    grid-template-rows: 1fr 1fr 50px 50px 70px 50px 50px 50px 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .studBachForm form {
+    grid-template-areas: 'title title title'
+      'subtitle subtitle subtitle'
+      'studlabel studlabel studlabel'
+      'stud stud stud'
+      'namelabel namelabel namelabel'
+      'fname mname lname'
+      'emaillabel emaillabel emaillabel'
+      'email email email'
+      'programmelabel programmelabel programmelabel'
+      'prog prog prog'
+      'mentorlabel mentorlabel mentorlabel '
+      'mentor mentor mentor'
+      'back empty submit';
+    grid-template-rows: 1fr 1fr 50px 50px 50px 50px 80px 50px 50px 50px 50px 1fr 1fr;
     grid-template-columns: 1fr 1fr 1fr;
   }
 
   label[for=name],
-  label[for=e-mail],
+  label[for=email],
   label[for=programme],
-  label[for=comments],
-  #e-mail,
-  #programme {
+  #email,
+  #pcode,
+  #quantity,
+  #mentor {
     justify-self: center;
   }
 
   label[for=name],
-  label[for=e-mail],
-  label[for=programme],
-  label[for=comments] {
+  label[for=email],
+  label[for=programme] {
     align-self: center;
   }
 
@@ -211,14 +277,34 @@ main.hidden, div.hidden {
       'email email email'
       'programmelabel programmelabel programmelabel'
       'prog prog prog'
-      'commentlabel  commentlabel commentlabel '
-      'com com com'
       'back empty submit';
     grid-template-rows: 1fr 1fr 50px 50px 50px 50px 50px 50px 50px 50px 50px 1fr 1fr;
     grid-template-columns: 1fr 1fr 1fr;
   }
 
-  #name {
+  .studBachForm form {
+    grid-template-areas: 'title title title'
+      'subtitle subtitle subtitle'
+      'studlabel studlabel studlabel'
+      'stud stud stud'
+      'namelabel namelabel namelabel'
+      'fname fname fname'
+      'mname mname mname'
+      'lname lname lname'
+      'emaillabel emaillabel emaillabel'
+      'email email email'
+      'programmelabel programmelabel programmelabel'
+      'prog prog prog'
+      'mentorlabel mentorlabel mentorlabel '
+      'mentor mentor mentor'
+      'back empty submit';
+    grid-template-rows: 1fr 1fr 50px 50px 50px 50px 50px 50px 80px 50px 50px 50px 50px 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  #fname,
+  #mname,
+  #lname {
     width: 200px;
     justify-self: center;
   }

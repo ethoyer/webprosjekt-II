@@ -1,0 +1,197 @@
+.compInternshipForm form,
+.compBachForm form {
+  margin: auto;
+  margin-top: 2%;
+  margin-bottom: 5%;
+  width: 60%;
+  background-color: rgb(208, 222, 235);
+  padding: 2% 2%;
+  text-align: center;
+  box-sizing: border-box;
+  min-width: 800px;
+}
+
+.compInternshipForm form,
+.compBachForm form {
+  display: grid;
+  grid-template-areas: 'title title'
+    'subtitle subtitle'
+    'compid id'
+    'contactabel contactName'
+    'emaillabel email'
+    'tlflabel tlf'
+    'loclabel loc'
+    'projectlabel project'
+    'durlabel dur'
+    'startlabel start'
+    'nolabel no'
+    'desclabel desclabel'
+    'desc desc'
+    'empty button';
+  grid-template-rows: 1fr 1fr 50px 50px 50px 50px 50px 50px 50px 50px 50px 50px 1fr;
+  grid-template-columns: 1fr 1fr;
+}
+
+.compInternshipForm h2 {
+  grid-area: title;
+}
+
+.compInternshipForm p {
+  grid-area: subtitle;
+}
+
+label[htmlfor="compID"] {
+  grid-area: compid;
+}
+
+#compID {
+  grid-area: id;
+}
+
+label[for="contactName"] {
+  grid-area: contactabel;
+}
+
+#contactName {
+  grid-area: contactName;
+}
+
+label[for="contactemail"] {
+  grid-area: emaillabel;
+}
+
+#contactemail {
+  grid-area: email;
+}
+
+label[for="tlf"] {
+  grid-area: tlflabel;
+}
+
+#tlf {
+  grid-area: tlf;
+}
+
+label[htmlfor="internshipLocation"],
+label[htmlfor="bachLoc"] {
+  grid-area: loclabel;
+}
+
+#internshipLocation,
+#bachLoc {
+  grid-area: loc;
+}
+
+label[htmlfor="internshipTitle"],
+label[htmlfor="bachTitle"] {
+  grid-area: projectlabel;
+}
+
+#internshipTitle,
+#bachTitle {
+  grid-area: project;
+}
+
+label[for="duration"],
+label[htmlfor="bachDuration"] {
+  grid-area: durlabel;
+}
+
+#internshipDuration,
+#bachDuration {
+  grid-area: dur;
+}
+
+label[for="internshipStart"],
+label[htmlfor="bachStart"] {
+  grid-area: startlabel;
+}
+
+#internshipStart,
+#bachStart {
+  grid-area: start;
+}
+
+label[htmlfor="studquantity"] {
+  grid-area: nolabel;
+}
+
+#studquantity {
+  grid-area: no;
+}
+
+label[htmlfor="internshipDescription"],
+label[htmlfor="bachDesc"] {
+  grid-area: desclabel;
+}
+
+#internshipDescription,
+#bachDesc {
+  grid-area: desc;
+}
+
+input[type="submit"] {
+  grid-area: submit;
+}
+
+label[htmlfor="compID"],
+label[for="contactName"],
+label[for="contactemail"],
+label[for="tlf"],
+label[htmlfor="internshipLocation"],
+label[htmlfor="internshipTitle"],
+label[for="duration"],
+label[for="internshipStart"],
+label[htmlfor="studquantity"],
+input[type="submit"],
+label[htmlfor="bachLoc"],
+label[htmlfor="bachTitle"],
+label[htmlfor="bachDuration"],
+label[htmlfor="bachStart"] {
+  justify-self: right;
+}
+
+label[htmlfor="internshipDescription"],
+label[htmlfor="bachDesc"]{
+  justify-self: center;
+}
+
+#compID,
+#contactName,
+#contactemail,
+#tlf,
+#internshipLocation,
+#internshipTitle,
+#internshipDuration,
+#internshipStart,
+#studquantity,
+#bachLoc,
+#bachTitle,
+#bachDuration,
+#bachStart {
+  height: 30px;
+  width: 200px;
+}
+
+.compInternshipForm input[type="submit"],
+.compBachForm input[type="submit"] {
+  grid-area: submit;
+  align-self: center;
+  justify-self: right;
+  width: 100px;
+  height: 50px;
+  background-color: rgb(159, 168, 199);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 2%;
+  display: block;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.compInternshipForm input[type="submit"]:hover,
+.compBachForm input[type="submit"]:hover {
+  background-color: rgb(167, 165, 165);
+}

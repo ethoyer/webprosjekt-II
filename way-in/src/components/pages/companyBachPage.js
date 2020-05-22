@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../css/form.css';
+import '../../css/companyForm.css';
 import Header from '../header';
 import Footer from '../footer';
 import { Link } from 'react-router-dom';
@@ -11,13 +11,13 @@ class CompanyOfferBachForm extends React.Component {
 
       this.state = {
         compID: '',
-        fname:'',
-        email:'',
+        contactName:'',
+        contactemail:'',
         tlf:'',
         bachLoc: '',
         bachTitle: '',
         bachDesc: '',
-        quantity:'',
+        studquantity:'',
         bachDuration: '',
         bachStart: '',
         isSubmitted: false,
@@ -28,10 +28,10 @@ class CompanyOfferBachForm extends React.Component {
     const inputValue = event.target.value;
     this.setState({
       compID: inputValue,
-      fname: inputValue,
+      contactName: inputValue,
       mname: inputValue,
       lname: inputValue,
-      email: inputValue,
+      contactemail: inputValue,
       tlf: inputValue,
       bachLoc: inputValue,
       bachTitle: inputValue,
@@ -56,15 +56,15 @@ class CompanyOfferBachForm extends React.Component {
     );
     formData.append(
       'contact_person',
-      document.getElementById("fname").value
+      document.getElementById("contactName").value
     );
     formData.append(
       'phone_no',
       document.getElementById("tlf").value
     );
     formData.append(
-      'email',
-      document.getElementById("email").value
+      'contactemail',
+      document.getElementById("contactemail").value
     );
     formData.append(
       'project_title',
@@ -88,7 +88,7 @@ class CompanyOfferBachForm extends React.Component {
     );
     formData.append(
       'no_of_stud',
-      document.getElementById("quantity").value
+      document.getElementById("studquantity").value
     );
     
     console.log(formData);
@@ -123,45 +123,39 @@ class CompanyOfferBachForm extends React.Component {
             <h2>Offer a bachelor thesis project</h2>
            <p>Please fill in the application form below.</p>
            
-            <label htmlfor="compID">*Company ID:
+            <label htmlfor="compID">*Company ID: </label>
             <input
               id="compID"
               type="text"
               placeholder="Your company ID"
               required
             />
-            </label>
 
-            <label htmlFor="fname">*Contact person: 
+            <label htmlFor="contactName">*Contact person: </label>
             <input
-              id="fname"
+              id="contactName"
               type="text"
               placeholder="first name (middle name) last name"
               required
             />
 
-            
-            </label>
-
-            <label htmlFor="email">*E-mail address: 
+            <label htmlFor="contactemail">*E-mail address: </label>
             <input
-              id="email"
-              type="email"
+              id="contactemail"
+              type="contactemail"
               placeholder="ex) olan@norcoop.com"
               required
             />
-            </label>
 
-            <label htmlFor="tlf">Tel. number:
+            <label htmlFor="tlf">Tel. number: </label>
             <input
                 id="tlf"
                 type="tel"
                 placeholder="ex) xx xxx xxx"
             />
-            </label>
             
 
-          <label htmlfor="bachLoc">*Location: 
+          <label htmlfor="bachLoc">*Location: </label>
             <input
               id="bachLoc"
               name="location"
@@ -169,54 +163,48 @@ class CompanyOfferBachForm extends React.Component {
               placeholder="location.."
               required
             />    
-          </label>
 
-            <label htmlfor="bachTitle">*Title for your project:
+            <label htmlfor="bachTitle">*Title for your project: </label>
             <input
                 id="bachTitle"
                 type="text"
                 placeholder="ex) App design and development"
                 required
             />  
-            </label>
 
             
 
-            <label htmlfor="bachDuration">Project duration
+            <label htmlfor="bachDuration">Project duration </label>
             <select id="bachDuration" name="bachDuration">
               <option value="lessThan6month">Less than 6 month</option>
               <option value="moreThan6month">More than 6 month</option>
             </select>
-            </label>
 
-            <label htmlfor="bachStart">*Project Start Date: 
+            <label htmlfor="bachStart">*Project Start Date: </label>
             <select id="bachStart" name="bachStart">
               <option value="spring2020">Spring 2020</option>
               <option value="fall2020">Fall 2020</option>
               <option value="spring2021">Spring 2021</option>
               <option value="fall2021">Fall 2021</option>
             </select>   
-            </label>
 
             
 
-            <label htmlfor="quantity">No. of students needed: 
+            <label htmlfor="studquantity">No. of students needed: </label>
             <input 
-              id="quantity"
+              id="studquantity"
               type="number" 
               defaultValue="1"
-              name="quantity" 
+              name="studquantity" 
               min="1" 
               max="4"/>
-            </label>
 
-            <label htmlfor="bachDesc">Project Description:   
+            <label htmlfor="bachDesc">Project Description: </label>  
             <textarea  
                 id="bachDesc"  
                 name="bachDesc"     
                 required           
              />     
-            </label>
 
              
         
@@ -233,7 +221,7 @@ class CompanyOfferBachForm extends React.Component {
         <div>
         <Header />
         <main>
-        <div className='studInternshipForm'>
+        <div className='compBachForm'>
           {companyBachForm}
         </div>
         </main>

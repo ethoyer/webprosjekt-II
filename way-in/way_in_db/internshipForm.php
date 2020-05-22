@@ -1,4 +1,6 @@
 <?php
+header("Access-Control-Allow-Origin: *"); //allows access to data
+header("Access-Control-Allow-Headers: *");
 // This php file shall be added to htdocs folder
 // This php file goes in the backend server / host, eg. in htdocs in xampp.
 // If xampp is used: import the way_in.sql database in phpmyadmin.

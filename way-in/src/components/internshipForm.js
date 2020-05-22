@@ -3,30 +3,30 @@ import { Link } from 'react-router-dom';
 
 
 class InternshipForm extends React.Component {
-    constructor(props) {
-      super(props);
-      this.handleSubmit = this.handleSubmit.bind(this);
-      this.getProjectsInList = this.getProjectsInList.bind(this);
-      this.prevPage = this.prevPage.bind(this);
-      this.state = {
-        email: '',
-        fname:'',
-        mname:'',
-        lname:'',
-        pcode:'',
-        isSubmitted: false,
+  constructor(props) {
+    super(props);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.getProjectsInList = this.getProjectsInList.bind(this);
+    this.prevPage = this.prevPage.bind(this);
+    this.state = {
+      email: '',
+      fname: '',
+      mname: '',
+      lname: '',
+      pcode: '',
+      isSubmitted: false,
     };
   }
 
-  getProjectsInList(event){
+  getProjectsInList(event) {
     let inList = document.getElementsByClassName("inList");
     let arr = [];
-    for (let i=0; i<inList.length; i++){
+    for (let i = 0; i < inList.length; i++) {
       arr.push(inList[i].getAttribute("id"));
     }
     return arr;
   }
-  
+
   handleEmailChange(event) {
     const inputValue = event.target.value;
     this.setState({
@@ -75,8 +75,8 @@ class InternshipForm extends React.Component {
       method: 'POST',
       body: formData
     });
-   
-    this.setState({isSubmitted: true});
+
+    this.setState({ isSubmitted: true });
     event.preventDefault();
   }
 
@@ -87,90 +87,87 @@ class InternshipForm extends React.Component {
   }
 
   render() {
-      
-                                     
-        
-    let contactForm;      
 
-    if (this.state.isSubmitted) {            
-        contactForm = (            
+
+
+    let contactForm;
+
+    if (this.state.isSubmitted) {
+      contactForm = (
         <div className='contact-submit-message'>
-        <h2>Thank you!</h2>
-        <p>Your application form has been sent.</p>
-        <p>A copy of your application has been sent to your e-mail.</p>
-        <Link to="/">Back to front</Link>
+          <h2>Thank you!</h2>
+          <p>Your application form has been sent.</p>
+          <p>A copy of your application has been sent to your e-mail.</p>
+          <Link to="/">Back to front</Link>
         </div>
-        );
-      } else {
-        contactForm = (
-         
-          
-          <form onSubmit={this.handleSubmit} >
-            <h2>Internship Application</h2>
-           <p>Please fill in the application form below.</p>
-            <label htmlFor="name">*Your name: 
-            <input
-              id="fname"
-              type="text"
-              placeholder="first name"
-              required
-            />
-            
-            <input
-              id="mname"
-              type="text"
-              placeholder="(middle name)"
-            />
+      );
+    } else {
+      contactForm = (
 
-            <input
-              id="lname"
-              type="text"
-              placeholder="last name"
-              required
-            />
-            </label>
 
-            <label htmlFor="email">*E-mail (Only accepts "@stud.ntnu.no"): 
-            <input
-              id="email"
-              type="email"
-              placeholder="ex) olan@stud.ntnu.no"
-              pattern="^[a-zA-Z0-9]+@stud\.ntnu\.no$"
-              required
-            />
-            </label>
+        <form onSubmit={this.handleSubmit} >
+          <h2>Internship Application</h2>
+          <p>Please fill in the application form below.</p>
+          <label htmlFor="name">*Your name:</label>
+          <input
+            id="fname"
+            type="text"
+            placeholder="first name"
+            required
+          />
 
-            <label htmlFor="programme">*Choose programme:
-            <select id="pcode" name="programme">
-              <option value="IMT3541">IMT3541</option>
-              <option value="IMT3006">IMT3006</option>
-             
-            </select>        
-            </label>
-            
-             <input            
-                type='submit'            
-                value='Submit'            
-               />  
-               <button className="navButton" onClick={(e) => this.prevPage(e)}>BACK</button> 
+          <input
+            id="mname"
+            type="text"
+            placeholder="(middle name)"
+          />
+
+          <input
+            id="lname"
+            type="text"
+            placeholder="last name"
+            required
+          />
+
+          <label htmlFor="email">*E-mail (Only accepts "@stud.ntnu.no"): </label>
+          <input
+            id="email"
+            type="email"
+            placeholder="ex) olan@stud.ntnu.no"
+            pattern="^[a-zA-Z0-9]+@stud\.ntnu\.no$"
+            required
+          />
+
+          <label htmlFor="programme">*Choose programme:            </label>
+          <select id="pcode" name="programme">
+            <option value="IMT3541">IMT3541</option>
+            <option value="IMT3006">IMT3006</option>
+
+          </select>
+
+          <input
+            type='submit'
+            value='Submit'
+          />
+          <button className="navButton" onClick={(e) => this.prevPage(e)}>BACK</button>
         </form>
-       );
+      );
     }
-    
+
     return (
       <main id="studform" className="hidden">
 
         <div className='studInternshipForm'>
           <div id="projectListContainer">
-        <p>Chosen Internships:</p>
-        <div id="projectList"></div>
-        </div>
+            <p>Chosen Internships:</p>
+            <div id="projectList"></div>
+          </div>
 
           {contactForm}
         </div>
-        </main>
+      </main>
     );
   }
-}         
+}
 
 export default InternshipForm;

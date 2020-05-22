@@ -9,11 +9,11 @@ class StudBachForm extends React.Component {
       this.getProjectsInList = this.getProjectsInList.bind(this);
       this.prevPage = this.prevPage.bind(this);
       this.state = {
-        email1: '',
-        fname1:'',
-        mname1:'',
-        lname1:'',
-        pcode1:'',
+        email: '',
+        fname:'',
+        mname:'',
+        lname:'',
+        pcode:'',
         mentor:'',
         
         isSubmitted: false,
@@ -32,10 +32,10 @@ class StudBachForm extends React.Component {
   handleEmailChange(event) {
     const inputValue = event.target.value;
     this.setState({
-      email1: inputValue,
-      fname1: inputValue,
-      mname1: inputValue,
-      lname1: inputValue,
+      email: inputValue,
+      fname: inputValue,
+      mname: inputValue,
+      lname: inputValue,
       mentor: inputValue
       
     });
@@ -56,23 +56,23 @@ class StudBachForm extends React.Component {
     );
     formData.append(
       'Email',
-      document.getElementById("email1").value
+      document.getElementById("email").value
     );
     formData.append(
       'Fname',
-      document.getElementById("fname1").value
+      document.getElementById("fname").value
     );
     formData.append(
       'Mname',
-      document.getElementById("mname1").value
+      document.getElementById("mname").value
     );
     formData.append(
       'Lname',
-      document.getElementById("lname1").value
+      document.getElementById("lname").value
     );
     formData.append(
       'programme_code',
-      document.getElementById("pcode1").value
+      document.getElementById("pcode").value
     );
     formData.append(
       'Mentor',
@@ -117,7 +117,7 @@ class StudBachForm extends React.Component {
           <form onSubmit={this.handleSubmit} >
             <h2>Bachelor Project Application</h2>
            <p>Please fill in the application form below.</p>
-           <label htmlfor="quantity">No. of students: 
+           <label htmlfor="quantity">No. of students: </label>
             <input 
               id="quantity"
               defaultValue="1"
@@ -125,57 +125,52 @@ class StudBachForm extends React.Component {
               name="quantity" 
               min="1" 
               max="4"/>
-            </label>
 
-            <label htmlFor="name">*Student 1: 
+            <label htmlFor="name">*Student 1: </label>
             <input
-              id="fname1"
+              id="fname"
               type="text"
               placeholder="first name"
               required
             />
             
             <input
-              id="mname1"
+              id="mname"
               type="text"
               placeholder="(middle name)"
             />
 
             <input
-              id="lname1"
+              id="lname"
               type="text"
               placeholder="last name"
               required
             />
-            </label>
 
-            <label htmlFor="email1">*E-mail (Only accepts "@stud.ntnu.no"): 
+            <label htmlFor="email">*E-mail (Only accepts "@stud.ntnu.no"): </label>
             <input
-              id="email1"
+              id="email"
               type="email"
               pattern="^[a-zA-Z0-9]+@stud\.ntnu\.no$"
               placeholder="ex) olan@stud.ntnu.no"
               required
        
             />
-            </label>
 
-            <label htmlFor="programme">*Choose programme:
-            <select id="pcode1" name="programme">
+            <label htmlFor="programme">*Choose programme: </label>
+            <select id="pcode" name="programme">
               <option value="BWU">BWU</option>
               <option value="BIXD">BIXD</option>
               <option value="BMED">BMED</option>
-            </select>        
-            </label>
+            </select>       
 
-            <label htmlFor="mentor">*Your mentor: 
+            <label htmlFor="mentor">*Your mentor: </label>
             <input
               id="mentor"
               type="text"
               placeholder="firstname lastname"
               required
             />
-            </label>
 
             
              <input            
@@ -191,7 +186,7 @@ class StudBachForm extends React.Component {
     return (
       <main id="studform" className="hidden">
 
-        <div className='studInternshipForm'>
+        <div className='studBachForm'>
           <div id="projectListContainer">
         <p>Chosen Internships:</p>
         <div id="projectList"></div>

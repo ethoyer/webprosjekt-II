@@ -126,13 +126,19 @@
   height: 70px;
   align-self: center;
   justify-self: right;
-  font-size: 20px;
   display: flex;
 }
 
-.navButton>a{
+.navButton>button{
   color: black;
-  text-decoration: none;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  font-size: 20px;
+}
+
+.navButton>button:hover{
+  color: rgb(59, 70, 80);
 }
 
 #studAppMain img {

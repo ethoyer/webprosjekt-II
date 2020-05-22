@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../css/form.css';
+import '../../css/companyForm.css';
 import Header from '../header';
 import Footer from '../footer';
 import { Link } from 'react-router-dom';
@@ -11,14 +11,14 @@ class CompanyInternshipForm extends React.Component {
    
     this.state = {
       compID: '',
-      fname:'',
-      email:'',
+      contactName:'',
+      contactemail:'',
       tlf:'',
       internshipLocation:'',
       internshipTitle:'',
       internshipDescription:'',
       internshipStart:{value:'Fall 2020'},
-      quantity:'',
+      studquantity:'',
       internshipDuration: {value:'lessThan6month'},
       isSubmitted: false,
   };
@@ -28,8 +28,8 @@ handleEmailChange(event) {
   const inputValue = event.target.value;
   this.setState({
     compID: inputValue,
-    fname: inputValue,
-    email: inputValue,
+    contactName: inputValue,
+    contactemail: inputValue,
     tlf: inputValue,
     internshipLocation: inputValue,
     internshipTitle: inputValue,
@@ -54,15 +54,15 @@ handleSubmit(event) {
   
   formData.append(
     'contact_person',
-    document.getElementById("fname").value
+    document.getElementById("contactName").value
   );
   formData.append(
     'phone_no',
     document.getElementById("tlf").value
   );
   formData.append(
-    'email',
-    document.getElementById("email").value
+    'contactemail',
+    document.getElementById("contactemail").value
   );
   formData.append(
     'project_title',
@@ -86,7 +86,7 @@ handleSubmit(event) {
   );
   formData.append(
     'no_of_stud',
-    document.getElementById("quantity").value
+    document.getElementById("studquantity").value
   );
   
   console.log(formData);
@@ -122,7 +122,7 @@ handleSubmit(event) {
             <h2>Project Application</h2>
            <p>Please fill in the application form below.</p>
           
-           <label htmlfor="compID">*Your company ID: 
+           <label htmlfor="compID">*Your company ID: </label>
             <input
               id="compID"
               name="compID"
@@ -130,49 +130,41 @@ handleSubmit(event) {
               placeholder="company ID provided by NTNU"
             
             />
-            </label>
         
       
         
-            <label htmlFor="contactName">*Contact person:
+            <label htmlFor="contactName">*Contact person: </label>
             <input
-              id="fname"
+              id="contactName"
               type="text"
               placeholder="first name (middle name) last name"
             />
 
-      
-            
-          </label>
-
-            <label htmlFor="email">*E-mail address: 
+            <label htmlFor="contactemail">*E-mail address: </label>
             <input
-              id="email"
-              type="email"
+              id="contactemail"
+              type="contactemail"
               placeholder="ex) olan@norcoop.com"
               required
             />
-          </label>
 
-            <label htmlFor="tlf">Tel. number: 
+            <label htmlFor="tlf">Tel. number: </label>
             <input
                 id="tlf"
                 type="tel"
                 placeholder="ex) xx xxx xxx"
             />
-            </label>
 
-            <label htmlfor="internshipLocation">*Location: 
+            <label htmlfor="internshipLocation">*Location: </label>
             <input
               id="internshipLocation"
               name="internshipLocation"
               type="text"
               placeholder="location.."
               required
-            />    
-            </label>
+            />  
 
-            <label htmlfor="internshipTitle">*Title for your project: 
+            <label htmlfor="internshipTitle">*Title for your project: </label>
             <input
               id="internshipTitle"
               name="internshipTitle"
@@ -180,43 +172,38 @@ handleSubmit(event) {
               placeholder="title.."
               required
             />
-            </label>
 
-            <label htmlFor="duration">Internship duration
+            <label htmlFor="duration">Internship duration </label>
             <select value={this.state.value} id="internshipDuration" name="internshipDuration">
               <option value="lessThan6month" selected>Less than 6 month</option>
               <option value="moreThan6month">More than 6 month</option>
             </select>
-            </label>
 
 
-            <label htmlFor="internshipStart">*Project Start Date: 
+            <label htmlFor="internshipStart">*Project Start Date: </label>
             <select id="internshipStart" name="internshipStart">
               <option value="spring2020" selected>Spring 2020</option>
               <option value="fall2020">Fall 2020</option>
               <option value="spring2021">Spring 2021</option>
               <option value="fall2021">Fall 2021</option>
-            </select>  
-            </label>
+            </select> 
 
-            <label htmlfor="quantity">No. of students needed: 
+            <label htmlfor="studquantity">No. of students needed: </label>
             <input 
-              id="quantity"
+              id="studquantity"
               type="number" 
               defaultValue="1"
-              name="quantity" 
+              name="studquantity" 
               min="1" 
               max="5"/>
-            </label>
        
-            <label htmlfor="internshipDescription">Description of the project:
+            <label htmlfor="internshipDescription">Description of the project: </label>
             <textarea  
                 id="internshipDescription" 
                 name="internshipDescription"
                 placeholder="description.."        
                 required
              />  
-            </label>
 
                        
              <input            
@@ -232,7 +219,7 @@ handleSubmit(event) {
       <div>
         <Header />
         <main>
-        <div className='studInternshipForm'>
+        <div className='compInternshipForm'>
           {applyInternshipForm}
         </div>
         </main>
