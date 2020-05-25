@@ -34,6 +34,9 @@ class CoordinatorInfo extends Component {
   }
 
   render() {
+    if (!sessionStorage.getItem("userData")) { //if no session storage is set(user not logged in) user will be redirected to the log in page
+      return <Redirect to={"/loginPage"} />;
+    }
 
     return (
         <div>
