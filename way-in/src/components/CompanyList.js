@@ -7,9 +7,9 @@ class CompanyList extends Component {
       return (
         <tr className="companies" key={index}>
           <td>{companyData.company_name}</td>
-          <td>{companyData.company_contact}</td>
-          <td>{companyData.email}</td>
-          <td>{companyData.phone}</td>
+          <td>{companyData.contact_person}</td>
+          <td>{companyData.Email}</td>
+          <td>{companyData.tel}</td>
         </tr>
       );
     });

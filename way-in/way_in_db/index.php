@@ -28,7 +28,7 @@ function login()
 function showCompanies()
 {
     require 'config.php';
-    $query = "SELECT * FROM feed ";
+    $query = "SELECT * FROM companies ";
     $result = $db->query($query);
 
     $companyData = mysqli_fetch_all($result, MYSQLI_ASSOC);
