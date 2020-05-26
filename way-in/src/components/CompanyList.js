@@ -14,7 +14,9 @@ class CompanyList extends Component {
       );
     });
 
-    return <table>
+    return <div className="coordinator">
+    <h2>Company overview</h2>
+    <table>
       <thead>
         <tr className="aCompany">
           <th>Name</th>
@@ -27,6 +29,7 @@ class CompanyList extends Component {
         {companyList}
       </tbody>
     </table>
+    </div>
   }
 }
 

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
 import { PostData } from "../PostData";
 import CompanyList from "./CompanyList";
-import '../css/form.css';
+import '../css/coordinator.css';
 
 class CoordinatorInfo extends Component {
   constructor(props) {
