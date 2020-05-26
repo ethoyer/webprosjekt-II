@@ -14,22 +14,18 @@
 .compInternshipForm form,
 .compBachForm form {
   display: grid;
-  grid-template-areas: 'title title'
-    'subtitle subtitle'
-    'compid id'
-    'contactabel contactName'
-    'emaillabel email'
-    'tlflabel tlf'
-    'loclabel loc'
-    'projectlabel project'
-    'durlabel dur'
-    'startlabel start'
-    'nolabel no'
-    'desclabel desclabel'
-    'desc desc'
-    'empty button';
-  grid-template-rows: 1fr 1fr 50px 50px 50px 50px 50px 50px 50px 50px 50px 50px 1fr;
-  grid-template-columns: 1fr 1fr;
+  grid-template-areas: 'title title title title'
+    'subtitle subtitle subtitle subtitle'
+    'compid id id id'
+    'contactabel contactName emaillabel email'
+    'tlflabel tlf loclabel loc'
+    'projectlabel project durlabel dur'
+    'startlabel start nolabel no'
+    'desclabel desclabel desclabel desclabel'
+    'desc desc desc desc'
+    'empty empty button button';
+  grid-template-rows: 70px 70px repeat(4, 50px) 80px 50px 50px;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
 .compInternshipForm h2 {
@@ -169,13 +165,17 @@ label[htmlfor="bachDesc"]{
 #internshipTitle,
 #internshipDuration,
 #internshipStart,
-#studquantity,
 #bachLoc,
 #bachTitle,
 #bachDuration,
 #bachStart {
   height: 30px;
   width: 200px;
+}
+
+#studquantity{
+  height: 30px;
+  width: 50px;
 }
 
 .compInternshipForm input[type="submit"],
@@ -199,4 +199,29 @@ label[htmlfor="bachDesc"]{
 .compInternshipForm input[type="submit"]:hover,
 .compBachForm input[type="submit"]:hover {
   background-color: rgb(167, 165, 165);
+}
+
+@media only screen and (max-width: 1400px) {
+
+  .compInternshipForm form,
+  .compBachForm form {
+    display: grid;
+    grid-template-areas: 'title title'
+      'subtitle subtitle'
+      'compid id'
+      'contactabel contactName'
+      'emaillabel email'
+      'tlflabel tlf'
+      'loclabel loc'
+      'projectlabel project'
+      'durlabel dur'
+      'startlabel start'
+      'nolabel no'
+      'desclabel desclabel'
+      'desc desc'
+      'empty button';
+    grid-template-rows: repeat(12, 50px) 150px;
+    grid-template-columns: 1fr 1fr;
+  }
+
 }

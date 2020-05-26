@@ -19,7 +19,7 @@
     'programmelabel prog prog prog'
     'back back submit submit';
   grid-template-rows: 1fr 1fr 50px 80px 1fr 1fr;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: repeat(4, 1fr);
 }
 
 .studBachForm form {
@@ -32,7 +32,7 @@
     'mentorlabel mentor mentor mentor'
     'back back submit submit';
   grid-template-rows: 1fr 1fr 50px 50px 80px 50px 1fr 1fr;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: repeat(4, 1fr);
 }
 
 label[for=name],
@@ -225,7 +225,7 @@ div.hidden {
       'programmelabel programmelabel programmelabel'
       'prog prog prog'
       'back empty submit';
-    grid-template-rows: 1fr 1fr 50px 50px 70px 50px 50px 50px 1fr 1fr;
+    grid-template-rows: 1fr 1fr 50px 50px 70px repeat(3, 50px)1fr 1fr;
     grid-template-columns: 1fr 1fr 1fr;
   }
 
@@ -243,7 +243,7 @@ div.hidden {
       'mentorlabel mentorlabel mentorlabel '
       'mentor mentor mentor'
       'back empty submit';
-    grid-template-rows: 1fr 1fr 50px 50px 50px 50px 80px 50px 50px 50px 50px 1fr 1fr;
+    grid-template-rows: 1fr 1fr repeat(4, 50px) 80px  repeat(4, 50px) 1fr 1fr;
     grid-template-columns: 1fr 1fr 1fr;
   }
 
@@ -278,8 +278,8 @@ div.hidden {
       'programmelabel programmelabel programmelabel'
       'prog prog prog'
       'back empty submit';
-    grid-template-rows: 1fr 1fr 50px 50px 50px 50px 50px 50px 50px 50px 50px 1fr 1fr;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr repeat(9, 50px) 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
   }
 
   .studBachForm form {
@@ -298,8 +298,8 @@ div.hidden {
       'mentorlabel mentorlabel mentorlabel '
       'mentor mentor mentor'
       'back empty submit';
-    grid-template-rows: 1fr 1fr 50px 50px 50px 50px 50px 50px 80px 50px 50px 50px 50px 1fr 1fr;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr repeat(6, 50px) 80px repeat(4, 50px) 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
   }
 
   #fname,
