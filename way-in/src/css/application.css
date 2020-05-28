@@ -15,7 +15,7 @@
     grid-area: overview;
 }
 
-#projectList {
+#fullProjectList {
     max-height: 60vh;
     overflow-y: scroll;
 }
