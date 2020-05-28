@@ -90,6 +90,7 @@
   background-color: #EAEEF5;
   border-radius: 10px;
   box-shadow: 2px 2px 5px rgb(114, 128, 151);
+  border: none;
 }
 
 #companyInfo {
