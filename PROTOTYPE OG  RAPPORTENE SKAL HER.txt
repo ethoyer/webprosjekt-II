@@ -1,0 +1,7 @@
+prototype filen kan hete gr1-prototype-imt2671-2020 eller no idk
+
+gr1-project-report-imt2671-2020: The project report (pdf). 
+
+gr1-process-report-imt2671-2020: The process report (pdf). 
+
+XX-reflect-imt2671-2020: The reflection report (pdf). XX = student code.
