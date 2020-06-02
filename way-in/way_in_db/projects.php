@@ -1,15 +1,13 @@
 <?php
 header("Access-Control-Allow-Origin: *"); //allows access to data
-include 'connect.php';
+require 'config.php';
  
-if ($conn->connect_error) {
+if ($db->connect_error) {
  
- die("Connection failed: " . $conn->connect_error);
-} 
+ die("Connection failed: " . $db->connect_error);
+}
  
-$sql = "SELECT * FROM bachelor_projects";
- 
-$result = $conn->query($sql);
+$result = $db->query('SELECT * FROM bachelor_projects');
  
 if ($result->num_rows >0) {
  
@@ -27,5 +25,5 @@ if ($result->num_rows >0) {
  echo "No Results Found.";
 }
  echo $json;
-$conn->close();
+$db->close();
 ?>
