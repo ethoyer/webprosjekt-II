@@ -6,10 +6,16 @@ class CompanyList extends Component {
     let companyList = this.props.companyData.map(function (companyData, index) {
       return (
         <tr className="companies" key={index}>
+          <td>{companyData.project_title}</td>
           <td>{companyData.company_name}</td>
+          <td>{companyData.project_description}</td>
+          <td>{companyData.project_duration}</td>
+          <td>{companyData.start_date}</td>
+          <td>{companyData.location}</td>
+          <td>{companyData.no_of_stud}</td>
           <td>{companyData.contact_person}</td>
-          <td>{companyData.Email}</td>
-          <td>{companyData.tel}</td>
+          <td>{companyData.phone_no}</td>
+          <td>{companyData.email}</td>
         </tr>
       );
     });
@@ -19,10 +25,16 @@ class CompanyList extends Component {
     <table>
       <thead>
         <tr className="aCompany">
-          <th>Name</th>
+          <th>Title</th>
+          <th>Company</th>
+          <th>Description</th>
+          <th>Duration</th>
+          <th>Start-date</th>
+          <th>Location</th>
+          <th>No. of Students</th>
           <th>Contact</th>
-          <th>Email</th>
           <th>Phone</th>
+          <th>Email</th>
         </tr>
       </thead>
       <tbody>

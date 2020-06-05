@@ -1,6 +1,5 @@
 <?php
 header("Access-Control-Allow-Origin: *"); //allows access to data
-header("Access-Control-Allow-Headers: *");
 
 $type = $_GET['tp'];
 if ($type == 'login') login();
@@ -28,7 +27,7 @@ function login()
 function showCompanies()
 {
     require 'config.php';
-    $query = "SELECT * FROM companies ";
+    $query = "SELECT * FROM company_ba_suggestion INNER JOIN companies ON company_ba_suggestion.company_id=companies.company_id ";
     $result = $db->query($query);
 
     $companyData = mysqli_fetch_all($result, MYSQLI_ASSOC);
