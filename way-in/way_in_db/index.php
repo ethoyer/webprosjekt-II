@@ -1,5 +1,6 @@
 <?php
 header("Access-Control-Allow-Origin: *"); //allows access to data
+header("Access-Control-Allow-Headers: *");
 
 $type = $_GET['tp'];
 if ($type == 'login') login();
