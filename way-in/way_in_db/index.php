@@ -2,45 +2,44 @@
 header("Access-Control-Allow-Origin: *"); //allows access to data
 header("Access-Control-Allow-Headers: *");
 
-$type = $_GET['tp'];
+error_log("index.php executing");
+$type = $_POST['tp'];
 if ($type == 'login') login();
-elseif ($type == 'companies') showCompanies();
 function login()
 {
+    error_log("login() executing.");
     session_start();
     require 'config.php';
-    $json = json_decode(file_get_contents('php://input'), true);  // $json = $_POST
-    $username = $json['username'];
-    $password = $json['password'];
-    //$hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-    // $userData = '';
-    $query = "SELECT * from `users` where username='$username'";
-    $result = $db->query($query)->fetch();
-    if ($result && password_verify($password ,$result["password"])){
-        $_SESSION["username"] = $username;
-        $_SESSION["password"] = $hashedPassword;
-        $userData = json_encode($result);
-        echo $userData;
+    // $json = json_decode(file_get_contents('php://input'), true);  // $json = $_POST
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+    error_log("user name is:");
+    error_log($username);
+    $query = $db->prepare("SELECT * from `users` where username=?");
+    $query->bind_param("s", $username);
+    $query->execute();
+    $res = $query->get_result();
+    if ($res->num_rows >0){
+        error_log("found user $username");
+        $data = $res->fetch_assoc();
+        error_log(serialize($data));
+        error_log($password);
+        error_log($data["password"]);
+        $verf = password_verify($password, $data["password"]);
+        error_log("Verification $verf");
+        if (password_verify($password ,$data["password"])){
+            error_log("And by the way, passwords mathch");
+            $_SESSION["username"] = $username;
+            $_SESSION["password"] = password_hash($password, PASSWORD_DEFAULT);
+            $userData = json_encode($data);
+            echo $userData;
+            error_log("Final result:");
+            error_log(serialize($userData));
+        }else{
+            error_log("Passwords did not match");
+        }
     }
-    /*
-    if ($rowCount > 0) {
-        $userData = $result->fetch_object();
-        $userData = json_encode($userData);
-        echo '{"userData":' . $userData . '}';
-    } else {
-        echo '{"error":"Wrong username and password"}';
+    else{
+        error_log("Did not find user $username");
     }
-    */
-}
-
-function showCompanies()
-{
-    require 'config.php';
-    $query = "SELECT * FROM companies ";
-    $result = $db->query($query);
-
-    $companyData = mysqli_fetch_all($result, MYSQLI_ASSOC);
-    $companyData = json_encode($companyData);
-
-    echo '{"companyData":' . $companyData . '}';
 }

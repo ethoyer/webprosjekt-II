@@ -9,6 +9,7 @@ import StudInternshipPage from './components/pages/studInternshipPage';
 import StudBachPage from './components/pages/studBachPage';
 import CompanyApplication from './components/pages/companyApplication.js';
 import LogInPage from './components/pages/logInPage';
+import CreateUser from './components/pages/userCreatePage';
 import CompanyInternshipForm from './components/pages/companyInternshipPage';
 import CompanyOfferBachForm from './components/pages/companyBachPage';
 import CoordinatorPage from './components/pages/coordinatorPage';
@@ -22,6 +23,7 @@ const routing = (
         <Route path="/student_application" component={StudentApplication} />
         <Route path="/companyApplyPage" component={CompanyApplication} />
         <Route path="/logInPage" component={LogInPage}/>
+        <Route path="/userCreatePage" component={CreateUser}/>
         <Route path="/offer_internship" component={CompanyInternshipForm}/>
         <Route path="/offer_bachelor" component={CompanyOfferBachForm}/>
         <Route path="/internship_overview" component={StudInternshipPage} />

@@ -1,5 +1,8 @@
+import { resolve } from "url";
+
 export function PostData(type, userData) {
-    let BaseURL = "http://localhost/way_in_db/index.php";
+    let BaseURL = "http://192.168.64.2/way_in_db/index.php";
+  /*
     return new Promise((resolve, reject) => {
       fetch(BaseURL + "?tp=" + type, {
         method: "POST",
@@ -18,4 +21,16 @@ export function PostData(type, userData) {
           reject(error);
         });
     });
+
+  */
+    let formData = new FormData();
+    formData.append("tp", "login");
+    formData.append("username", userData.username);
+    formData.append("password", userData.password);
+    let res = fetch(BaseURL, {
+      method: "POST",
+      body: formData
+    });
+    return res;
   }
+  

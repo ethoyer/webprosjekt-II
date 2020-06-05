@@ -16,6 +16,16 @@ class Login extends Component {
   }
   login() {
     if (this.state.username && this.state.password) {
+      PostData("login", this.state)
+      .then(res => {
+        let json = res.json();
+        if (json.username != ""){
+          sessionStorage.setItem("userData", JSON.stringify(json));
+          this.setState({redirectToReferrer: true}); 
+        }else{alert("Error")};
+      });
+      /*
+      let res = PostData()
       PostData("login", this.state).then((result) => {
         let responseJson = result;
         if (responseJson.userData) {
@@ -23,6 +33,8 @@ class Login extends Component {
           this.setState({ redirectToReferrer: true });
         } else alert(result.error);
       });
+    }
+    */
     }
   }
   onChange(e) {
