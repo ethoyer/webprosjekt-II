@@ -16,10 +16,10 @@ class Login extends Component {
   }
   login() {
     if (this.state.username && this.state.password) {
-      PostData("login", this.state)
+      PostData(this.state)
       .then(res => {
         let json = res.json();
-        if (json.username != ""){
+        if (json.username !== ""){
           sessionStorage.setItem("userData", JSON.stringify(json));
           this.setState({redirectToReferrer: true}); 
         }else{alert("Error")};

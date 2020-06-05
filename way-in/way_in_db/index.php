@@ -43,3 +43,14 @@ function login()
         error_log("Did not find user $username");
     }
 }
+function showCompanies()
+{
+    require 'config.php';
+    $query = "SELECT * FROM company_ba_suggestion INNER JOIN companies ON company_ba_suggestion.company_id=companies.company_id ";
+    $result = $db->query($query);
+
+    $companyData = mysqli_fetch_all($result, MYSQLI_ASSOC);
+    $companyData = json_encode($companyData);
+
+    echo '{"companyData":' . $companyData . '}';
+}

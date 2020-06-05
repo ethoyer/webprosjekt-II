@@ -1,7 +1,7 @@
-import { resolve } from "url";
 
-export function PostData(type, userData) {
-    let BaseURL = "http://192.168.64.2/way_in_db/index.php";
+
+export function PostData(userData) {
+    let BaseURL = "http://localhost/way_in_db/index.php";
   /*
     return new Promise((resolve, reject) => {
       fetch(BaseURL + "?tp=" + type, {

@@ -43,7 +43,7 @@ class CreateUser extends React.Component {
 
     console.log(formData);
     //'localhost' may have to be replaced bt your local ip address:
-    fetch("http://192.168.64.2/way_in_db/create_user.php", {
+    fetch("http://localhost/way_in_db/create_user.php", {
       method: 'POST',
       body: formData
     });
