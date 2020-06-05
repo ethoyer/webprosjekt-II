@@ -41,7 +41,6 @@ handleEmailChange(event) {
 
 
 handleSubmit(event) {
-  console.log("Form sent");
   const formData = new FormData();
   formData.append(
     "method",
@@ -89,7 +88,6 @@ handleSubmit(event) {
     document.getElementById("studquantity").value
   );
   
-  console.log(formData);
   //'localhost' may have to be replaced bt your local ip address:
   fetch("http://localhost/way_in_db/internshipForm.php", {
     method: 'POST',

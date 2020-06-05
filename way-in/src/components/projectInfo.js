@@ -29,7 +29,6 @@ class ProjectInfo extends React.Component {
         projectList: prevState.projectList.concat(newProject)
       };
     });
-    console.log(this.parent.state.projectList);
 
     inProjectList = true;
     this.onProjectAdditionOrRemoval(inProjectList);
@@ -43,7 +42,6 @@ class ProjectInfo extends React.Component {
     this.parent.setState({
       projectList: filteredProjects
     });
-    console.log(this.parent.state.projectList);
 
     inProjectList = false;
     this.onProjectAdditionOrRemoval(inProjectList);

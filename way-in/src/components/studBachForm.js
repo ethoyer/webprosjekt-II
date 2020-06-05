@@ -43,7 +43,6 @@ class StudBachForm extends React.Component {
 
 
   handleSubmit(event) {
-    console.log("Form sent");
     let addedProjects = JSON.stringify(this.getProjectsInList())
     const formData = new FormData();
     formData.append(
@@ -78,7 +77,6 @@ class StudBachForm extends React.Component {
       'Mentor',
       document.getElementById("mentor").value
     );
-    console.log(formData);
     //'localhost' may have to be replaced bt your local ip address:
     fetch("http://localhost/way_in_db/internshipForm.php", {
       method: 'POST',

@@ -25,7 +25,6 @@ class CreateUser extends React.Component {
     });
   }
   handleSubmit(event) {
-    console.log("Form sent");
     const formData = new FormData();
   
     formData.append(
@@ -41,7 +40,6 @@ class CreateUser extends React.Component {
       document.getElementById("psw2").value
     );
 
-    console.log(formData);
     //'localhost' may have to be replaced bt your local ip address:
     fetch("http://localhost/way_in_db/create_user.php", {
       method: 'POST',

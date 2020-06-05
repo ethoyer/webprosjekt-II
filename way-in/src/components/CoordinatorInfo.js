@@ -28,7 +28,6 @@ class CoordinatorInfo extends Component {
       PostData("companies").then((result) => {
         if (result.companyData) {
           this.setState({ data: result.companyData });
-          console.log(this.state);
         }
       });
     }
@@ -41,8 +40,8 @@ class CoordinatorInfo extends Component {
 
     return (
       <div className="coordinator">
-        <h2 class="coordinatorHeader">Company Application overview</h2>
-        <div class="divRow">
+        <h2 className="coordinatorHeader">Company Application overview</h2>
+        <div className="divRow">
           <div className="compBASuggestions">
             <h3>Bachelor projects:</h3>
             <CompanyList projectdb='http://localhost/way_in_db/companyBachelorSuggestions.php' />
@@ -52,8 +51,8 @@ class CoordinatorInfo extends Component {
             <CompanyList projectdb='http://localhost/way_in_db/companyInternshipSuggestions.php' />
           </div>
         </div>
-        <h2 class="coordinatorHeader">Student Application overview</h2>
-        <div class="divRow">
+        <h2 className="coordinatorHeader">Student Application overview</h2>
+        <div className="divRow">
         <div className="compBASuggestions">
         <h3>Bachelor projects:</h3>
         <StudentList projectdb='http://localhost/way_in_db/studentBachelorApplication.php' />

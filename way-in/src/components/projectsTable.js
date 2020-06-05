@@ -60,7 +60,6 @@ class ProjectsTable extends React.Component {
     e.preventDefault();
     document.getElementById("studAppMain").className = "hidden";
     document.getElementById("studform").className = "visible";
-    console.log(this.state.projectList);
     this.displayProjectList();
   }
 

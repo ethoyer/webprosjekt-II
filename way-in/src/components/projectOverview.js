@@ -18,7 +18,6 @@ class ProjectOverview extends React.Component {
       .then((response) => response.json())
       .then((responseJson) => {
         projectArray = responseJson;
-        console.log(projectArray);
         this.setState({ isLoading: false }); //sets state forcing a reload so collected data is shown
       })
   }
