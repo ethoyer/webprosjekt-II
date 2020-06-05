@@ -7,15 +7,22 @@ if ($type == 'login') login();
 elseif ($type == 'companies') showCompanies();
 function login()
 {
+    session_start();
     require 'config.php';
-    $json = json_decode(file_get_contents('php://input'), true);
+    $json = json_decode(file_get_contents('php://input'), true);  // $json = $_POST
     $username = $json['username'];
     $password = $json['password'];
-    $userData = '';
-    $query = "select * from users where username='$username' and password='$password'";
-    $result = $db->query($query);
-    $rowCount = $result->num_rows;
-
+    //$hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+    // $userData = '';
+    $query = "SELECT * from `users` where username='$username'";
+    $result = $db->query($query)->fetch();
+    if ($result && password_verify($password ,$result["password"])){
+        $_SESSION["username"] = $username;
+        $_SESSION["password"] = $hashedPassword;
+        $userData = json_encode($result);
+        echo $userData;
+    }
+    /*
     if ($rowCount > 0) {
         $userData = $result->fetch_object();
         $userData = json_encode($userData);
@@ -23,6 +30,7 @@ function login()
     } else {
         echo '{"error":"Wrong username and password"}';
     }
+    */
 }
 
 function showCompanies()
