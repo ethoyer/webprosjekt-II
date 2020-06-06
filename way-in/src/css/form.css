@@ -208,6 +208,10 @@ div.hidden {
   text-align: center;
 }
 
+#registerUser{
+  text-align: center;
+}
+
 @media only screen and (max-width: 1200px) {
 
   .studInternshipForm form,

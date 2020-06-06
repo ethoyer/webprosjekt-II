@@ -1,19 +1,19 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import '../css/loginForm.css';
+import '../css/form.css';
 
 
 
 class CreateUser extends React.Component {
-    constructor(props) {
-      super(props);
-      this.handleSubmit = this.handleSubmit.bind(this);
+  constructor(props) {
+    super(props);
+    this.handleSubmit = this.handleSubmit.bind(this);
 
-      this.state = {
-        username: '',
-        psw1:'',
-        psw2: '',
-        isSubmitted: false,
+    this.state = {
+      username: '',
+      psw1: '',
+      psw2: '',
+      isSubmitted: false,
     };
   }
   handleEmailChange(event) {
@@ -26,7 +26,7 @@ class CreateUser extends React.Component {
   }
   handleSubmit(event) {
     const formData = new FormData();
-  
+
     formData.append(
       'username',
       document.getElementById("username").value
@@ -45,71 +45,73 @@ class CreateUser extends React.Component {
       method: 'POST',
       body: formData
     });
-   
-    this.setState({isSubmitted: true});
+
+    this.setState({ isSubmitted: true });
     event.preventDefault();
   }
 
-  render() {                                   
-        
-    let newUser;      
+  render() {
 
-    if (this.state.isSubmitted) {            
-        newUser = (            
+    let newUser;
+
+    if (this.state.isSubmitted) {
+      newUser = (
         <div className='contact-submit-message'>
-        <h2>Thank you!</h2>
-        <Link to="/logInPage">Go to login page</Link>
+          <h2>Thank you!</h2>
+          <Link to="/logInPage">Go to login page</Link>
         </div>
-        );
-      } else {
-        newUser = (
-          
-          <form onSubmit={this.handleSubmit} >
-            <h2>Create User</h2>
-           
-            <label htmlFor="username">*Username: </label>
-            <input
-              id="username"
-              type="text"
-              placeholder="Username"
-              required
-            />
+      );
+    } else {
+      newUser = (
 
-            <label htmlFor="psw1">*Password: </label>
-            <input
-              id="psw1"
-              type="password"
-              placeholder="password"
-              required
-            />
+        <form onSubmit={this.handleSubmit} >
+          <h2>Create User</h2>
 
-            <label htmlFor="psw2">Repeat password: </label>
-            <input
-              id="psw2"
-              type="password"
-              placeholder="repeat your password"
-              required
-            />
+          <label htmlFor="username">*Username: </label>
+          <input
+            id="username"
+            type="text"
+            placeholder="Username"
+            required
+          />
 
-             <input            
-                type='submit'            
-                value='Submit'            
-               />  
+          <label htmlFor="psw1">*Password: </label>
+          <input
+            id="psw1"
+            type="password"
+            placeholder="password"
+            required
+          />
+          <br />
+
+          <label htmlFor="psw2">Repeat password: </label>
+          <input
+            id="psw2"
+            type="password"
+            placeholder="repeat your password"
+            required
+          />
+
+          <br />
+          <input
+            type='submit'
+            value='Submit'
+          />
         </form>
-       
-       );
+
+      );
     }
-    
+
     return (
-        <div>
+      <div>
         <main>
-        <div>
-          {newUser}
-        </div>
+          <div class="form">
+            {newUser}
+          </div>
         </main>
       </div>
     );
   }
-}         
+}
 
 export default CreateUser;

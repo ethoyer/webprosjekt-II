@@ -60,7 +60,7 @@ handleSubmit(event) {
     document.getElementById("tlf").value
   );
   formData.append(
-    'contactemail',
+    'email',
     document.getElementById("contactemail").value
   );
   formData.append(

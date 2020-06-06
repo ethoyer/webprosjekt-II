@@ -79,23 +79,23 @@ if ($_POST["method"] == "add"){
         }
 }elseif ($_POST["method"] == "addCompInt"){
     $query = $db->prepare(
-        "INSERT INTO `company_int_suggestion` (`company_id`,`contact_person`, `phone_no`, `email`, `project_title`,`project_description`,`project_duration`,`start_date`,`location`,`no_of_stud`) VALUES (:compID, :fname, :tlf, :email, :intTitle, :intDescription, :intDuration, :intStart, :intLocation, :quantity)"
+        "INSERT INTO `company_int_suggestion` (`company_id`,`contact_person`, `phone_no`, `email`, `project_title`,`project_description`,`project_duration`,`start_date`,`location`,`no_of_stud`) VALUES (:compID, :contactName, :tlf, :contactemail, :internshipTitle, :internshipDescription, :internshipDuration, :internshipStart, :internshipLocation, :studquantity)"
     );
     $query->execute([
         "compID" => $_POST["company_id"],
-        "fname" => $_POST["contact_person"],
+        "contactName" => $_POST["contact_person"],
         "tlf" => $_POST["phone_no"],
-        "email" => $_POST["email"],
-        "intTitle" => $_POST["project_title"],
-        "intDescription" => $_POST["project_description"],
-        "intDuration" => $_POST["project_duration"],
-        "intStart" => $_POST["start_date"],
-        "intLocation" => $_POST["location"],
-        "quantity" => $_POST["no_of_stud"]
+        "contactemail" => $_POST["email"],
+        "internshipTitle" => $_POST["project_title"],
+        "internshipDescription" => $_POST["project_description"],
+        "internshipDuration" => $_POST["project_duration"],
+        "internshipStart" => $_POST["start_date"],
+        "internshipLocation" => $_POST["location"],
+        "studquantity" => $_POST["no_of_stud"]
     ]);
 }elseif ($_POST["method"] == "addBusBach"){
     $query = $db->prepare(
-        "INSERT INTO `company_ba_suggestion` (`company_id`,`contact_person`, `phone_no`, `email`, `project_title`,`project_description`,`project_duration`,`start_date`,`location`,`no_of_stud`) VALUES (:compID, :contactName, :tlf, :contactemail, :bachTitle, :bachDesc, :bachDuration, :bachStart, :bachLoc, :stdquantity)"
+        "INSERT INTO `company_ba_suggestion` (`company_id`,`contact_person`, `phone_no`, `email`, `project_title`,`project_description`,`project_duration`,`start_date`,`location`,`no_of_stud`) VALUES (:compID, :contactName, :tlf, :contactemail, :bachTitle, :bachDesc, :bachDuration, :bachStart, :bachLoc, :studquantity)"
     );
     
     $query->execute([
