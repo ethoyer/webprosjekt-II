@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 28. Mai, 2020 21:31 PM
+-- Generation Time: 06. Jun, 2020 12:43 PM
 -- Tjener-versjon: 10.4.11-MariaDB
 -- PHP Version: 7.2.31
 
@@ -49,7 +49,7 @@ INSERT INTO `bachelor_projects` (`id`, `title`, `location`, `project_description
 (2, 'Design a web solution', 'Oslo', '\r\nWe have an ambition to satisfy our customers 120%. In this project, you are going to work and design a web solution together with our team.\r\n<br><br>\r\nOur team has developed many solutions and during this bachelor project you will help them with a currently ongoing solution for one of our many clients. Our team leader will help and assist you in this process as you will be handed a certain amount of features to develop as a group.\r\n<br><br>\r\nThere are many things that need to be developed during this project as this will be a websolution that needs to satisfy the needs of the company. This list will be provided to you at a later date.\r\n<br><br>\r\nThe language of this websolution is already decided, it will not be PHP, as our team has already started development, but we want to be included in as many descicions made during the process as possible to impart a valuable learning opportunity. And also because we believe you will be able to bring important and useful insight.', 'AD', 'koss', 'Magnus Karl Karlsen', 'magnusk@koss.com', 233222563, 4),
 (3, 'Design Human interaction', 'Trondheim', 'In this bachelor project, you are expected to design and develop a solution to an app for eldery people.\r\n<br><br>\r\nOur team has gotten an assignment that they have been working on and we would like to include you in this process. It is a big process, but we believe in you and your ability to excell even in difficult times.\r\n<br><br>\r\nThis solution would need to be developed as an app, as we mentioned in the first line in case you forgot, because that is what many elderly people use now I suppose. It will mainly be for IOS, but there is an opporunity for Android if you have the passion.\r\n<br><br>\r\nOur team will be there and support you the entire way. ', 'AD', 'Helse', 'Lauran Mari Loss', 'lauranml@helse.com', 23902344, 4),
 (4, 'Design Researcher', 'Gjøvik', 'We are looking for you who is enthusiastic about design and human interaction.\r\n<br><br>\r\nIf this is you, we might be the company for you!\r\nWe are a small-scale company focused upon every aspect of human interaction and how we interact with design. We work close with humans in general, especially when they\'re clients, helping design and create user friendly solutions regardles of platform or device. \r\n<br><br>\r\nWith us you will get valuable work experience in a busy and hectic, but incredibly supportive, environment. Our offices are small and we foster a strong sense of community within the company. You will be followed up closely by your superiors, and all other humans who may enter our offices, and encouraged to participate in as many activites as possible.\r\n<br>\r\nWe also host human interaction study nights regularly that we encourage all our interns to participate in freely. \r\n<br>\r\nWe are localised centraly in whichever city the application says we\'re localised in. Easily accessibl', 'HF', 'CISCO', 'Karen Karson', 'Karen@Karson.com', 45678901, 1),
-(5, 'UX-designer in Digital Banking Services', 'Trondheim', 'Are you passionate about interaction design?\r\n<br><br>\r\nNeither are we! We are a very large company focused upon learning as much about interaction design as possible. We work close with several local and international clients creating user friendly solutions.\r\n<br><br>\r\nWith us you will get to teach us valuable information in a safe and encouraging environment. Our offices are big and we foster a strong sense of community within the company. You will be followed up closely by your superiors and encouraged to participate in as many activites as possible.\r\n\r\nWe also host WCAG 2.1 documentation reading evenings regularly that we encourage all our interns to participate in freely. <br>\r\n\r\n\r\n\r\nWhether you\'re interested in design, interaction, the U or the X in UX design or is even slightly passionate about the wcag regulations we encourage you to apply!', 'AD', 'Every', 'Lars Larsen', 'Lars@Larsen.com', 9876543, 1);
+(5, 'UX-designer in Digital Banking Services', 'Trondheim', 'Are you passionate about interaction design?\r\nNeither are we! We are a very large company focused upon learning as much about interaction design as possible. \r\n<br><br>\r\nWe work close with several local and international clients creating user friendly solutions.\r\n<br><br>\r\nWith us you will get to teach us valuable information in a safe and encouraging environment. Our offices are big and we foster a strong sense of community within the company. You will be followed up closely by your superiors and encouraged to participate in as many activites as possible.\r\n\r\nWe also host WCAG 2.1 documentation reading evenings regularly that we encourage all our interns to participate in freely. <br>\r\n\r\n\r\n\r\nWhether you\'re interested in design, interaction, the U or the X in UX design or is even slightly passionate about the wcag regulations we encourage you to apply!', 'AD', 'Every', 'Lars Larsen', 'Lars@Larsen.com', 9876543, 1);
 
 -- --------------------------------------------------------
 
@@ -105,10 +105,7 @@ INSERT INTO `chosen_projects` (`Email`, `project_id`) VALUES
 ('karljj@stud.ntnu.no', 2),
 ('doral@stud.ntnu.no', 1),
 ('doral@stud.ntnu.no', 2),
-('doral@stud.ntnu.no', 3),
-('test@stud.ntnu.no', 1),
-('elisabetk2@stud.ntnu.no', 1),
-('elisabetk2@stud.ntnu.no', 3);
+('doral@stud.ntnu.no', 3);
 
 -- --------------------------------------------------------
 
@@ -161,8 +158,7 @@ CREATE TABLE `company_ba_suggestion` (
 INSERT INTO `company_ba_suggestion` (`company_id`, `contact_person`, `phone_no`, `email`, `project_title`, `project_description`, `project_duration`, `start_date`, `location`, `no_of_stud`) VALUES
 (2, 'Kiki Mero Bosstad', 33355666, 'kikid@designcoop.com', 'Developing a new system', 'Challenge developing a solution with a new system!', 'less than 6 mon', 'fall 2020', 'Trondheim', '3'),
 (3, 'Leo Davi', 55566788, 'leol@contaas.com', 'Web solution', 'Develop a web solution for our system', 'less than 6 mon', 'fall 2020', 'Stavanger', '2'),
-(3, 'Merple Logan', 2344233, 'merplel@contaas.no', 'Design from the scratch ', 'This is a suitable bachelor project for ones who are ambitious and achieve a big thing.', 'less than 6 mon', 'spring2021', 'Oslo', '3'),
-(1, 'Gig Mao', 3425345, 'gigm@evry.com', 'kia', 'gsd', 'lessThan6month', 'spring2020', 'Oslo', '1');
+(3, 'Merple Logan', 2344233, 'merplel@contaas.no', 'Design from the scratch ', 'This is a suitable bachelor project for ones who are ambitious and achieve a big thing.', 'less than 6 mon', 'spring2021', 'Oslo', '3');
 
 -- --------------------------------------------------------
 
@@ -217,7 +213,7 @@ CREATE TABLE `internships` (
 
 INSERT INTO `internships` (`id`, `title`, `location`, `project_description`, `faculty`, `company_name`, `company_contact`, `email`, `phone`, `no_of_students`) VALUES
 (1, 'Front-End Trainee Developer', 'Oslo', 'Are you interested in web development and challenge your skills? Then you can learn with us!\r\n<br><br>\r\nWe are a small-scale company focused upon every aspect of web development. We work close with several local and international clients creating websolutions.\r\n\r\nWith us you will get valuable work experience in a safe and encouraging environment. Our offices are small and we foster a strong sense of community within the company. You will be followed up closely by your superiors and encouraged to participate in as many activites as possible.\r\n\r\nWe also host coding nights regularly that we encourage all our interns to participate in freely. <br>\r\nWe are localised centraly in whichever city the application says we\'re localised in. Easily accessible both by bus, car, bike or just your legs if you prefer to walk. If you have any questions do not hesitate to give us a call!\r\n<br><br>\r\nWhether you\'re interested in front-end, back-end or just have the smallest of fire for the world wide web we encourage you to apply!\r\n', 'AD', 'ContaAS', 'Emil Emilsen', 'Emil@Emilsen.com', 12345678, 2),
-(2, 'UX-designer in Digital Banking Services', 'Trondheim', 'Are you passionate about interaction design?\r\n<br><br>\r\nNeither are we! We are a very large company focused upon learning as much about interaction design as possible. We work close with several local and international clients creating user friendly solutions.\r\n<br><br>\r\nWith us you will get to teach us valuable information in a safe and encouraging environment. Our offices are big and we foster a strong sense of community within the company. You will be followed up closely by your superiors and encouraged to participate in as many activites as possible.\r\n\r\nWe also host WCAG 2.1 documentation reading evenings regularly that we encourage all our interns to participate in freely. <br>\r\n\r\n\r\n\r\nWhether you\'re interested in design, interaction, the U or the X in UX design or is even slightly passionate about the wcag regulations we encourage you to apply!', 'AD', 'Every', 'Lars Larsen', 'Lars@Larsen.com', 9876543, 1),
+(2, 'UX-designer in Digital Banking Services', 'Trondheim', 'Are you passionate about interaction design?\r\nNeither are we! We are a very large company focused upon learning as much about interaction design as possible. \r\n<br><br>\r\nWe work close with several local and international clients creating user friendly solutions.\r\n<br><br>\r\nWith us you will get to teach us valuable information in a safe and encouraging environment. Our offices are big and we foster a strong sense of community within the company. You will be followed up closely by your superiors and encouraged to participate in as many activites as possible.\r\n\r\nWe also host WCAG 2.1 documentation reading evenings regularly that we encourage all our interns to participate in freely. <br>\r\n\r\n\r\n\r\nWhether you\'re interested in design, interaction, the U or the X in UX design or is even slightly passionate about the wcag regulations we encourage you to apply!', 'AD', 'Every', 'Lars Larsen', 'Lars@Larsen.com', 9876543, 1),
 (3, 'Design Researcher', 'Gjøvik', 'We are looking for you who is enthusiastic about design and human interaction.\r\n<br><br>\r\nIf this is you, we might be the company for you!\r\nWe are a small-scale company focused upon every aspect of human interaction and how we interact with design. We work close with humans in general, especially when they\'re clients, helping design and create user friendly solutions regardles of platform or device. \r\n<br><br>\r\nWith us you will get valuable work experience in a busy and hectic, but incredibly supportive, environment. Our offices are small and we foster a strong sense of community within the company. You will be followed up closely by your superiors, and all other humans who may enter our offices, and encouraged to participate in as many activites as possible.\r\n<br>\r\nWe also host human interaction study nights regularly that we encourage all our interns to participate in freely. \r\n<br>\r\nWe are localised centraly in whichever city the application says we\'re localised in. Easily accessible both by bus, car, bike or just your legs if you prefer to walk. If you have any questions do not hesitate to give us a call!\r\n<br><br>\r\nWhether you\'re interested in interacting, design, humans or all three we encourage you to apply!\r\n', 'HF', 'CISCO', 'Karen Karson', 'Karen@Karson.com', 45678901, 1),
 (4, 'Web solution for fishing industry', 'Oslo', 'During this internship, you are expected to design and develop a websolution for us.\r\n<br><br>\r\nIt is exactly what it says on the tin. During this project a websolution will be designed, and later developed, by you and your group. We are a company that does not develop nor design websolutions, therefore we are looking to you students to help us with this.\r\n<br><br>\r\nThere are many things that need to be developed during this project as this will be a websolution that needs to satisfy the needs of the company. This list will be provided to you at a later date.\r\n<br><br>\r\nThe language of this websolution will be left to you, as we do not have much experience with these things, but we want to be included in the process as much as possible. This is a wonderful opportunity and will help you greatly. And also us, as we need a websolution to be designed and developed for us.', 'AD', 'ASCO', 'Eri Otto', 'erio@asco.com', 233222444, 3),
 (5, 'Design Human interaction', 'Trondheim', 'In this bachelor project, you are expected to design and develop a solution to an app for eldery people.\r\n<br><br>\r\nOur team has gotten an assignment that they have been working on and we would like to include you in this process. It is a big process, but we believe in you and your ability to excell even in difficult times.\r\n<br><br>\r\nThis solution would need to be developed as an app, as we mentioned in the first line in case you forgot, because that is what many elderly people use now I suppose. It will mainly be for IOS, but there is an opporunity for Android if you have the passion.\r\n<br><br>\r\nOur team will be there and support you the entire way. ', 'AD', 'Helse', 'Lauran Mari Loss', 'lauranml@helse.com', 23902344, 4);
@@ -268,14 +264,12 @@ CREATE TABLE `stud_int_application` (
 INSERT INTO `stud_int_application` (`Email`, `Fname`, `Mname`, `Lname`, `programme_code`) VALUES
 ('bug@stud.ntnu.no', 'bugsy', '', 'rogers', 'IMT3541'),
 ('doral@stud.ntnu.no', 'Dora', 'Lume', 'Lauk', 'IMT3541'),
-('elisabetk2@stud.ntnu.no', 'Elisabet', 'B', 'Bruce', 'IMT3541'),
 ('gusseland@stud.ntnu.no', 'Vegard', '', 'Gusseland', 'IMT3541'),
 ('hunm@stud.ntnu.no', 'hun', '', 'humus', 'IMT3541'),
 ('karljj@stud.ntnu.no', 'Karl', 'Johannes', 'Johan', 'IMT3541'),
 ('lisamm@stud.ntnu.no', 'Lisa', 'Mello', 'Moana', 'IMT3006'),
 ('mag@stud.ntnu.no', 'magne', '', 'magnus', 'IMT3541'),
 ('meganl@stud.ntnu.no', 'Megan', 'Koll', 'Lassel', 'IMT3541'),
-('test@stud.ntnu.no', 'Elisabet', 'B', 'Bruce', 'IMT3541'),
 ('tres@stud.ntnu.no', 'Uno', '', 'Does', 'IMT3541');
 
 -- --------------------------------------------------------
@@ -286,7 +280,7 @@ INSERT INTO `stud_int_application` (`Email`, `Fname`, `Mname`, `Lname`, `program
 
 CREATE TABLE `users` (
   `username` varchar(50) NOT NULL,
-  `password` varchar(50) NOT NULL
+  `password` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -294,8 +288,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`username`, `password`) VALUES
-('admin', 'admin'),
-('PaulJ', '12345');
+('paulj', '$2y$10$NGfbm7MvdDoMuWt46mb1o.HqjjvfVyZOUMxKrbJa03NF0coEzAGty');
 
 --
 -- Indexes for dumped tables
