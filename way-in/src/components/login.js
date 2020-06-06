@@ -24,17 +24,6 @@ class Login extends Component {
           this.setState({redirectToReferrer: true}); 
         }else{alert("Error")};
       });
-      /*
-      let res = PostData()
-      PostData("login", this.state).then((result) => {
-        let responseJson = result;
-        if (responseJson.userData) {
-          sessionStorage.setItem("userData", JSON.stringify(responseJson));
-          this.setState({ redirectToReferrer: true });
-        } else alert(result.error);
-      });
-    }
-    */
     }
   }
   onChange(e) {

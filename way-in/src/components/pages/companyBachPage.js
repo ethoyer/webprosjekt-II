@@ -62,7 +62,7 @@ class CompanyOfferBachForm extends React.Component {
       document.getElementById("tlf").value
     );
     formData.append(
-      'contactemail',
+      'email',
       document.getElementById("contactemail").value
     );
     formData.append(
@@ -89,8 +89,8 @@ class CompanyOfferBachForm extends React.Component {
       'no_of_stud',
       document.getElementById("studquantity").value
     );
-    
-    //'localhost' may have to be replaced bt your local ip address:
+
+    //'localhost' may have to be replaced by your local ip address:
     fetch("http://localhost/way_in_db/internshipForm.php", {
       method: 'POST',
       body: formData

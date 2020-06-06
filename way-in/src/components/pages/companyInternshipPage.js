@@ -44,7 +44,7 @@ handleSubmit(event) {
   const formData = new FormData();
   formData.append(
     "method",
-    "addCompInternship"
+    "addCompInt"
   );
   formData.append(
     'company_id',
@@ -88,7 +88,7 @@ handleSubmit(event) {
     document.getElementById("studquantity").value
   );
   
-  //'localhost' may have to be replaced bt your local ip address:
+  //'localhost' may have to be replaced by your local ip address:
   fetch("http://localhost/way_in_db/internshipForm.php", {
     method: 'POST',
     body: formData

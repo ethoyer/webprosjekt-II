@@ -1,9 +1,6 @@
 <?php
 header("Access-Control-Allow-Origin: *"); //allows access to data
 header("Access-Control-Allow-Headers: *");
-// This php file shall be added to htdocs folder
-// This php file goes in the backend server / host, eg. in htdocs in xampp.
-// If xampp is used: import the way_in.sql database in phpmyadmin.
 //  Some configurations may be necessary:
 //      open C:\xampp\php\php.ini and change the lines:
 //          ;extension=php_pdomysql.dll to
@@ -98,53 +95,20 @@ if ($_POST["method"] == "add"){
     ]);
 }elseif ($_POST["method"] == "addBusBach"){
     $query = $db->prepare(
-        "INSERT INTO `company_ba_suggestion` (`company_id`,`contact_person`, `phone_no`, `email`, `project_title`,`project_description`,`project_duration`,`start_date`,`location`,`no_of_stud`) VALUES (:compID, :fname, :tlf, :email, :bachTitle, :bachDesc, :bachDuration, :bachStart, :bachLoc, :quantity)"
+        "INSERT INTO `company_ba_suggestion` (`company_id`,`contact_person`, `phone_no`, `email`, `project_title`,`project_description`,`project_duration`,`start_date`,`location`,`no_of_stud`) VALUES (:compID, :contactName, :tlf, :contactemail, :bachTitle, :bachDesc, :bachDuration, :bachStart, :bachLoc, :stdquantity)"
     );
     
     $query->execute([
         "compID" => $_POST["company_id"],
-        "fname" => $_POST["contact_person"],
+        "contactName" => $_POST["contact_person"],
         "tlf" => $_POST["phone_no"],
-        "email" => $_POST["email"],
+        "contactemail" => $_POST["email"],
         "bachTitle" => $_POST["project_title"],
         "bachDesc" => $_POST["project_description"],
         "bachDuration" => $_POST["project_duration"],
         "bachStart" => $_POST["start_date"],
         "bachLoc" => $_POST["location"],
-        "quantity" => $_POST["no_of_stud"]
+        "studquantity" => $_POST["no_of_stud"]
     ]);
     }
-    
-
-/**
- * Create the statement:
- */
-//$stmt = $db->query("SELECT * FROM Projects");
-
-
-/**
- * Create an object, fetch each row and add it to the
- * object:
- */
-/*
-$obj = array();
-while ($row = $stmt->fetch()){
-    $subObj = array();
-    $subObj["id"] = $row["ProjectID"];
-    $subObj["title"] = $row["ProjectName"];
-    $subObj["company"] = $row["Company"];
-    $subObj["faculty"] = $row["Faculty"];
-    $subObj["location"] = $row["Location"];
-    $subObj["description"] = $row["Description"];
-    array_push($obj, $subObj);
-}
-*/
-
-// Finally return the json by jsnon encode it and echo it.
-//echo json_encode($obj);
-
-// fetch from eg. http:/192.xxxxx/wayin/intProjectDB.php
-// use ipconfig in the terminal to get the ip adress of the host.
-
-
 ?>

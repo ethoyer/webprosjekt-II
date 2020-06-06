@@ -70,7 +70,7 @@ class InternshipForm extends React.Component {
       document.getElementById("pcode").value
     );
     console.log(formData);
-    //'localhost' may have to be replaced bt your local ip address:
+    //'localhost' may have to be replaced by your local ip address:
     fetch("http://localhost/way_in_db/internshipForm.php", {
       method: 'POST',
       body: formData

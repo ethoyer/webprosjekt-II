@@ -77,7 +77,7 @@ class StudBachForm extends React.Component {
       'Mentor',
       document.getElementById("mentor").value
     );
-    //'localhost' may have to be replaced bt your local ip address:
+    //'localhost' may have to be replaced by your local ip address:
     fetch("http://localhost/way_in_db/internshipForm.php", {
       method: 'POST',
       body: formData
